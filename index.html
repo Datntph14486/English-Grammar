@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngữ pháp Tiếng Anh – Tổng hợp</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;--surface:#fff;--surface2:#f2f1ec;
+  --border:#e2e0d8;--border2:#cccab8;
+  --text:#1a1917;--text2:#6b6960;--text3:#9b9a92;
+  --accent-a:#1a5c3a;--accent-a-bg:#eaf5ef;--accent-a-bd:#b6dfc8;
+  --accent-p:#7c3d0e;--accent-p-bg:#fdf2e8;--accent-p-bd:#f0c898;
+  --accent-key:#1d4ed8;
+  --accent-c:#7c3aed;--accent-c-bg:#ede9fe;--accent-c-bd:#c4b5fd;
+  --accent-d:#be185d;--accent-d-bg:#fce7f3;--accent-d-bd:#f9a8d4;
+  --radius:10px;--radius-sm:6px;
+  --mono:'JetBrains Mono',monospace;--sans:'Be Vietnam Pro',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh}
+
+/* ── TOPBAR ── */
+.topbar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:16px 28px 0;position:sticky;top:0;z-index:100;
+}
+.topbar-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:0}
+.brand h1{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.brand p{font-size:11px;color:var(--text3);margin-top:1px}
+.tab-nav{display:flex;gap:0;margin-top:14px;overflow-x:auto}
+.tab-btn{
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  padding:8px 20px;border:none;background:transparent;
+  color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .15s;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--text)}
+
+/* ── CONTROLS BAR ── */
+.ctrl-bar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:10px 28px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+}
+.btn-group{display:flex;gap:4px;flex-wrap:wrap}
+button{
+  font-family:var(--sans);font-size:12px;font-weight:500;
+  padding:5px 13px;border-radius:var(--radius-sm);
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text2);cursor:pointer;transition:all .15s;
+}
+button:hover{background:var(--surface2);color:var(--text)}
+.active-time{background:var(--text)!important;color:var(--bg)!important;border-color:var(--text)!important}
+.active-a{background:var(--accent-a-bg)!important;color:var(--accent-a)!important;border-color:var(--accent-a-bd)!important}
+.active-p{background:var(--accent-p-bg)!important;color:var(--accent-p)!important;border-color:var(--accent-p-bd)!important}
+.active-irr{background:#ede9fe!important;color:#4c1d95!important;border-color:#c4b5fd!important}
+.active-cat{background:var(--accent-c-bg)!important;color:var(--accent-c)!important;border-color:var(--accent-c-bd)!important}
+.active-vp{background:var(--accent-d-bg)!important;color:var(--accent-d)!important;border-color:var(--accent-d-bd)!important}
+.divider{width:1px;height:22px;background:var(--border)}
+.counter{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap}
+
+/* ── MAIN ── */
+main{max-width:980px;margin:0 auto;padding:24px 24px 60px}
+
+/* ── TENSE TAB ── */
+.group-label{
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--text3);margin:26px 0 10px;padding-left:2px;
+}
+.group-label:first-child{margin-top:0}
+.tense-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:9px;overflow:hidden}
+.card-header{display:flex;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--border);background:var(--surface2);flex-wrap:wrap}
+.tense-name{font-size:13.5px;font-weight:600}
+.tense-en{font-size:11px;color:var(--text3);font-style:italic}
+.card-body{display:grid;grid-template-columns:1fr 1fr}
+.card-body.single{grid-template-columns:1fr}
+.voice-block{padding:13px 17px}
+.voice-block+.voice-block{border-left:1px solid var(--border)}
+.voice-label{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;margin-bottom:10px}
+.voice-label.active{background:var(--accent-a-bg);color:var(--accent-a)}
+.voice-label.passive{background:var(--accent-p-bg);color:var(--accent-p)}
+.ftable{width:100%;border-collapse:collapse}
+.ftable tr{vertical-align:top}
+.ftable td{padding:3px 0}
+.row-type{font-size:11px;font-weight:600;color:var(--text3);width:28px;padding-top:5px;white-space:nowrap}
+.fcell{background:var(--bg);border-radius:var(--radius-sm);padding:5px 9px;margin-bottom:3px}
+.ftext{font-family:var(--mono);font-size:11px;color:var(--text);line-height:1.5}
+.ftext em{font-style:normal;color:var(--accent-key);font-weight:500}
+.extext{font-size:11px;color:var(--text3);margin-top:2px;font-style:italic}
+.rare{font-size:11px;color:var(--text3);padding:6px 0;font-style:italic}
+.note-box{background:#fffbe6;border:1px solid #ede060;border-radius:var(--radius);padding:13px 17px;margin-top:22px;font-size:12.5px;color:#6b5a00;line-height:1.7}
+.note-box strong{font-weight:600}
+
+/* ── STRUCTURE CARDS ── */
+.struct-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:9px;overflow:hidden}
+.struct-header{display:flex;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--border);background:var(--surface2);flex-wrap:wrap}
+.struct-name{font-size:13.5px;font-weight:600}
+.struct-en{font-size:11px;color:var(--text3);font-style:italic}
+.struct-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;white-space:nowrap}
+.tag-cond{background:#dbeafe;color:#1e40af}
+.tag-wish{background:#fce7f3;color:#9d174d}
+.tag-comp{background:#d1fae5;color:#065f46}
+.tag-pattern{background:#fef3c7;color:#92400e}
+.tag-to{background:#ede9fe;color:#5b21b6}
+.tag-ing{background:#fce7f3;color:#be185d}
+.tag-ditrans{background:#dbeafe;color:#1e40af}
+.tag-bare{background:#ffedd5;color:#9a3412}
+.struct-body{padding:14px 18px}
+.struct-formula{background:var(--bg);border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:8px;font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--text)}
+.struct-formula em{font-style:normal;color:var(--accent-key);font-weight:500}
+.struct-example{font-size:12px;color:var(--text2);line-height:1.7;margin-top:6px}
+.struct-example b{font-weight:600;color:var(--text)}
+.struct-note{font-size:11px;color:var(--text3);margin-top:6px;padding-left:10px;border-left:2px solid var(--border)}
+.struct-section{margin-bottom:10px}
+.struct-section:last-child{margin-bottom:0}
+.struct-section-label{font-size:11px;font-weight:600;color:var(--accent-c);margin-bottom:5px}
+.struct-section-label:has(+ .struct-example){color:var(--accent-c)}
+.struct-section:has(> .struct-section-label:first-child){margin-bottom:12px}
+.warn-section{background:#fff5f5;border:1px solid #fecaca;border-radius:var(--radius-sm);padding:8px 12px;margin-top:2px}
+.tip-section{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);padding:8px 12px;margin-top:2px}
+
+/* ── VERB LIST in struct cards ── */
+.verb-grid{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.verb-chip{font-family:var(--mono);font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 8px;color:var(--text)}
+
+/* ── IRREGULAR VERBS TAB ── */
+.irr-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.search-wrap{position:relative;flex:1;min-width:180px;max-width:340px}
+.search-wrap input{
+  width:100%;padding:7px 12px 7px 34px;font-family:var(--sans);font-size:13px;
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  background:var(--surface);color:var(--text);outline:none;
+}
+.search-wrap input:focus{border-color:var(--accent-key);box-shadow:0 0 0 3px rgba(29,78,216,.1)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;opacity:.4;pointer-events:none}
+.alpha-btns{display:flex;flex-wrap:wrap;gap:3px}
+.alpha-btn{
+  font-family:var(--mono);font-size:11px;padding:3px 7px;
+  border-radius:4px;border:1px solid var(--border);
+  background:transparent;color:var(--text2);cursor:pointer;
+}
+.alpha-btn:hover{background:var(--surface2)}
+.alpha-btn.active-irr{background:#ede9fe;color:#4c1d95;border-color:#c4b5fd}
+
+.irr-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+table.irr{width:100%;border-collapse:collapse}
+table.irr thead th{
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--text3);
+  padding:9px 14px;border-bottom:1px solid var(--border);
+  background:var(--surface2);text-align:left;white-space:nowrap;
+}
+table.irr thead th:first-child{border-radius:var(--radius) 0 0 0}
+table.irr tbody tr{border-bottom:0.5px solid var(--border);transition:background .1s}
+table.irr tbody tr:last-child{border-bottom:none}
+table.irr tbody tr:hover{background:var(--surface2)}
+table.irr tbody td{padding:8px 14px;font-size:13px;vertical-align:middle}
+.td-v1{font-family:var(--mono);font-weight:500;color:var(--accent-key);font-size:12.5px}
+.td-v2{font-family:var(--mono);font-size:12.5px;color:#065f46}
+.td-v3{font-family:var(--mono);font-size:12.5px;color:#7c2d12}
+.td-vi{font-size:12px;color:var(--text2)}
+.td-v0{font-family:var(--mono);font-size:12px;color:var(--text3)}
+.no-result{text-align:center;padding:40px;color:var(--text3);font-size:14px}
+.irr-count{font-size:11px;color:var(--text3)}
+
+/* ── HIDDEN ── */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+@media(max-width:640px){
+  .topbar{padding:14px 16px 0}
+  .ctrl-bar{padding:9px 14px}
+  main{padding:18px 12px 50px}
+  .card-body{grid-template-columns:1fr}
+  .voice-block+.voice-block{border-left:none;border-top:1px solid var(--border)}
+  .tab-btn{padding:7px 14px;font-size:12px}
+  .struct-body{padding:12px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-top">
+    <div class="brand">
+      <h1>Ngữ pháp Tiếng Anh</h1>
+      <p>24 thì · Động từ bất quy tắc · Cấu trúc câu · Mẫu động từ</p>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('tenses',this)">24 Thì</button>
+    <button class="tab-btn" onclick="switchTab('irregular',this)">Bất quy tắc</button>
+    <button class="tab-btn" onclick="switchTab('structures',this)">Cấu trúc câu</button>
+    <button class="tab-btn" onclick="switchTab('verbpat',this)">Mẫu động từ</button>
+  </nav>
+</div>
+
+<!-- Controls for tenses tab -->
+<div class="ctrl-bar" id="tense-ctrl">
+  <div class="btn-group" id="time-btns">
+    <button onclick="filter('all',event)" class="active-time">Tất cả</button>
+    <button onclick="filter('present',event)">Hiện tại</button>
+    <button onclick="filter('past',event)">Quá khứ</button>
+    <button onclick="filter('future',event)">Tương lai</button>
+  </div>
+  <div class="divider"></div>
+  <div class="btn-group" id="voice-btns">
+    <button onclick="toggleVoice('active',event)" class="active-a">Chủ động</button>
+    <button onclick="toggleVoice('passive',event)" class="active-p">Bị động</button>
+  </div>
+  <span class="counter" id="t-counter">12 thì</span>
+</div>
+
+<!-- Controls for irregular tab -->
+<div class="ctrl-bar" id="irr-ctrl" style="display:none">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="irr-search" placeholder="Tìm theo V1, nghĩa..." oninput="filterIrr()">
+  </div>
+  <div class="alpha-btns" id="alpha-btns"></div>
+  <span class="counter irr-count" id="irr-counter"></span>
+</div>
+
+<!-- Controls for structures tab -->
+<div class="ctrl-bar" id="struct-ctrl" style="display:none">
+  <div class="btn-group" id="struct-btns">
+    <button onclick="filterStruct('all',event)" class="active-cat">Tất cả</button>
+    <button onclick="filterStruct('cond',event)">Điều kiện</button>
+    <button onclick="filterStruct('wish',event)">Câu ước</button>
+    <button onclick="filterStruct('comp',event)">So sánh</button>
+    <button onclick="filterStruct('pattern',event)">Mẫu câu</button>
+  </div>
+  <div class="divider"></div>
+  <div class="search-wrap" style="max-width:240px">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="struct-search" placeholder="Tìm cấu trúc..." oninput="renderStructures()">
+  </div>
+  <span class="counter" id="struct-counter"></span>
+</div>
+
+<!-- Controls for verb patterns tab -->
+<div class="ctrl-bar" id="vp-ctrl" style="display:none">
+  <div class="btn-group" id="vp-btns">
+    <button onclick="filterVP('all',event)" class="active-vp">Tất cả</button>
+    <button onclick="filterVP('to',event)">V + to V</button>
+    <button onclick="filterVP('ing',event)">V + V-ing</button>
+    <button onclick="filterVP('both',event)">V + to V / V-ing</button>
+    <button onclick="filterVP('bare',event)">V + bare V</button>
+    <button onclick="filterVP('ditrans',event)">Cho–Nhận</button>
+  </div>
+  <span class="counter" id="vp-counter"></span>
+</div>
+
+<main>
+  <!-- TAB 1: 24 TENSES -->
+  <div id="tab-tenses" class="tab-panel active">
+    <div id="tense-main"></div>
+  </div>
+
+  <!-- TAB 2: IRREGULAR VERBS -->
+  <div id="tab-irregular" class="tab-panel">
+    <div class="irr-table-wrap">
+      <table class="irr">
+        <thead>
+          <tr>
+            <th style="width:40px">#</th>
+            <th>V1 (nguyên mẫu)</th>
+            <th>V2 (quá khứ đơn)</th>
+            <th>V3 (quá khứ phân từ)</th>
+            <th>Nghĩa</th>
+          </tr>
+        </thead>
+        <tbody id="irr-body"></tbody>
+      </table>
+      <div class="no-result" id="no-result" style="display:none">Không tìm thấy kết quả phù hợp.</div>
+    </div>
+  </div>
+
+  <!-- TAB 3: SENTENCE STRUCTURES -->
+  <div id="tab-structures" class="tab-panel">
+    <div id="struct-main"></div>
+  </div>
+
+  <!-- TAB 4: VERB PATTERNS -->
+  <div id="tab-verbpat" class="tab-panel">
+    <div id="vp-main"></div>
+  </div>
+</main>
+
+<script>
+/* ═══════════════════════════════════════════
+   TAB SWITCHING
+═══════════════════════════════════════════ */
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  ['tense-ctrl','irr-ctrl','struct-ctrl','vp-ctrl'].forEach(id => {
+    document.getElementById(id).style.display = 'none';
+  });
+  const ctrlMap = {tenses:'tense-ctrl',irregular:'irr-ctrl',structures:'struct-ctrl',verbpat:'vp-ctrl'};
+  if(ctrlMap[tab]) document.getElementById(ctrlMap[tab]).style.display = 'flex';
+}
+
+/* ═══════════════════════════════════════════
+   TENSES DATA  (unchanged)
+═══════════════════════════════════════════ */
+const tenseData = [
+  {time:'present',name:'Hiện tại đơn',en:'Present Simple',
+   active:{plus:['S + <em>V(s/es)</em>','She writes a letter.'],minus:['S + <em>do/does not + V</em>','She does not write a letter.'],quest:['<em>Do/Does</em> + S + V ?','Does she write a letter?']},
+   passive:{plus:['S + <em>am/is/are + V3</em>','A letter is written (by her).'],minus:['S + <em>am/is/are not + V3</em>','A letter is not written.'],quest:['<em>Am/Is/Are</em> + S + V3 ?','Is a letter written?']}},
+  {time:'present',name:'Hiện tại tiếp diễn',en:'Present Continuous',
+   active:{plus:['S + <em>am/is/are + V-ing</em>','She is writing a letter.'],minus:['S + <em>am/is/are not + V-ing</em>','She is not writing.'],quest:['<em>Am/Is/Are</em> + S + V-ing ?','Is she writing a letter?']},
+   passive:{plus:['S + <em>am/is/are + being + V3</em>','A letter is being written.'],minus:['S + <em>am/is/are not + being + V3</em>','A letter is not being written.'],quest:['<em>Am/Is/Are</em> + S + being + V3 ?','Is a letter being written?']}},
+  {time:'present',name:'Hiện tại hoàn thành',en:'Present Perfect',
+   active:{plus:['S + <em>have/has + V3</em>','She has written the letter.'],minus:['S + <em>have/has not + V3</em>','She has not written it.'],quest:['<em>Have/Has</em> + S + V3 ?','Has she written the letter?']},
+   passive:{plus:['S + <em>have/has + been + V3</em>','The letter has been written.'],minus:['S + <em>have/has not + been + V3</em>','It has not been written.'],quest:['<em>Have/Has</em> + S + been + V3 ?','Has the letter been written?']}},
+  {time:'present',name:'Hiện tại hoàn thành tiếp diễn',en:'Present Perfect Continuous',
+   active:{plus:['S + <em>have/has + been + V-ing</em>','She has been writing for 2 hours.'],minus:['S + <em>have/has not + been + V-ing</em>','She has not been writing.'],quest:['<em>Have/Has</em> + S + been + V-ing ?','Has she been writing?']},
+   passive:{rare:true,plus:['S + <em>have/has + been + being + V3</em>','(Cực kỳ hiếm dùng trong thực tế)'],minus:['—',''],quest:['—','']}},
+  {time:'past',name:'Quá khứ đơn',en:'Past Simple',
+   active:{plus:['S + <em>V2</em>','She wrote a letter.'],minus:['S + <em>did not + V</em>','She did not write a letter.'],quest:['<em>Did</em> + S + V ?','Did she write a letter?']},
+   passive:{plus:['S + <em>was/were + V3</em>','A letter was written (by her).'],minus:['S + <em>was/were not + V3</em>','A letter was not written.'],quest:['<em>Was/Were</em> + S + V3 ?','Was a letter written?']}},
+  {time:'past',name:'Quá khứ tiếp diễn',en:'Past Continuous',
+   active:{plus:['S + <em>was/were + V-ing</em>','She was writing a letter.'],minus:['S + <em>was/were not + V-ing</em>','She was not writing.'],quest:['<em>Was/Were</em> + S + V-ing ?','Was she writing a letter?']},
+   passive:{plus:['S + <em>was/were + being + V3</em>','A letter was being written.'],minus:['S + <em>was/were not + being + V3</em>','It was not being written.'],quest:['<em>Was/Were</em> + S + being + V3 ?','Was a letter being written?']}},
+  {time:'past',name:'Quá khứ hoàn thành',en:'Past Perfect',
+   active:{plus:['S + <em>had + V3</em>','She had written the letter.'],minus:['S + <em>had not + V3</em>','She had not written it.'],quest:['<em>Had</em> + S + V3 ?','Had she written the letter?']},
+   passive:{plus:['S + <em>had + been + V3</em>','The letter had been written.'],minus:['S + <em>had not + been + V3</em>','It had not been written.'],quest:['<em>Had</em> + S + been + V3 ?','Had the letter been written?']}},
+  {time:'past',name:'Quá khứ hoàn thành tiếp diễn',en:'Past Perfect Continuous',
+   active:{plus:['S + <em>had + been + V-ing</em>','She had been writing for hours.'],minus:['S + <em>had not + been + V-ing</em>','She had not been writing.'],quest:['<em>Had</em> + S + been + V-ing ?','Had she been writing?']},
+   passive:{rare:true,plus:['S + <em>had + been + being + V3</em>','(Rất hiếm dùng)'],minus:['—',''],quest:['—','']}},
+  {time:'future',name:'Tương lai đơn',en:'Future Simple',
+   active:{plus:['S + <em>will + V</em>','She will write a letter.'],minus:['S + <em>will not + V</em>','She will not write a letter.'],quest:['<em>Will</em> + S + V ?','Will she write a letter?']},
+   passive:{plus:['S + <em>will + be + V3</em>','A letter will be written.'],minus:['S + <em>will not + be + V3</em>','A letter will not be written.'],quest:['<em>Will</em> + S + be + V3 ?','Will a letter be written?']}},
+  {time:'future',name:'Tương lai tiếp diễn',en:'Future Continuous',
+   active:{plus:['S + <em>will + be + V-ing</em>','She will be writing at 8pm.'],minus:['S + <em>will not + be + V-ing</em>','She will not be writing.'],quest:['<em>Will</em> + S + be + V-ing ?','Will she be writing at 8pm?']},
+   passive:{rare:true,plus:['S + <em>will + be + being + V3</em>','(Rất hiếm dùng)'],minus:['—',''],quest:['—','']}},
+  {time:'future',name:'Tương lai hoàn thành',en:'Future Perfect',
+   active:{plus:['S + <em>will + have + V3</em>','She will have written the letter.'],minus:['S + <em>will not + have + V3</em>','She will not have written it.'],quest:['<em>Will</em> + S + have + V3 ?','Will she have written it?']},
+   passive:{plus:['S + <em>will + have + been + V3</em>','The letter will have been written.'],minus:['S + <em>will not + have + been + V3</em>','It will not have been written.'],quest:['<em>Will</em> + S + have + been + V3 ?','Will it have been written?']}},
+  {time:'future',name:'Tương lai hoàn thành tiếp diễn',en:'Future Perfect Continuous',
+   active:{plus:['S + <em>will + have + been + V-ing</em>','She will have been writing for 2 hours.'],minus:['S + <em>will not + have + been + V-ing</em>','She will not have been writing.'],quest:['<em>Will</em> + S + have + been + V-ing ?','Will she have been writing?']},
+   passive:{rare:true,plus:['S + <em>will + have + been + being + V3</em>','(Cực kỳ hiếm dùng)'],minus:['—',''],quest:['—','']}}
+];
+const tGroups=[{key:'present',label:'Hiện tại'},{key:'past',label:'Quá khứ'},{key:'future',label:'Tương lai'}];
+let curTime='all', curVoices=new Set(['active','passive']);
+
+function makeVoiceBlock(vData,type){
+  const isA=type==='active';
+  const lbl=isA?'Chủ động':'Bị động', cls=isA?'active':'passive';
+  if(vData.rare){
+    const[f,ex]=vData.plus;
+    return `<div class="voice-block"><span class="voice-label ${cls}">${lbl}</span><p class="rare">${f}${ex?' — '+ex:''}</p></div>`;
+  }
+  const rows=[{s:'(+)',d:vData.plus},{s:'(−)',d:vData.minus},{s:'(?)',d:vData.quest}];
+  const html=rows.map(r=>{
+    const[f,ex]=r.d;
+    if(f==='—') return `<tr><td class="row-type">${r.s}</td><td><div class="fcell"><span class="ftext">—</span></div></td></tr>`;
+    return `<tr><td class="row-type">${r.s}</td><td><div class="fcell"><div class="ftext">${f}</div>${ex?`<div class="extext">${ex}</div>`:''}</div></td></tr>`;
+  }).join('');
+  return `<div class="voice-block"><span class="voice-label ${cls}">${lbl}</span><table class="ftable"><tbody>${html}</tbody></table></div>`;
+}
+
+function renderTenses(){
+  const cont=document.getElementById('tense-main');
+  cont.innerHTML='';let shown=0;
+  tGroups.forEach(g=>{
+    if(curTime!=='all'&&curTime!==g.key)return;
+    const gl=document.createElement('div');gl.className='group-label';gl.textContent=g.label;cont.appendChild(gl);
+    tenseData.filter(d=>d.time===g.key).forEach(t=>{
+      shown++;
+      const c=document.createElement('div');c.className='tense-card';
+      const showA=curVoices.has('active'),showP=curVoices.has('passive');
+      let vHTML='';
+      if(showA)vHTML+=makeVoiceBlock(t.active,'active');
+      if(showP)vHTML+=makeVoiceBlock(t.passive,'passive');
+      c.innerHTML=`<div class="card-header"><span class="tense-name">${t.name}</span><span class="tense-en">${t.en}</span></div><div class="card-body${(showA&&showP)?'':' single'}">${vHTML}</div>`;
+      cont.appendChild(c);
+    });
+  });
+  document.getElementById('t-counter').textContent=shown+' thì';
+  if(curVoices.has('active')&&curVoices.has('passive')&&curTime==='all'){
+    const n=document.createElement('div');n.className='note-box';
+    n.innerHTML='<strong>Lưu ý:</strong> Bị động của các thì <em>hoàn thành tiếp diễn</em> và <em>tương lai tiếp diễn</em> cực kỳ hiếm trong tiếng Anh tự nhiên. Công thức tổng quát: tìm trợ động từ chính, thêm <strong>been + V3</strong>.';
+    cont.appendChild(n);
+  }
+}
+
+function filter(val,e){
+  curTime=val;
+  document.querySelectorAll('#time-btns button').forEach(b=>b.classList.remove('active-time'));
+  e.target.classList.add('active-time');
+  renderTenses();
+}
+function toggleVoice(v,e){
+  if(curVoices.has(v)){if(curVoices.size>1)curVoices.delete(v);}else{curVoices.add(v);}
+  document.querySelector('#voice-btns button:first-child').className=curVoices.has('active')?'active-a':'';
+  document.querySelector('#voice-btns button:last-child').className=curVoices.has('passive')?'active-p':'';
+  renderTenses();
+}
+
+/* ═══════════════════════════════════════════
+   IRREGULAR VERBS DATA  (165 verbs)
+═══════════════════════════════════════════ */
+const irrVerbs = [
+  ['arise','arose','arisen','nổi lên, phát sinh'],
+  ['awake','awoke','awoken','thức dậy'],
+  ['be','was/were','been','là, thì, ở'],
+  ['bear','bore','born/borne','chịu đựng; sinh ra'],
+  ['beat','beat','beaten','đánh, đập'],
+  ['become','became','become','trở thành'],
+  ['begin','began','begun','bắt đầu'],
+  ['bend','bent','bent','uốn cong, quỳ'],
+  ['bet','bet','bet','cá cược'],
+  ['bind','bound','bound','ràng buộc, đóng gáy'],
+  ['bite','bit','bitten','cắn'],
+  ['bleed','bled','bled','chảy máu'],
+  ['blow','blew','blown','thổi, nổ'],
+  ['break','broke','broken','gãy, vỡ'],
+  ['breed','bred','bred','chăn nuôi, sinh sản'],
+  ['bring','brought','brought','mang lại'],
+  ['broadcast','broadcast','broadcast','phát sóng'],
+  ['build','built','built','xây dựng'],
+  ['burn','burned/burnt','burned/burnt','đốt cháy'],
+  ['burst','burst','burst','nổ tung'],
+  ['buy','bought','bought','mua'],
+  ['cast','cast','cast','ném, đúc, phân vai'],
+  ['catch','caught','caught','bắt, chộp'],
+  ['choose','chose','chosen','chọn lựa'],
+  ['cling','clung','clung','bám chặt'],
+  ['come','came','come','đến, tới'],
+  ['cost','cost','cost','có giá, tốn'],
+  ['creep','crept','crept','bò, lén lút'],
+  ['cut','cut','cut','cắt'],
+  ['deal','dealt','dealt','giao dịch, xử lý'],
+  ['dig','dug','dug','đào'],
+  ['dive','dove/dived','dived','lặn, nhào lộn'],
+  ['do','did','done','làm'],
+  ['draw','drew','drawn','vẽ, kéo'],
+  ['dream','dreamed/dreamt','dreamed/dreamt','mơ'],
+  ['drink','drank','drunk','uống'],
+  ['drive','drove','driven','lái xe'],
+  ['eat','ate','eaten','ăn'],
+  ['fall','fell','fallen','ngã, rơi'],
+  ['feed','fed','fed','cho ăn, nuôi dưỡng'],
+  ['feel','felt','felt','cảm thấy'],
+  ['fight','fought','fought','chiến đấu, đánh nhau'],
+  ['find','found','found','tìm thấy'],
+  ['flee','fled','fled','bỏ trốn'],
+  ['fling','flung','flung','ném mạnh'],
+  ['fly','flew','flown','bay'],
+  ['forbid','forbade','forbidden','cấm đoán'],
+  ['forget','forgot','forgotten','quên'],
+  ['forgive','forgave','forgiven','tha thứ'],
+  ['freeze','froze','frozen','đóng băng'],
+  ['get','got','gotten/got','lấy được, trở nên'],
+  ['give','gave','given','cho, tặng'],
+  ['go','went','gone','đi'],
+  ['grind','ground','ground','nghiền, mài'],
+  ['grow','grew','grown','lớn lên, trồng'],
+  ['hang','hung','hung','treo (đồ vật)'],
+  ['have','had','had','có'],
+  ['hear','heard','heard','nghe'],
+  ['hide','hid','hidden','giấu, trốn'],
+  ['hit','hit','hit','đánh, trúng'],
+  ['hold','held','held','cầm, giữ'],
+  ['hurt','hurt','hurt','làm đau, bị thương'],
+  ['keep','kept','kept','giữ, duy trì'],
+  ['kneel','knelt','knelt','quỳ gối'],
+  ['know','knew','known','biết'],
+  ['lay','laid','laid','đặt xuống (nằm ngang)'],
+  ['lead','led','led','dẫn dắt, lãnh đạo'],
+  ['lean','leaned/leant','leaned/leant','dựa vào, nghiêng'],
+  ['learn','learned/learnt','learned/learnt','học'],
+  ['leave','left','left','rời đi, để lại'],
+  ['lend','lent','lent','cho vay, cho mượn'],
+  ['let','let','let','để, cho phép'],
+  ['lie','lay','lain','nằm (không bắc vật)'],
+  ['light','lit','lit','thắp sáng, đốt'],
+  ['lose','lost','lost','mất, thua'],
+  ['make','made','made','làm, tạo ra'],
+  ['mean','meant','meant','có nghĩa là'],
+  ['meet','met','met','gặp gỡ'],
+  ['mistake','mistook','mistaken','nhầm lẫn'],
+  ['overcome','overcame','overcome','vượt qua, khắc phục'],
+  ['pay','paid','paid','trả tiền'],
+  ['put','put','put','đặt, để'],
+  ['quit','quit','quit','bỏ, nghỉ việc'],
+  ['read','read','read','đọc'],
+  ['ride','rode','ridden','cưỡi, đi (xe)'],
+  ['ring','rang','rung','reo, gọi điện'],
+  ['rise','rose','risen','dâng lên, mọc (mặt trời)'],
+  ['run','ran','run','chạy'],
+  ['say','said','said','nói'],
+  ['see','saw','seen','nhìn thấy'],
+  ['seek','sought','sought','tìm kiếm'],
+  ['sell','sold','sold','bán'],
+  ['send','sent','sent','gửi'],
+  ['set','set','set','đặt, thiết lập'],
+  ['sew','sewed','sewn/sewed','may, khâu'],
+  ['shake','shook','shaken','lắc, rung'],
+  ['shed','shed','shed','rụng, đổ (nước mắt)'],
+  ['shine','shone','shone','tỏa sáng'],
+  ['shoot','shot','shot','bắn'],
+  ['show','showed','shown','chỉ, hiển thị'],
+  ['shrink','shrank','shrunk','co lại, thu nhỏ'],
+  ['shut','shut','shut','đóng lại'],
+  ['sing','sang','sung','hát'],
+  ['sink','sank','sunk','chìm'],
+  ['sit','sat','sat','ngồi'],
+  ['sleep','slept','slept','ngủ'],
+  ['slide','slid','slid','trượt'],
+  ['smell','smelled/smelt','smelled/smelt','ngửi, có mùi'],
+  ['speak','spoke','spoken','nói, phát biểu'],
+  ['speed','sped','sped','tăng tốc, phóng nhanh'],
+  ['spell','spelled/spelt','spelled/spelt','đánh vần'],
+  ['spend','spent','spent','chi tiêu, dành thời gian'],
+  ['spill','spilled/spilt','spilled/spilt','làm đổ, tràn'],
+  ['spin','spun','spun','quay tròn'],
+  ['spread','spread','spread','lan rộng, trải'],
+  ['spring','sprang','sprung','nhảy vọt'],
+  ['stand','stood','stood','đứng'],
+  ['steal','stole','stolen','đánh cắp'],
+  ['stick','stuck','stuck','dán, cắm, mắc kẹt'],
+  ['sting','stung','stung','châm, đốt (côn trùng)'],
+  ['stink','stank','stunk','có mùi hôi thối'],
+  ['strike','struck','struck/stricken','đập, đình công'],
+  ['string','strung','strung','xâu, căng dây'],
+  ['strive','strove','striven','cố gắng, phấn đấu'],
+  ['swear','swore','sworn','thề, chửi thề'],
+  ['sweep','swept','swept','quét dọn'],
+  ['swim','swam','swum','bơi lội'],
+  ['swing','swung','swung','đu, vung'],
+  ['take','took','taken','lấy, mang theo'],
+  ['teach','taught','taught','dạy học'],
+  ['tear','tore','torn','xé rách'],
+  ['tell','told','told','kể, nói với'],
+  ['think','thought','thought','suy nghĩ'],
+  ['throw','threw','thrown','ném, quăng'],
+  ['understand','understood','understood','hiểu'],
+  ['upset','upset','upset','làm buồn, lật nhào'],
+  ['wake','woke','woken','thức giấc, đánh thức'],
+  ['wear','wore','worn','mặc, đeo'],
+  ['weave','wove','woven','dệt, đan'],
+  ['weep','wept','wept','khóc, than thở'],
+  ['win','won','won','thắng, chiến thắng'],
+  ['wind','wound','wound','quấn, lên dây cót'],
+  ['withdraw','withdrew','withdrawn','rút lui, rút tiền'],
+  ['write','wrote','written','viết'],
+];
+
+let irrFilter = '';
+let alphaFilter = '';
+
+function buildAlphaNav() {
+  const letters = [...new Set(irrVerbs.map(v => v[0][0].toUpperCase()))].sort();
+  const cont = document.getElementById('alpha-btns');
+  letters.forEach(l => {
+    const b = document.createElement('button');
+    b.className = 'alpha-btn';
+    b.textContent = l;
+    b.onclick = () => {
+      if (alphaFilter === l) { alphaFilter = ''; b.classList.remove('active-irr'); }
+      else {
+        document.querySelectorAll('.alpha-btn').forEach(x => x.classList.remove('active-irr'));
+        alphaFilter = l; b.classList.add('active-irr');
+      }
+      filterIrr();
+    };
+    cont.appendChild(b);
+  });
+}
+
+function hl(str, q) {
+  if (!q) return str;
+  const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return str.replace(re, '<mark style="background:#fef08a;border-radius:2px">$1</mark>');
+}
+
+function filterIrr() {
+  irrFilter = document.getElementById('irr-search').value.trim().toLowerCase();
+  renderIrr();
+}
+
+function renderIrr() {
+  const q = irrFilter;
+  let list = irrVerbs;
+  if (alphaFilter) list = list.filter(v => v[0][0].toUpperCase() === alphaFilter);
+  if (q) list = list.filter(v => v[0].includes(q) || v[1].includes(q) || v[2].includes(q) || v[3].toLowerCase().includes(q));
+  const tbody = document.getElementById('irr-body');
+  tbody.innerHTML = '';
+  document.getElementById('no-result').style.display = list.length ? 'none' : 'block';
+  document.getElementById('irr-counter').textContent = list.length + ' động từ';
+  list.forEach((v, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="color:var(--text3);font-size:11px;text-align:right;padding-right:8px">${i+1}</td><td class="td-v1">${hl(v[0], q)}</td><td class="td-v2">${hl(v[1], q)}</td><td class="td-v3">${hl(v[2], q)}</td><td class="td-vi">${hl(v[3], q)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   TAB 3 – SENTENCE STRUCTURES
+═══════════════════════════════════════════ */
+const structData = [
+  // ══════════════════════════════════════════
+  //  CONDITIONALS
+  // ══════════════════════════════════════════
+  {cat:'cond',name:'Câu điều kiện loại 0',en:'Zero Conditional',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả sự thật hiển nhiên, quy luật tự nhiên, hoặc điều luôn luôn đúng. Kết quả xảy ra 100% nếu điều kiện được đáp ứng.'},
+     {label:'Công thức',
+      formula:'<em>If / When</em> + S + V(s/es), &nbsp; S + V(s/es)',
+      example:'If you <b>heat</b> water to 100°C, it <b>boils</b>.<br>When the sun <b>sets</b>, it <b>gets</b> dark.<br>If you <b>mix</b> red and blue, you <b>get</b> purple.'},
+     {label:'Dấu hiệu nhận biết',
+      desc:'Cả hai mệnh đề đều dùng <b>hiện tại đơn</b>. Có thể thay if = when mà không đổi nghĩa.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ If you heat water, it <b>will boil</b>. → Đây thành loại 1 — nghĩa thay đổi (dự đoán tương lai, không phải quy luật).<br>✅ If you heat water, it <b>boils</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Loại 0 = "luật tự nhiên" → cả hai vế đều dùng thì hiện tại, không có will. Nghĩ đến các câu trong sách khoa học.'}
+   ]},
+
+  {cat:'cond',name:'Câu điều kiện loại 1',en:'First Conditional',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả điều <b>có thể xảy ra</b> ở hiện tại hoặc tương lai. Điều kiện là thực tế, có khả năng trở thành sự thật.'},
+     {label:'Công thức',
+      formula:'<em>If</em> + S + V(s/es), &nbsp; S + <em>will / can / may / shall</em> + V',
+      example:'If it <b>rains</b>, I <b>will stay</b> home.<br>If you <b>study</b> hard, you <b>will pass</b> the exam.<br>If she <b>calls</b>, <b>can</b> you answer?'},
+     {label:'Dấu hiệu nhận biết',
+      desc:'Mệnh đề if dùng <b>hiện tại đơn</b>, mệnh đề chính dùng <b>will / can / may + V</b>. Thường nói về kế hoạch, dự đoán, lời hứa, cảnh báo.'},
+     {label:'Biến thể',
+      formula:'If + S + V, &nbsp; S + <em>can / may / might / should</em> + V &nbsp;(thay will)',
+      example:'If you finish early, you <b>can</b> leave. (cho phép)<br>If he doesn\'t hurry, he <b>might</b> miss the train. (có thể)<br>If it snows, you <b>should</b> stay inside. (khuyên)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ If it <b>will rain</b>, I will stay home.<br>✅ If it <b>rains</b>, I will stay home.<br>→ Quy tắc vàng: <b>KHÔNG bao giờ dùng will trong mệnh đề if</b> (trừ khi will mang nghĩa "sẵn lòng": If you will help me…).'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Loại 1 = "kế hoạch thực tế cho tương lai". If + hiện tại, will + V. Nhớ: mệnh đề if luôn "lùi 1 thì" so với ý nghĩa.'}
+   ]},
+
+  {cat:'cond',name:'Câu điều kiện loại 2',en:'Second Conditional',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả điều <b>không có thật hoặc khó xảy ra</b> ở hiện tại. Dùng để tưởng tượng, giả định, đưa ra lời khuyên (If I were you…).'},
+     {label:'Công thức',
+      formula:'<em>If</em> + S + <em>V2 / were</em>, &nbsp; S + <em>would / could / might</em> + V',
+      example:'If I <b>were</b> rich, I <b>would travel</b> the world.<br>If I <b>had</b> wings, I <b>could fly</b>.<br>If I <b>were</b> you, I <b>would apologize</b>.'},
+     {label:'Dấu hiệu nhận biết',
+      desc:'Mệnh đề if dùng <b>quá khứ đơn</b> (nhưng nói về hiện tại!), mệnh đề chính dùng <b>would + V</b>. Dùng <b>were</b> cho tất cả ngôi (chuẩn ngữ pháp), "was" chấp nhận trong văn nói.'},
+     {label:'So sánh Loại 1 vs Loại 2',
+      desc:'Loại 1: If I <b>have</b> money, I <b>will buy</b> it. → Có thể có tiền (thực tế).<br>Loại 2: If I <b>had</b> money, I <b>would buy</b> it. → Hiện tại không có tiền (giả định).'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ If I <b>was</b> you, I <b>will</b> go. → Sai cả hai vế.<br>✅ If I <b>were</b> you, I <b>would</b> go.<br>❌ If I <b>would have</b> time… → KHÔNG dùng would trong mệnh đề if.<br>✅ If I <b>had</b> time…'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Loại 2 = "mơ mộng" → dùng quá khứ để nói hiện tại = cách nói "lùi 1 bước khỏi thực tế". Cụm cần nhớ nhất: <b>If I were you, I would…</b> (đưa lời khuyên).'}
+   ]},
+
+  {cat:'cond',name:'Câu điều kiện loại 3',en:'Third Conditional',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả điều <b>không có thật trong quá khứ</b> — sự việc đã xảy ra rồi, không thể thay đổi. Thường mang sắc thái tiếc nuối, đổ lỗi, hoặc tưởng tượng kết quả khác.'},
+     {label:'Công thức',
+      formula:'<em>If</em> + S + <em>had + V3</em>, &nbsp; S + <em>would / could / might + have + V3</em>',
+      example:'If I <b>had studied</b> harder, I <b>would have passed</b> the exam.<br>If she <b>had left</b> earlier, she <b>wouldn\'t have missed</b> the flight.<br>If we <b>had known</b>, we <b>could have helped</b>.'},
+     {label:'Dấu hiệu nhận biết',
+      desc:'Mệnh đề if dùng <b>quá khứ hoàn thành (had + V3)</b>, mệnh đề chính dùng <b>would have + V3</b>. Thường đi cùng cảm xúc tiếc nuối.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ If I <b>would have studied</b> harder, I would have passed.<br>✅ If I <b>had studied</b> harder, I would have passed.<br>→ Nhớ: <b>KHÔNG dùng would trong mệnh đề if</b> (áp dụng cho mọi loại).<br><br>❌ If I had studied, I <b>would pass</b>. → Thiếu "have" → thành loại hỗn hợp.<br>✅ If I had studied, I <b>would have passed</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Loại 3 = "giá mà…" = hối tiếc quá khứ → <b>had V3 … would have V3</b>. Cả hai vế đều "hoàn thành" vì nói về việc đã xong.'}
+   ]},
+
+  {cat:'cond',name:'Câu điều kiện hỗn hợp',en:'Mixed Conditional',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi điều kiện và kết quả thuộc <b>hai thời điểm khác nhau</b>. Có 2 dạng chính.'},
+     {label:'Dạng 1: Quá khứ → ảnh hưởng hiện tại',
+      formula:'<em>If</em> + S + <em>had + V3</em> (quá khứ), &nbsp; S + <em>would</em> + V (hiện tại)',
+      example:'If I <b>had taken</b> that job, I <b>would be</b> in London <b>now</b>.<br>If she <b>hadn\'t eaten</b> so much, she <b>wouldn\'t feel</b> sick <b>now</b>.',
+      note:'Mệnh đề if = loại 3, mệnh đề chính = loại 2. Từ khóa: now, today, at the moment.'},
+     {label:'Dạng 2: Hiện tại → giả định quá khứ',
+      formula:'<em>If</em> + S + V2/were (hiện tại), &nbsp; S + <em>would have + V3</em> (quá khứ)',
+      example:'If she <b>were</b> more careful, she <b>would not have made</b> that mistake <b>yesterday</b>.<br>If I <b>spoke</b> French, I <b>would have understood</b> the lecture.',
+      note:'Mệnh đề if = loại 2, mệnh đề chính = loại 3. Từ khóa: yesterday, last week, at that time.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Hỗn hợp = "trộn" 2 loại lại. Xác định thời gian từng mệnh đề: quá khứ → dùng công thức loại 3, hiện tại → dùng công thức loại 2.'}
+   ]},
+
+  {cat:'cond',name:'Unless / Provided that / As long as',en:'Các liên từ điều kiện khác',tag:'tag-cond',tagText:'Điều kiện',
+   sections:[
+     {label:'Unless = If … not (trừ khi)',
+      formula:'<em>Unless</em> + S + V (khẳng định), S + will + V',
+      example:'<b>Unless</b> you hurry, you will be late.<br>= If you <b>don\'t</b> hurry, you will be late.',
+      note:'⚠️ Unless đã mang nghĩa phủ định → KHÔNG thêm not: ❌ Unless you don\'t hurry…'},
+     {label:'Provided (that) / On condition that = với điều kiện là',
+      formula:'S + will + V + <em>provided (that)</em> + S + V',
+      example:'You can go out <b>provided that</b> you finish your homework.'},
+     {label:'As long as / So long as = miễn là',
+      formula:'S + will + V + <em>as long as</em> + S + V',
+      example:'You can borrow my car <b>as long as</b> you drive carefully.'},
+     {label:'In case = phòng khi',
+      formula:'S + V + <em>in case</em> + S + V',
+      example:'Take an umbrella <b>in case</b> it rains.',
+      note:'In case ≠ if. In case = phòng trước (hành động xảy ra dù điều kiện chưa xảy ra). If = chỉ khi nào thì mới.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ <b>Unless</b> you <b>don\'t</b> study… → Phủ định kép, sai.<br>✅ <b>Unless</b> you study… (= If you don\'t study…)<br><br>❌ I\'ll bring a coat <b>if</b> it\'s cold. vs. I\'ll bring a coat <b>in case</b> it\'s cold.<br>→ if: chỉ mang khi thấy lạnh. in case: mang sẵn phòng khi lạnh. Nghĩa khác nhau!'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  WISH
+  // ══════════════════════════════════════════
+  {cat:'wish',name:'Wish – hiện tại',en:'Wish + Past Simple',tag:'tag-wish',tagText:'Câu ước',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Ước điều <b>trái ngược với thực tế hiện tại</b>. Thực tế bạn không có/không là → bạn ước có/là.'},
+     {label:'Công thức',
+      formula:'S + <em>wish(es)</em> + (that) + S + <em>V2 / were</em>',
+      example:'I <b>wish</b> I <b>were</b> taller. (Thực tế: tôi thấp)<br>I <b>wish</b> I <b>had</b> more time. (Thực tế: không có nhiều thời gian)<br>She <b>wishes</b> she <b>lived</b> near the beach. (Thực tế: sống xa biển)<br>I <b>wish</b> I <b>knew</b> the answer. (Thực tế: không biết)'},
+     {label:'Dấu hiệu nhận biết',
+      desc:'Wish + <b>quá khứ đơn</b> nhưng nói về <b>hiện tại</b>. Dùng <b>were</b> cho tất cả ngôi (I were, he were, she were). "Was" chấp nhận trong văn nói nhưng "were" luôn đúng.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I wish I <b>am</b> taller. → Không dùng hiện tại.<br>✅ I wish I <b>were</b> taller.<br><br>❌ I wish I <b>can</b> fly. → can → could.<br>✅ I wish I <b>could</b> fly.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Wish về hiện tại = "lùi 1 thì" giống loại 2. Thực tế dùng hiện tại → wish dùng quá khứ. Cách nhớ: <b>"Wish = muốn ngược lại thực tế"</b>.'}
+   ]},
+
+  {cat:'wish',name:'Wish – quá khứ',en:'Wish + Past Perfect',tag:'tag-wish',tagText:'Câu ước',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Tiếc nuối điều <b>đã xảy ra (hoặc không xảy ra) trong quá khứ</b>. Không thể thay đổi được nữa.'},
+     {label:'Công thức',
+      formula:'S + <em>wish(es)</em> + (that) + S + <em>had + V3</em>',
+      example:'I <b>wish</b> I <b>had studied</b> abroad. (Thực tế: đã không du học)<br>She <b>wishes</b> she <b>hadn\'t said</b> that. (Thực tế: đã nói rồi)<br>I <b>wish</b> I <b>had met</b> you earlier. (Thực tế: gặp muộn)'},
+     {label:'So sánh Wish hiện tại vs Wish quá khứ',
+      desc:'<b>Hiện tại:</b> I wish I <b>spoke</b> English well. → Bây giờ nói chưa giỏi.<br><b>Quá khứ:</b> I wish I <b>had spoken</b> English at the meeting. → Hối tiếc đã không nói tiếng Anh hôm đó.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Wish về quá khứ = "lùi 1 thì" từ quá khứ → quá khứ hoàn thành. Giống mệnh đề if trong loại 3. Cảm xúc chủ đạo: <b>hối tiếc, tiếc nuối</b>.'}
+   ]},
+
+  {cat:'wish',name:'Wish – tương lai',en:'Wish + Would',tag:'tag-wish',tagText:'Câu ước',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'<b>Phàn nàn</b> về hành vi của ai đó hoặc <b>mong muốn ai thay đổi</b> điều gì đó đang xảy ra. Thường mang sắc thái khó chịu, bực bội.'},
+     {label:'Công thức',
+      formula:'S1 + <em>wish(es)</em> + S2 + <em>would</em> + V',
+      example:'I <b>wish</b> he <b>would stop</b> making noise. (Anh ấy ồn quá!)<br>I <b>wish</b> it <b>would stop</b> raining. (Mưa hoài!)<br>She <b>wishes</b> her son <b>would study</b> harder. (Con không chịu học!)'},
+     {label:'⚠️ Quy tắc quan trọng',
+      desc:'<b>KHÔNG dùng "I wish I would…"</b> — vì bạn không thể phàn nàn về chính mình.<br>❌ I wish I would be smarter.<br>✅ I wish I <b>were</b> smarter. (dùng wish hiện tại)<br>✅ I wish I <b>could</b> be smarter. (dùng could)'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Wish + would = "<b>phàn nàn</b>" → chủ ngữ 1 ≠ chủ ngữ 2. Bạn muốn NGƯỜI KHÁC hoặc TÌNH HUỐNG thay đổi, không phải bản thân.'}
+   ]},
+
+  {cat:'wish',name:'If only',en:'If only (nhấn mạnh hơn wish)',tag:'tag-wish',tagText:'Câu ước',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Dùng giống hệt wish nhưng <b>cảm xúc mạnh hơn</b>. Thường dùng khi thật sự buồn, tiếc nuối sâu sắc. Hay đi với dấu chấm than.'},
+     {label:'Công thức',
+      formula:'<em>If only</em> + S + V2/were &nbsp;→ trái với hiện tại<br><em>If only</em> + S + had + V3 &nbsp;→ tiếc nuối quá khứ<br><em>If only</em> + S + would + V &nbsp;→ phàn nàn',
+      example:'<b>If only</b> I <b>knew</b> the answer! (Giá mà tôi biết câu trả lời!)<br><b>If only</b> we <b>had met</b> earlier! (Giá mà chúng ta gặp nhau sớm hơn!)<br><b>If only</b> he <b>would listen</b>! (Giá mà anh ấy chịu nghe!)'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'<b>If only = Wish phiên bản cảm xúc cao</b>. Dịch: "Giá mà…!" / "Phải chi…!". Quy tắc ngữ pháp hoàn toàn giống wish.'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  COMPARISONS
+  // ══════════════════════════════════════════
+  {cat:'comp',name:'So sánh bằng',en:'Equal Comparison',tag:'tag-comp',tagText:'So sánh',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'So sánh hai đối tượng có mức độ <b>ngang nhau</b> (hoặc không ngang nhau) về một tính chất.'},
+     {label:'Khẳng định: as … as',
+      formula:'S + V + <em>as</em> + adj/adv + <em>as</em> + N / pronoun / clause',
+      example:'She is <b>as tall as</b> her brother.<br>He runs <b>as fast as</b> a professional athlete.<br>This phone is <b>as good as</b> that one.'},
+     {label:'Phủ định: not as / not so … as',
+      formula:'S + V + <em>not as / not so</em> + adj/adv + <em>as</em> + …',
+      example:'This book is <b>not as interesting as</b> that one.<br>He doesn\'t work <b>as hard as</b> his colleague.'},
+     {label:'Gấp bội: twice / three times / half … as',
+      formula:'S + V + <em>twice / three times / half</em> + as + adj + as + …',
+      example:'His house is <b>twice as big as</b> mine.<br>She earns <b>three times as much as</b> I do.'},
+     {label:'the same … as',
+      formula:'S + V + <em>the same</em> + N + <em>as</em> + …',
+      example:'She is <b>the same age as</b> me. / This has <b>the same color as</b> that one.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She is <b>as tall than</b> me. → Không dùng than với as…as.<br>✅ She is <b>as tall as</b> me.<br><br>❌ He is <b>the same age with</b> me. → Dùng as, không dùng with.<br>✅ He is <b>the same age as</b> me.'}
+   ]},
+
+  {cat:'comp',name:'So sánh hơn',en:'Comparative',tag:'tag-comp',tagText:'So sánh',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'So sánh <b>2 đối tượng</b>, một cái hơn cái kia về mức độ nào đó.'},
+     {label:'Tính từ ngắn (1 âm tiết / 2 âm kết thúc -y, -er, -le, -ow)',
+      formula:'S + V + adj<em>-er</em> + <em>than</em> + …',
+      example:'She is <b>taller than</b> me.<br>This is <b>easier than</b> I thought.<br>It\'s <b>hotter</b> today <b>than</b> yesterday.'},
+     {label:'Tính từ dài (2+ âm tiết)',
+      formula:'S + V + <em>more / less</em> + adj + <em>than</em> + …',
+      example:'This problem is <b>more difficult than</b> the last one.<br>This movie is <b>less interesting than</b> the book.'},
+     {label:'📝 Quy tắc biến đổi chính tả',
+      desc:'• 1 nguyên âm + 1 phụ âm → gấp đôi phụ âm: big → bi<b>gg</b>er, hot → ho<b>tt</b>er, thin → thi<b>nn</b>er<br>• Kết thúc -e → chỉ thêm -r: large → large<b>r</b>, nice → nice<b>r</b><br>• Kết thúc -y → đổi y thành i: easy → eas<b>ier</b>, happy → happ<b>ier</b>, early → earl<b>ier</b>'},
+     {label:'So sánh hơn kép (càng… càng…)',
+      formula:'<em>The</em> + comparative, + <em>the</em> + comparative',
+      example:'<b>The harder</b> you work, <b>the luckier</b> you get.<br><b>The more</b> you practice, <b>the better</b> you become.<br><b>The sooner</b>, <b>the better</b>. (Càng sớm càng tốt)'},
+     {label:'Bội so sánh: much / far / a lot / a little / slightly',
+      formula:'S + V + <em>much / far / a lot</em> + comparative + than',
+      example:'She is <b>much taller than</b> me. (hơn nhiều)<br>This is <b>slightly more expensive than</b> that one. (hơn một chút)<br>He is <b>far better than</b> the others.'},
+     {label:'Bất quy tắc',
+      formula:'good → <em>better</em> · bad → <em>worse</em> · far → <em>farther/further</em> · little → <em>less</em> · many/much → <em>more</em> · old → <em>older/elder</em>',
+      example:'His English is <b>better than</b> mine. / This is <b>worse than</b> I expected.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She is <b>more taller</b> than me. → Không dùng more + -er cùng lúc.<br>✅ She is <b>taller</b> than me.<br><br>❌ This is <b>more better</b>. → better đã là so sánh hơn rồi.<br>✅ This is <b>much better</b>.<br><br>❌ He is taller <b>as</b> me. → Dùng than, không dùng as.<br>✅ He is taller <b>than</b> me.'}
+   ]},
+
+  {cat:'comp',name:'So sánh nhất',en:'Superlative',tag:'tag-comp',tagText:'So sánh',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'So sánh <b>từ 3 đối tượng trở lên</b>, chọn ra cái nổi bật nhất. Luôn đi với <b>the</b>.'},
+     {label:'Tính từ ngắn',
+      formula:'S + V + <em>the</em> + adj<em>-est</em> + (in / of …)',
+      example:'She is <b>the tallest</b> student <b>in</b> the class.<br>Today is <b>the hottest</b> day <b>of</b> the year.'},
+     {label:'Tính từ dài',
+      formula:'S + V + <em>the most / the least</em> + adj + (in / of …)',
+      example:'This is <b>the most beautiful</b> city I\'ve ever visited.<br>That was <b>the least exciting</b> movie I\'ve seen.'},
+     {label:'Bất quy tắc',
+      formula:'good → <em>the best</em> · bad → <em>the worst</em> · far → <em>the farthest/furthest</em> · little → <em>the least</em> · many/much → <em>the most</em>',
+      example:'He is <b>the best</b> player <b>on</b> the team.'},
+     {label:'in vs of',
+      desc:'Dùng <b>in</b> + địa điểm / nhóm: in the class, in the world, in my family.<br>Dùng <b>of</b> + số lượng / khoảng thời gian: of the three, of all, of the year.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She is <b>tallest</b> in the class. → Thiếu the.<br>✅ She is <b>the tallest</b> in the class.<br><br>❌ This is <b>the most easiest</b>. → Không dùng most + -est cùng lúc.<br>✅ This is <b>the easiest</b>.'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  COMMON PATTERNS
+  // ══════════════════════════════════════════
+  {cat:'pattern',name:'Too … to',en:'quá … để (không thể)',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả mức độ <b>quá mức</b> nên <b>không thể</b> làm gì. "too" luôn mang nghĩa tiêu cực (vượt ngưỡng cho phép).'},
+     {label:'Công thức',
+      formula:'S + V + <em>too</em> + adj/adv + <em>(for sb) + to V</em>',
+      example:'He is <b>too young to</b> drive. (Quá nhỏ, không lái xe được)<br>This coffee is <b>too hot for me to</b> drink. (Quá nóng, tôi không uống được)<br>She spoke <b>too quickly for us to</b> understand.'},
+     {label:'Chuyển đổi sang so … that',
+      desc:'too + adj + to V → <b>so + adj + that + S + can\'t + V</b><br>He is too young to drive. = He is <b>so young that he can\'t drive</b>.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ It\'s <b>too</b> good! (khen) → too = quá mức (tiêu cực). Khen thì dùng <b>so</b> hoặc <b>very</b>: It\'s <b>so</b> good!<br><br>❌ He is too young <b>that</b> he can\'t drive. → Không dùng that với too…to.<br>✅ He is too young <b>to</b> drive.'}
+   ]},
+
+  {cat:'pattern',name:'Enough … to',en:'đủ … để',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả mức độ <b>đủ</b> (hoặc không đủ) để làm gì. Mang nghĩa tích cực hoặc trung tính.'},
+     {label:'Adj/adv + enough (enough đứng SAU tính từ)',
+      formula:'S + V + adj/adv + <em>enough</em> + <em>(for sb) + to V</em>',
+      example:'She is <b>old enough to</b> vote. (Đủ tuổi để bầu cử)<br>He runs <b>fast enough to</b> win the race.'},
+     {label:'Enough + noun (enough đứng TRƯỚC danh từ)',
+      formula:'S + V + <em>enough</em> + N + (for sb) + to V',
+      example:'I don\'t have <b>enough money to</b> buy it.<br>There isn\'t <b>enough space for</b> everyone.'},
+     {label:'Chuyển đổi too → enough',
+      desc:'He is <b>too young to</b> drive. = He is <b>not old enough to</b> drive.<br>→ Đổi tính từ sang nghĩa ngược + thêm not.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She is <b>enough old</b> to vote. → enough đứng SAU adj.<br>✅ She is <b>old enough</b> to vote.<br><br>❌ I don\'t have <b>money enough</b>. → enough đứng TRƯỚC noun.<br>✅ I don\'t have <b>enough money</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Nhớ vị trí: <b>adj + enough</b> (sau) vs <b>enough + N</b> (trước). Mẹo: enough "ôm" tính từ từ phía sau, "dẫn" danh từ từ phía trước.'}
+   ]},
+
+  {cat:'pattern',name:'So … that / Such … that',en:'quá … đến nỗi',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Nhấn mạnh mức độ của tính chất → <b>dẫn đến một kết quả</b>. Dùng khi muốn diễn tả nguyên nhân – hệ quả.'},
+     {label:'So + adj/adv + that',
+      formula:'S + V + <em>so</em> + adj/adv + <em>that</em> + S + V',
+      example:'She was <b>so tired that</b> she fell asleep immediately.<br>He spoke <b>so fast that</b> nobody understood.'},
+     {label:'So + many/much/few/little + N + that',
+      formula:'S + V + <em>so</em> + many/much/few/little + N + <em>that</em> + S + V',
+      example:'There were <b>so many people that</b> we couldn\'t find a seat.<br>He has <b>so little money that</b> he can\'t pay rent.'},
+     {label:'Such + (a/an) + adj + N + that',
+      formula:'S + V + <em>such</em> + (a/an) + adj + N + <em>that</em> + S + V',
+      example:'It was <b>such a beautiful day that</b> we went to the beach.<br>They are <b>such nice people that</b> everyone likes them.<br>It was <b>such bad weather that</b> we stayed inside.'},
+     {label:'📝 Cách phân biệt so vs such',
+      desc:'<b>So</b> + adj/adv (KHÔNG có danh từ đi sau): so beautiful, so quickly.<br><b>Such</b> + (a/an) + adj + NOUN: such a beautiful day, such nice people.<br><br>Mẹo nhanh: thấy danh từ → <b>such</b>. Không có danh từ → <b>so</b>.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ It was <b>so a beautiful</b> day that… → Có danh từ "day" → dùng such.<br>✅ It was <b>such a beautiful</b> day that…<br><br>❌ She is <b>such beautiful</b> that… → Không có danh từ → dùng so.<br>✅ She is <b>so beautiful</b> that…<br><br>❌ There were <b>such many</b> people that… → many/much/few/little luôn đi với so.<br>✅ There were <b>so many</b> people that…'}
+   ]},
+
+  {cat:'pattern',name:'Used to / Be used to / Get used to',en:'Thói quen',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Ba cấu trúc trông giống nhau nhưng nghĩa hoàn toàn khác. Đây là một trong những điểm ngữ pháp hay bị nhầm nhất.'},
+     {label:'① Used to + V — Thói quen cũ (đã không còn)',
+      formula:'S + <em>used to</em> + V (nguyên mẫu)<br>Phủ định: S + <em>didn\'t use to</em> + V<br>Nghi vấn: <em>Did</em> + S + <em>use to</em> + V?',
+      example:'I <b>used to play</b> football every day. (Bây giờ không chơi nữa)<br>She <b>didn\'t use to</b> like coffee. (Trước không thích, giờ thích)<br><b>Did</b> you <b>use to</b> live here?',
+      note:'Chỉ dùng cho quá khứ. Không có "use to" ở hiện tại.'},
+     {label:'② Be used to + V-ing / N — Đã quen với',
+      formula:'S + <em>am/is/are used to</em> + <em>V-ing / N</em>',
+      example:'She <b>is used to getting</b> up early. (Cô ấy đã quen dậy sớm)<br>I <b>am used to the noise</b>. (Tôi đã quen với tiếng ồn)',
+      note:'Dùng ở mọi thì: was used to, will be used to…'},
+     {label:'③ Get used to + V-ing / N — Dần quen với (quá trình)',
+      formula:'S + <em>get/got/getting used to</em> + <em>V-ing / N</em>',
+      example:'I\'m <b>getting used to living</b> alone. (Đang dần quen sống một mình)<br>He <b>got used to</b> the cold weather.'},
+     {label:'📝 Bảng so sánh nhanh',
+      desc:'<b>used to + V</b> = thói quen CŨ (quá khứ, không còn nữa)<br><b>be used to + V-ing</b> = ĐÃ quen (trạng thái hiện tại)<br><b>get used to + V-ing</b> = ĐANG quen dần (quá trình)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I am used to <b>get up</b> early. → Sau be used to phải là V-ing hoặc N.<br>✅ I am used to <b>getting up</b> early.<br><br>❌ I <b>use to</b> play football. → Thiếu -d.<br>✅ I <b>used to</b> play football.<br><br>❌ I <b>used to getting</b> up early. → Nhầm với be used to.<br>✅ I <b>am used to getting</b> up early.'}
+   ]},
+
+  {cat:'pattern',name:'Would rather',en:'thà … hơn',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả <b>sự lựa chọn, ưa thích</b> giữa các phương án. Trang trọng hơn "prefer".'},
+     {label:'Cùng chủ ngữ',
+      formula:'S + <em>would rather</em> + V + <em>than</em> + V',
+      example:'I <b>would rather stay</b> home <b>than</b> go out.<br>She <b>\'d rather read</b> a book <b>than</b> watch TV.'},
+     {label:'Khác chủ ngữ — hiện tại/tương lai (muốn ai làm gì)',
+      formula:'S1 + <em>would rather</em> + S2 + <em>V2/were</em>',
+      example:'I <b>would rather</b> you <b>came</b> tomorrow. (Tôi muốn bạn đến ngày mai)<br>I\'d rather she <b>didn\'t tell</b> anyone.',
+      note:'Dùng V2 (quá khứ) nhưng mang nghĩa hiện tại/tương lai — giống câu ước.'},
+     {label:'Khác chủ ngữ — quá khứ (ước gì ai đã làm)',
+      formula:'S1 + <em>would rather</em> + S2 + <em>had + V3</em>',
+      example:'I\'d rather he <b>hadn\'t said</b> that. (Tôi ước anh ấy đã không nói điều đó)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I would rather <b>to stay</b> home. → Không dùng to.<br>✅ I would rather <b>stay</b> home.<br><br>❌ I would rather you <b>come</b> tomorrow. → Khác chủ ngữ phải dùng V2.<br>✅ I would rather you <b>came</b> tomorrow.'}
+   ]},
+
+  {cat:'pattern',name:'Had better',en:'nên (lời khuyên mạnh / cảnh báo)',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Đưa ra <b>lời khuyên mạnh</b> kèm <b>hàm ý cảnh báo hậu quả</b> nếu không làm. Mạnh hơn should nhưng yếu hơn must.'},
+     {label:'Công thức',
+      formula:'S + <em>had better</em> + V (nguyên mẫu, không to)<br>Phủ định: S + <em>had better not</em> + V<br>Viết tắt: <em>\'d better</em>',
+      example:'You <b>\'d better hurry</b> or you\'ll miss the bus.<br>You <b>\'d better not be</b> late again. (Lần sau đừng có trễ nữa)<br>We <b>\'d better leave</b> now.'},
+     {label:'So sánh should vs had better vs must',
+      desc:'<b>should</b> = nên (lời khuyên nhẹ, trung tính): You should study more.<br><b>had better</b> = nên (mạnh hơn, ngụ ý hậu quả): You\'d better study or you\'ll fail.<br><b>must</b> = phải (bắt buộc): You must study. It\'s mandatory.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ You had better <b>to go</b>. → Không dùng to.<br>✅ You had better <b>go</b>.<br><br>❌ You <b>had not better</b> be late. → not đứng sau better.<br>✅ You <b>had better not</b> be late.<br><br>Lưu ý: "had" ở đây KHÔNG phải quá khứ — had better luôn nói về hiện tại/tương lai.'}
+   ]},
+
+  {cat:'pattern',name:'It\'s time',en:'đã đến lúc',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Nói rằng <b>đã đến lúc</b> nên làm gì. Dạng có V2 nhấn mạnh rằng lẽ ra đã phải làm từ trước (hơi muộn rồi).'},
+     {label:'Dạng 1: It\'s time + to V (trung tính)',
+      formula:'<em>It\'s time</em> + (for sb) + <em>to V</em>',
+      example:'<b>It\'s time to go</b> home.<br><b>It\'s time for</b> the children <b>to go</b> to bed.'},
+     {label:'Dạng 2: It\'s (high/about) time + S + V2 (nhấn mạnh, hơi muộn rồi)',
+      formula:'<em>It\'s (high/about) time</em> + S + <em>V2</em>',
+      example:'<b>It\'s high time</b> you <b>found</b> a job! (Đáng lẽ phải tìm việc từ lâu rồi!)<br><b>It\'s about time</b> she <b>learned</b> to cook.',
+      note:'"high time" = đã quá muộn, nên làm ngay. "about time" = đã đến lúc (nhẹ hơn).'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ It\'s time you <b>find</b> a job. → Phải dùng V2.<br>✅ It\'s time you <b>found</b> a job.<br><br>Dùng V2 nhưng nói về hiện tại/tương lai (giống wish, would rather khác chủ ngữ).'}
+   ]},
+
+  {cat:'pattern',name:'Not only … but also',en:'không những … mà còn',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Nhấn mạnh rằng <b>cả hai điều đều đúng</b>, vế sau thường bất ngờ hoặc ấn tượng hơn.'},
+     {label:'Dạng thường',
+      formula:'S + V + <em>not only</em> + A + <em>but also</em> + B',
+      example:'She is <b>not only</b> smart <b>but also</b> hardworking.<br>He speaks <b>not only</b> English <b>but also</b> French and German.'},
+     {label:'Dạng đảo ngữ (formal, hay thi)',
+      formula:'<em>Not only</em> + trợ V + S + V, <em>but</em> + S + <em>also</em> + V',
+      example:'<b>Not only does</b> she speak English, <b>but</b> she <b>also</b> speaks French.<br><b>Not only did</b> he apologize, <b>but</b> he <b>also</b> bought her flowers.',
+      note:'Chỉ đảo ngữ ở vế 1 (Not only + trợ V + S). Vế 2 giữ nguyên.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ <b>Not only does</b> she speak English, <b>but does she also</b> speak French. → Chỉ đảo vế 1.<br>✅ <b>Not only does</b> she speak English, <b>but she also</b> speaks French.'}
+   ]},
+
+  {cat:'pattern',name:'Both … and / Either … or / Neither … nor',en:'Cặp liên từ tương quan',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Nối hai thành phần có vai trò ngữ pháp giống nhau. Rất hay xuất hiện trong bài thi vì liên quan đến <b>sự hòa hợp chủ – vị</b>.'},
+     {label:'Both … and (cả A lẫn B) → V số nhiều',
+      formula:'<em>Both</em> + A + <em>and</em> + B + <em>V (số nhiều)</em>',
+      example:'<b>Both</b> Tom <b>and</b> Jerry <b>are</b> my friends.<br><b>Both</b> the teacher <b>and</b> the students <b>were</b> happy.'},
+     {label:'Either … or (hoặc A hoặc B) → V chia theo B',
+      formula:'<em>Either</em> + A + <em>or</em> + B + V (chia theo B)',
+      example:'<b>Either</b> you <b>or</b> he <b>has</b> to go. (he → has)<br><b>Either</b> my parents <b>or</b> my sister <b>is</b> coming. (sister → is)'},
+     {label:'Neither … nor (không A cũng không B) → V chia theo B',
+      formula:'<em>Neither</em> + A + <em>nor</em> + B + V (chia theo B)',
+      example:'<b>Neither</b> she <b>nor</b> I <b>am</b> wrong. (I → am)<br><b>Neither</b> the students <b>nor</b> the teacher <b>was</b> late. (teacher → was)'},
+     {label:'📝 Quy tắc hòa hợp chủ – vị',
+      desc:'<b>Both…and</b> → LUÔN số nhiều (2 cái cùng lúc).<br><b>Either…or / Neither…nor</b> → V chia theo chủ ngữ <b>gần nhất</b> (B). Quy tắc "gần hơn thắng".'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ <b>Both</b> Tom <b>and</b> Jerry <b>is</b> my friend. → Both…and luôn số nhiều.<br>✅ <b>Both</b> Tom <b>and</b> Jerry <b>are</b> my friends.<br><br>❌ <b>Neither</b> she <b>or</b> I am wrong. → neither đi với nor, không phải or.<br>✅ <b>Neither</b> she <b>nor</b> I am wrong.'}
+   ]},
+
+  {cat:'pattern',name:'Although / Despite / In spite of',en:'Mặc dù',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả sự <b>tương phản</b>: điều kiện bất lợi nhưng kết quả vẫn xảy ra. Rất phổ biến trong cả nói và viết.'},
+     {label:'Although / Even though / Though + mệnh đề (S + V)',
+      formula:'<em>Although / Even though</em> + S + V, &nbsp; S + V',
+      example:'<b>Although</b> it rained, we went out.<br><b>Even though</b> he was tired, he finished the project.<br>I liked the movie, <b>though</b> it was a bit long.'},
+     {label:'Despite / In spite of + danh từ / V-ing (KHÔNG phải mệnh đề)',
+      formula:'<em>Despite / In spite of</em> + N / V-ing, &nbsp; S + V',
+      example:'<b>Despite the rain</b>, we went out.<br><b>In spite of being tired</b>, she kept working.<br><b>Despite his age</b>, he runs marathons.'},
+     {label:'Despite the fact that + mệnh đề (kết hợp)',
+      formula:'<em>Despite the fact that</em> + S + V, &nbsp; S + V',
+      example:'<b>Despite the fact that</b> he was ill, he came to work.'},
+     {label:'📝 Chuyển đổi nhanh',
+      desc:'<b>Although</b> it rained → <b>Despite</b> the rain → <b>Despite the fact that</b> it rained<br><b>Although</b> she was tired → <b>Despite</b> being tired / <b>Despite</b> her tiredness'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ <b>Despite</b> it rained… → Despite + mệnh đề là SAI.<br>✅ <b>Although</b> it rained… hoặc <b>Despite the rain</b>…<br><br>❌ <b>Although</b> the rain, we went out. → Although + danh từ là SAI.<br>✅ <b>Despite</b> the rain… hoặc <b>Although</b> it rained…<br><br>Mẹo: <b>Although = mệnh đề (S+V)</b>. <b>Despite = danh từ/V-ing</b>.'}
+   ]},
+
+  {cat:'pattern',name:'Đảo ngữ phổ biến',en:'Common Inversions',tag:'tag-pattern',tagText:'Mẫu câu',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Đảo trợ động từ lên trước chủ ngữ để <b>nhấn mạnh</b>. Rất phổ biến trong bài viết formal và đề thi. Quy tắc: <b>Từ nhấn mạnh + trợ V + S + V chính</b>.'},
+     {label:'Never / Rarely / Seldom / Hardly ever',
+      formula:'<em>Never / Rarely / Seldom</em> + trợ V + S + V',
+      example:'<b>Never have</b> I <b>seen</b> such a beautiful place.<br><b>Rarely does</b> she <b>make</b> mistakes.<br><b>Seldom had</b> he <b>felt</b> so happy.'},
+     {label:'No sooner … than / Hardly … when (vừa mới … thì)',
+      formula:'<em>No sooner had</em> + S + V3 + <em>than</em> + S + V2<br><em>Hardly had</em> + S + V3 + <em>when</em> + S + V2',
+      example:'<b>No sooner had</b> I arrived <b>than</b> it started raining.<br><b>Hardly had</b> she finished <b>when</b> the phone rang.',
+      note:'No sooner → than. Hardly/Scarcely → when. Cặp cố định!'},
+     {label:'Only when / Only after / Only by / Only then',
+      formula:'<em>Only when/after…</em> + trợ V + S + V',
+      example:'<b>Only when</b> he left <b>did</b> I realize the truth.<br><b>Only after</b> reading the book <b>did</b> I understand the story.<br><b>Only by</b> working hard <b>can</b> you succeed.'},
+     {label:'Not until (mãi cho đến khi)',
+      formula:'<em>Not until</em> + mệnh đề/cụm từ + trợ V + S + V',
+      example:'<b>Not until</b> midnight <b>did</b> the baby stop crying.<br><b>Not until</b> I got home <b>did</b> I realize I\'d left my phone.'},
+     {label:'So / Such … that (đảo ngữ)',
+      formula:'<em>So</em> + adj + trợ V + S + <em>that</em> …',
+      example:'<b>So beautiful was</b> the sunset <b>that</b> everyone stopped to watch.'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ Never I <b>have seen</b>… → Quên đảo trợ V.<br>✅ Never <b>have I</b> seen…<br><br>❌ No sooner had I arrived <b>when</b>… → No sooner đi với than.<br>✅ No sooner had I arrived <b>than</b>…<br><br>❌ Hardly had she finished <b>than</b>… → Hardly đi với when.<br>✅ Hardly had she finished <b>when</b>…'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Cặp cố định: <b>No sooner … than</b> (2 chữ N-T) / <b>Hardly … when</b> (2 chữ H-W). Đảo ngữ chỉ ở vế có từ nhấn mạnh, vế sau giữ nguyên.'}
+   ]},
+];
+
+let curStructCat = 'all';
+
+function renderStructures() {
+  const cont = document.getElementById('struct-main');
+  cont.innerHTML = '';
+  const q = (document.getElementById('struct-search')?.value || '').trim().toLowerCase();
+  const catLabels = {cond:'Câu điều kiện',wish:'Câu ước',comp:'So sánh',pattern:'Mẫu câu thông dụng'};
+  const catOrder = ['cond','wish','comp','pattern'];
+  let shown = 0;
+
+  catOrder.forEach(cat => {
+    if (curStructCat !== 'all' && curStructCat !== cat) return;
+    let items = structData.filter(d => d.cat === cat);
+    if (q) items = items.filter(d => d.name.toLowerCase().includes(q) || d.en.toLowerCase().includes(q) || d.sections.some(s => (s.formula||'').toLowerCase().includes(q) || (s.example||'').toLowerCase().includes(q)));
+    if (!items.length) return;
+
+    const gl = document.createElement('div');
+    gl.className = 'group-label';
+    gl.textContent = catLabels[cat];
+    cont.appendChild(gl);
+
+    items.forEach(item => {
+      shown++;
+      const card = document.createElement('div');
+      card.className = 'struct-card';
+      let bodyHTML = '';
+      item.sections.forEach(s => {
+        const isWarn = s.label && s.label.includes('⚠️');
+        const isTip = s.label && s.label.includes('💡');
+        const isInfo = s.label && s.label.includes('📝');
+        const wrapCls = isWarn ? ' warn-section' : isTip ? ' tip-section' : isInfo ? ' tip-section' : '';
+        bodyHTML += `<div class="struct-section${wrapCls}">`;
+        if (s.label) {
+          const lblColor = isWarn ? 'color:#dc2626' : isTip ? 'color:#16a34a' : isInfo ? 'color:#0369a1' : '';
+          bodyHTML += `<div class="struct-section-label" ${lblColor?'style="'+lblColor+'"':''}>${s.label}</div>`;
+        }
+        if (s.formula) bodyHTML += `<div class="struct-formula">${s.formula}</div>`;
+        if (s.desc) bodyHTML += `<div class="struct-example" style="line-height:1.8">${s.desc}</div>`;
+        if (s.example) bodyHTML += `<div class="struct-example">${s.example}</div>`;
+        if (s.note) bodyHTML += `<div class="struct-note">${s.note}</div>`;
+        bodyHTML += `</div>`;
+      });
+      card.innerHTML = `<div class="struct-header"><span class="struct-name">${item.name}</span><span class="struct-en">${item.en}</span><span class="struct-tag ${item.tag}">${item.tagText}</span></div><div class="struct-body">${bodyHTML}</div>`;
+      cont.appendChild(card);
+    });
+  });
+
+  document.getElementById('struct-counter').textContent = shown + ' cấu trúc';
+  if (!shown) {
+    cont.innerHTML = '<div class="no-result">Không tìm thấy cấu trúc phù hợp.</div>';
+  }
+}
+
+function filterStruct(cat, e) {
+  curStructCat = cat;
+  document.querySelectorAll('#struct-btns button').forEach(b => b.classList.remove('active-cat'));
+  e.target.classList.add('active-cat');
+  renderStructures();
+}
+
+/* ═══════════════════════════════════════════
+   TAB 4 – VERB PATTERNS
+═══════════════════════════════════════════ */
+const vpData = [
+  // ══════════════════════════════════════════
+  //  V + to V
+  // ══════════════════════════════════════════
+  {cat:'to',name:'V + to V',en:'Động từ + nguyên mẫu có to',tag:'tag-to',tagText:'V + to V',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi động từ chính diễn tả <b>ý định, mong muốn, quyết định, hoặc kế hoạch trong tương lai</b>. Hành động sau to V thường chưa xảy ra tại thời điểm nói.'},
+     {label:'Công thức',
+      formula:'S + V + <em>to V</em>',
+      example:'She <b>decided to leave</b>. (quyết định → chưa đi)<br>I <b>want to learn</b> English. (muốn → chưa học)<br>He <b>promised to help</b> me. (hứa → sẽ giúp)<br>They <b>refused to pay</b>. (từ chối → không trả)'},
+     {label:'Danh sách động từ phổ biến theo nhóm nghĩa',
+      desc:'<b>Mong muốn / Ý định:</b> want, wish, hope, expect, intend, desire, long<br><b>Quyết định / Lựa chọn:</b> decide, choose, plan, arrange, prepare<br><b>Cam kết / Từ chối:</b> promise, agree, refuse, offer, threaten, swear<br><b>Cố gắng / Kết quả:</b> try, attempt, manage, fail, learn, tend<br><b>Vẻ ngoài / Trạng thái:</b> seem, appear, pretend, claim, happen, turn out<br><b>Khác:</b> need, afford, deserve, demand, hesitate'},
+     {label:'Danh sách nhanh',
+      verbs:['want','need','decide','hope','expect','plan','promise','agree','refuse','offer','learn','manage','fail','pretend','seem','appear','tend','afford','choose','prepare','arrange','threaten','claim','deserve','demand','hesitate','intend','wish','attempt','happen','turn out','swear']},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I <b>enjoy to read</b>. → enjoy + V-ing, không dùng to V.<br>✅ I <b>enjoy reading</b>.<br><br>❌ She <b>suggested to go</b>. → suggest + V-ing.<br>✅ She <b>suggested going</b>.<br><br>❌ I <b>want go</b> home. → Thiếu to.<br>✅ I <b>want to go</b> home.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Hầu hết các V + to V đều hướng về <b>tương lai, chưa xảy ra</b>. Nghĩ: "to = hướng tới". decide TO (hướng tới quyết định), plan TO (hướng tới kế hoạch), hope TO (hướng tới hy vọng). Nếu hành động đã xảy ra hoặc đang diễn ra → thường dùng V-ing.'}
+   ]},
+
+  {cat:'to',name:'V + O + to V',en:'Động từ + tân ngữ + to V',tag:'tag-to',tagText:'V + to V',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi chủ ngữ <b>tác động lên người khác</b> (tân ngữ) để họ làm gì. Bao gồm: bảo, yêu cầu, khuyên, cho phép, ép buộc, mời, nhắc nhở…'},
+     {label:'Công thức',
+      formula:'S + V + O (người) + <em>to V</em>',
+      example:'She <b>told me to wait</b>. (bảo tôi chờ)<br>The teacher <b>asked us to sit</b> down. (yêu cầu chúng tôi ngồi)<br>He <b>wants her to come</b>. (muốn cô ấy đến)<br>They <b>forced him to resign</b>. (ép anh ấy từ chức)<br>I <b>reminded her to call</b> the doctor. (nhắc cô ấy gọi bác sĩ)'},
+     {label:'Danh sách động từ theo nhóm nghĩa',
+      desc:'<b>Ra lệnh / Yêu cầu:</b> tell, ask, order, command, instruct, require<br><b>Khuyên / Khuyến khích:</b> advise, encourage, persuade, convince, urge, recommend<br><b>Cho phép / Cấm:</b> allow, permit, enable, forbid<br><b>Mong đợi:</b> want, expect, need, would like<br><b>Ép buộc:</b> force, cause, compel, oblige<br><b>Nhắc nhở / Cảnh báo:</b> remind, warn<br><b>Mời / Thuê:</b> invite, hire, appoint, teach, train'},
+     {label:'Danh sách nhanh',
+      verbs:['tell','ask','want','advise','allow','encourage','expect','force','invite','order','permit','persuade','remind','teach','warn','enable','require','cause','convince','help','hire','urge','instruct','forbid','recommend','need','would like','compel']},
+     {label:'📝 Phân biệt V + to V vs V + O + to V',
+      desc:'Một số động từ dùng cả hai nhưng <b>nghĩa khác nhau</b>:<br><br>I <b>want to go</b>. (tôi muốn đi) → bản thân muốn<br>I <b>want her to go</b>. (tôi muốn cô ấy đi) → muốn người khác<br><br>He <b>expected to win</b>. (anh ấy nghĩ mình sẽ thắng)<br>He <b>expected me to win</b>. (anh ấy nghĩ tôi sẽ thắng)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She <b>said me to wait</b>. → say không dùng được với O + to V. Dùng tell.<br>✅ She <b>told me to wait</b>.<br><br>❌ He <b>suggested me to go</b>. → suggest không theo cấu trúc này.<br>✅ He <b>suggested that I (should) go</b>. hoặc He <b>suggested going</b>.<br><br>❌ They <b>let me to go</b>. → let + O + bare V (không to).<br>✅ They <b>let me go</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Cấu trúc này = "<b>ai bảo ai làm gì</b>". Nếu câu có 2 người (người ra lệnh + người thực hiện) → rất có thể dùng V + O + to V. Lưu ý: say, suggest, explain, recommend KHÔNG dùng với O + to V.'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  V + V-ing
+  // ══════════════════════════════════════════
+  {cat:'ing',name:'V + V-ing',en:'Động từ + danh động từ',tag:'tag-ing',tagText:'V + V-ing',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi động từ chính diễn tả <b>cảm xúc, thái độ, hoặc nhận xét về một hành động đã/đang xảy ra</b>. V-ing thường chỉ việc có thật, đang diễn ra, hoặc trải nghiệm.'},
+     {label:'Công thức',
+      formula:'S + V + <em>V-ing</em>',
+      example:'I <b>enjoy reading</b> books. (thích đọc — đang đọc, trải nghiệm)<br>She <b>avoids eating</b> sugar. (tránh ăn — hành vi thực tế)<br>He <b>admitted stealing</b> the money. (thừa nhận đã lấy — đã xảy ra)<br>I <b>can\'t help laughing</b>. (không nhịn được cười — đang xảy ra)'},
+     {label:'Danh sách động từ theo nhóm nghĩa',
+      desc:'<b>Cảm xúc / Thái độ:</b> enjoy, mind, fancy, (can\'t) stand, (can\'t) help, appreciate, dislike, detest, love*, like*, hate*, prefer*<br><b>Hoàn thành / Dừng:</b> finish, quit, stop, give up<br><b>Tránh / Trì hoãn:</b> avoid, delay, postpone, put off, resist<br><b>Xem xét / Đề xuất:</b> consider, suggest, recommend, discuss, mention<br><b>Thừa nhận / Phủ nhận:</b> admit, deny, recall, report, imagine<br><b>Tiếp tục:</b> keep, carry on, go on*, practice<br><b>Rủi ro / Chấp nhận:</b> risk, tolerate, involve<br><b>Cụm từ:</b> feel like, look forward to, be used to, get used to<br><br><span style="color:var(--text3)">* love, like, hate, prefer dùng cả to V và V-ing, ít khác nghĩa.</span>'},
+     {label:'Danh sách nhanh',
+      verbs:['enjoy','avoid','finish','mind','suggest','practice','keep','quit','deny','admit','consider','delay','imagine','miss','risk','appreciate','postpone','resist','tolerate','involve','recall','recommend','discuss','mention','fancy','give up','put off','carry on','can\'t help','can\'t stand','feel like','look forward to','be used to','get used to']},
+     {label:'📝 V-ing sau giới từ',
+      desc:'Mọi giới từ (to, at, in, on, of, about, for, without, before, after…) đều theo sau bằng V-ing, <b>kể cả "to" khi nó là giới từ</b>:<br><br>I look forward <b>to meeting</b> you. (to = giới từ → V-ing)<br>She is good <b>at cooking</b>.<br>He left <b>without saying</b> goodbye.<br>I\'m interested <b>in learning</b> Japanese.<br><br>⚠️ Dấu hiệu "to" là giới từ: đứng sau tính từ/danh từ/cụm động từ (look forward to, be used to, object to, be accustomed to, be dedicated to, in addition to).'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I <b>enjoy to read</b>. → enjoy luôn đi với V-ing.<br>✅ I <b>enjoy reading</b>.<br><br>❌ I look forward <b>to see</b> you. → "to" ở đây là giới từ → V-ing.<br>✅ I look forward <b>to seeing</b> you.<br><br>❌ She <b>suggested to go</b>. → suggest + V-ing.<br>✅ She <b>suggested going</b>.<br><br>❌ He <b>avoided to answer</b>. → avoid + V-ing.<br>✅ He <b>avoided answering</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Nếu hành động <b>đã xảy ra, đang xảy ra, hoặc là trải nghiệm thực tế</b> → thường dùng V-ing. Nghĩ: "-ing = đang diễn ra, có thật". So sánh: "I enjoy swimming" (bơi là trải nghiệm thật) vs "I want to swim" (muốn bơi nhưng chưa bơi).<br><br>Quy tắc 80%: Nếu bạn không chắc, thử dịch: "thích/ghét/tránh/cân nhắc/đề xuất VIỆC…" → V-ing.'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  V + to V / V-ing (khác nghĩa)
+  // ══════════════════════════════════════════
+  {cat:'both',name:'Remember / Forget / Regret',en:'Khác nghĩa với to V và V-ing',tag:'tag-to',tagText:'to V ≠ V-ing',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Ba động từ này thay đổi nghĩa hoàn toàn khi đi với to V hoặc V-ing. Quy tắc chung: <b>to V = hướng tới tương lai (chưa làm)</b>, <b>V-ing = nhìn lại quá khứ (đã làm)</b>.'},
+     {label:'remember + to V = nhớ phải làm (chưa làm)',
+      formula:'S + <em>remember + to V</em>',
+      example:'<b>Remember to lock</b> the door. (Nhớ khóa cửa nhé — chưa khóa)<br>I <b>remembered to bring</b> my umbrella. (Tôi đã nhớ mang dù — mang rồi)'},
+     {label:'remember + V-ing = nhớ đã làm (đã làm rồi)',
+      formula:'S + <em>remember + V-ing</em>',
+      example:'I <b>remember locking</b> the door. (Tôi nhớ là đã khóa cửa rồi)<br>She <b>remembers visiting</b> Paris as a child. (Cô ấy nhớ hồi nhỏ đã đến Paris)'},
+     {label:'forget + to V = quên phải làm (chưa làm)',
+      formula:'S + <em>forget + to V</em>',
+      example:'I <b>forgot to call</b> her. (Tôi quên gọi cho cô ấy — chưa gọi)<br>Don\'t <b>forget to turn</b> off the lights.'},
+     {label:'forget + V-ing = quên đã làm (đã làm rồi)',
+      formula:'S + <em>forget + V-ing</em>',
+      example:'I\'ll never <b>forget meeting</b> you. (Tôi sẽ không bao giờ quên đã gặp bạn)<br>She <b>forgot telling</b> me about it. (Cô ấy quên là đã nói với tôi rồi)',
+      note:'Thường dùng với "never forget" hoặc khi quên rằng mình đã làm điều gì.'},
+     {label:'regret + to V = tiếc phải thông báo (formal)',
+      formula:'S + <em>regret + to V</em>',
+      example:'I <b>regret to inform</b> you that your application was rejected.<br>We <b>regret to say</b> that the flight has been cancelled.',
+      note:'Rất formal, thường dùng với: inform, say, tell, announce.'},
+     {label:'regret + V-ing = hối hận đã làm',
+      formula:'S + <em>regret + V-ing</em>',
+      example:'I <b>regret not studying</b> harder. (Tôi hối hận đã không học chăm hơn)<br>She <b>regrets quitting</b> her job. (Cô ấy hối hận đã nghỉ việc)'},
+     {label:'📝 Bảng tóm tắt nhanh',
+      desc:'<table style="width:100%;font-size:11px;border-collapse:collapse"><tr style="background:var(--surface2)"><td style="padding:4px 8px;font-weight:600">Động từ</td><td style="padding:4px 8px;font-weight:600">+ to V</td><td style="padding:4px 8px;font-weight:600">+ V-ing</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">remember</td><td style="padding:4px 8px">nhớ phải làm ➜</td><td style="padding:4px 8px">nhớ đã làm ⬅</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">forget</td><td style="padding:4px 8px">quên phải làm ➜</td><td style="padding:4px 8px">quên đã làm ⬅</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">regret</td><td style="padding:4px 8px">tiếc phải nói ➜</td><td style="padding:4px 8px">hối hận đã làm ⬅</td></tr></table>'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'<b>to V = mũi tên hướng tới ➜</b> (chưa làm, sắp làm)<br><b>V-ing = mũi tên quay lại ⬅</b> (đã làm, nhìn lại)<br><br>Remember <b>to lock</b> ➜ = sắp khóa. Remember <b>locking</b> ⬅ = đã khóa rồi.'}
+   ]},
+
+  {cat:'both',name:'Stop / Try / Mean / Go on',en:'Khác nghĩa với to V và V-ing',tag:'tag-ing',tagText:'to V ≠ V-ing',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Bốn động từ này cũng thay đổi nghĩa khi đi với to V hoặc V-ing. Đây là điểm <b>cực kỳ hay thi</b>.'},
+     {label:'stop + to V = dừng lại để làm việc khác',
+      formula:'S + <em>stop + to V</em>',
+      example:'He <b>stopped to smoke</b>. (Anh ấy dừng [việc đang làm] lại để hút thuốc)<br>She <b>stopped to rest</b>. (Cô ấy dừng lại để nghỉ)',
+      note:'"to V" ở đây là trạng ngữ chỉ mục đích (dừng lại ĐỂ LÀM GÌ).'},
+     {label:'stop + V-ing = ngừng hẳn việc đang làm',
+      formula:'S + <em>stop + V-ing</em>',
+      example:'He <b>stopped smoking</b>. (Anh ấy bỏ hút thuốc — không hút nữa)<br>Please <b>stop talking</b>. (Xin ngừng nói)'},
+     {label:'try + to V = cố gắng làm (nỗ lực)',
+      formula:'S + <em>try + to V</em>',
+      example:'I <b>tried to open</b> the window, but it was stuck. (Tôi cố mở nhưng không được)<br>She <b>tried to explain</b>, but nobody listened.'},
+     {label:'try + V-ing = thử làm xem sao (thí nghiệm)',
+      formula:'S + <em>try + V-ing</em>',
+      example:'<b>Try restarting</b> the computer. (Thử khởi động lại xem sao)<br>I <b>tried adding</b> more sugar, but it still tasted bitter. (Tôi thử thêm đường)'},
+     {label:'mean + to V = có ý định, cố tình',
+      formula:'S + <em>mean + to V</em>',
+      example:'I didn\'t <b>mean to hurt</b> you. (Tôi không cố ý làm tổn thương bạn)<br>Sorry, I <b>meant to call</b> you earlier. (Tôi định gọi từ trước)'},
+     {label:'mean + V-ing = có nghĩa là, dẫn đến',
+      formula:'S / It + <em>mean(s) + V-ing</em>',
+      example:'This job <b>means working</b> overtime. (Công việc này nghĩa là phải tăng ca)<br>Being a parent <b>means sacrificing</b> personal time.'},
+     {label:'go on + to V = tiếp tục làm việc KHÁC',
+      formula:'S + <em>go on + to V</em>',
+      example:'After finishing school, she <b>went on to become</b> a doctor. (Rồi sau đó trở thành bác sĩ)'},
+     {label:'go on + V-ing = tiếp tục làm việc ĐANG LÀM',
+      formula:'S + <em>go on + V-ing</em>',
+      example:'He <b>went on talking</b> for two hours. (Anh ấy cứ nói tiếp mãi 2 tiếng)'},
+     {label:'📝 Bảng tóm tắt nhanh',
+      desc:'<table style="width:100%;font-size:11px;border-collapse:collapse"><tr style="background:var(--surface2)"><td style="padding:4px 8px;font-weight:600">Động từ</td><td style="padding:4px 8px;font-weight:600">+ to V</td><td style="padding:4px 8px;font-weight:600">+ V-ing</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">stop</td><td style="padding:4px 8px">dừng lại ĐỂ làm</td><td style="padding:4px 8px">ngừng HẲN việc đang làm</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">try</td><td style="padding:4px 8px">CỐ GẮNG (nỗ lực)</td><td style="padding:4px 8px">THỬ xem sao (thí nghiệm)</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">mean</td><td style="padding:4px 8px">CÓ Ý ĐỊNH</td><td style="padding:4px 8px">CÓ NGHĨA LÀ</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">go on</td><td style="padding:4px 8px">chuyển sang việc KHÁC</td><td style="padding:4px 8px">tiếp tục việc ĐANG làm</td></tr></table>'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ He stopped <b>to smoke</b> = anh ấy bỏ thuốc? → SAI! Đây nghĩa là dừng lại để hút.<br>✅ He stopped <b>smoking</b> = anh ấy bỏ thuốc.<br><br>Câu thi hay gặp: "The car broke down, so we stopped _____ (push) it." → stopped to push (dừng lại để đẩy).'}
+   ]},
+
+  {cat:'both',name:'Need / Want / Require',en:'Cần (bị động ẩn)',tag:'tag-ing',tagText:'to V ≠ V-ing',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi chủ ngữ là <b>người</b> → dùng to V (chủ động). Khi chủ ngữ là <b>vật</b> → dùng V-ing mang nghĩa bị động. Đây gọi là "bị động ẩn" vì dùng V-ing thay vì to be + V3.'},
+     {label:'need + to V = cần làm (người — chủ động)',
+      formula:'S (người) + <em>need + to V</em>',
+      example:'I <b>need to fix</b> this. (Tôi cần sửa cái này)<br>You <b>need to study</b> harder. (Bạn cần học chăm hơn)'},
+     {label:'need + V-ing = cần được làm (vật — bị động ẩn)',
+      formula:'S (vật) + <em>need + V-ing</em> &nbsp;=&nbsp; <em>need + to be + V3</em>',
+      example:'This car <b>needs washing</b>. = This car <b>needs to be washed</b>.<br>The garden <b>needs watering</b>. = The garden <b>needs to be watered</b>.<br>Your hair <b>needs cutting</b>. = Your hair <b>needs to be cut</b>.'},
+     {label:'Tương tự: want / require / deserve',
+      formula:'S (vật) + <em>want/require/deserve + V-ing</em>',
+      example:'The house <b>wants painting</b>. (Nhà cần sơn lại)<br>This matter <b>requires handling</b> carefully. (Vấn đề này cần xử lý cẩn thận)<br>The proposal <b>deserves considering</b>. (Đề xuất đáng cân nhắc)',
+      note:'"want + V-ing" nghĩa bị động hơi formal/cổ, thường dùng ở British English.'},
+     {label:'📝 Cách phân biệt nhanh',
+      desc:'Nhìn chủ ngữ: <b>người</b> → to V (chủ động). <b>Vật</b> → V-ing (bị động ẩn).<br><br><b>I</b> need to wash the car. (Tôi cần rửa xe)<br><b>The car</b> needs washing. (Xe cần được rửa)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ The car needs <b>to wash</b>. → Xe không tự rửa được → phải bị động.<br>✅ The car needs <b>washing</b>. / The car needs <b>to be washed</b>.'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  V + bare infinitive
+  // ══════════════════════════════════════════
+  {cat:'bare',name:'V + O + bare V (Sai khiến)',en:'Make / Let / Have + O + V nguyên mẫu',tag:'tag-bare',tagText:'V + bare V',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Ba động từ sai khiến (causative) <b>make, let, have</b> yêu cầu V nguyên mẫu KHÔNG có to. Đây là ngoại lệ quan trọng so với V + O + to V.'},
+     {label:'Make + O + V = bắt / khiến ai làm gì',
+      formula:'S + <em>make</em> + O + <em>V</em> (không to)',
+      example:'She <b>made me laugh</b>. (Cô ấy khiến tôi cười)<br>The teacher <b>made us rewrite</b> the essay. (Thầy bắt chúng tôi viết lại)<br>What <b>makes you think</b> that? (Điều gì khiến bạn nghĩ vậy?)'},
+     {label:'Let + O + V = cho phép / để ai làm gì',
+      formula:'S + <em>let</em> + O + <em>V</em> (không to)',
+      example:'<b>Let me help</b> you. (Để tôi giúp bạn)<br>His parents <b>let him stay</b> up late. (Ba mẹ cho anh ấy thức khuya)<br>Don\'t <b>let</b> the children <b>play</b> with fire.'},
+     {label:'Have + O + V = nhờ / sai ai làm gì',
+      formula:'S + <em>have</em> + O (người) + <em>V</em> (không to)',
+      example:'I\'ll <b>have him call</b> you. (Tôi sẽ bảo anh ấy gọi cho bạn)<br>She <b>had her assistant book</b> the tickets. (Cô ấy nhờ trợ lý đặt vé)',
+      note:'Have mang nghĩa nhờ/sai, nhẹ nhàng hơn make (ép buộc).'},
+     {label:'📝 Bị động của make (đổi sang to V)',
+      desc:'Ở thể chủ động: make + O + V (không to)<br>Ở thể <b>bị động: be made + to V</b> (thêm to)<br><br>She <b>made me laugh</b>. → I <b>was made to laugh</b> (by her).<br>They <b>made him resign</b>. → He <b>was made to resign</b>.<br><br>⚠️ Chỉ make đổi sang to ở bị động. Let không có dạng bị động (dùng be allowed to thay thế).'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ She made me <b>to laugh</b>. → Không dùng to sau make.<br>✅ She made me <b>laugh</b>.<br><br>❌ <b>Let me to help</b> you. → Không dùng to sau let.<br>✅ <b>Let me help</b> you.<br><br>❌ He was made <b>laugh</b>. → Bị động phải thêm to.<br>✅ He was made <b>to laugh</b>.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'<b>Make, Let, Have + O + V (không to)</b> — gọi tắt là "MLH không to". Ba ông lớn này đặc biệt, không giống các động từ khác. Nhớ: "Make Let Have = Mình Lười Học → không thèm to".'}
+   ]},
+
+  {cat:'bare',name:'Động từ tri giác + O',en:'See / Hear / Watch / Feel + O + V / V-ing',tag:'tag-bare',tagText:'V + bare V',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi diễn tả việc <b>nhìn/nghe/cảm thấy ai đó làm gì</b>. Có 2 dạng với nghĩa khác nhau rõ rệt.'},
+     {label:'V tri giác + O + V (bare) = chứng kiến toàn bộ hành động',
+      formula:'S + see/hear/watch/feel/notice/observe + O + <em>V</em>',
+      example:'I <b>saw her cross</b> the road. (Tôi thấy cô ấy sang đường — từ đầu đến cuối)<br>We <b>heard him sing</b> a song. (Chúng tôi nghe anh ấy hát bài hát — trọn vẹn)<br>I <b>felt the ground shake</b>. (Tôi cảm thấy mặt đất rung — trọn vẹn sự kiện)'},
+     {label:'V tri giác + O + V-ing = chứng kiến hành động đang diễn ra',
+      formula:'S + see/hear/watch/feel/notice/observe + O + <em>V-ing</em>',
+      example:'I <b>saw her crossing</b> the road. (Tôi thấy cô ấy đang sang đường — giữa chừng)<br>We <b>heard him singing</b> in the shower. (Nghe anh ấy đang hát — bắt gặp giữa chừng)<br>She <b>noticed someone standing</b> outside. (Nhận thấy ai đó đang đứng)'},
+     {label:'📝 So sánh hai dạng',
+      desc:'<b>V (bare)</b> = xem từ đầu đến cuối, hành động hoàn tất:<br>I watched him <b>cook</b> the whole meal. (ngồi xem nấu từ đầu đến cuối)<br><br><b>V-ing</b> = bắt gặp giữa chừng, đang diễn ra:<br>I watched him <b>cooking</b> when I arrived. (khi tôi đến thì anh ấy đang nấu)<br><br>Trong nhiều tình huống cả hai đều chấp nhận được, nhưng nghĩa hơi khác.'},
+     {label:'📝 Bị động: be + V3 + to V / V-ing',
+      desc:'She was <b>seen to cross</b> the road. (bare V → to V ở bị động)<br>She was <b>seen crossing</b> the road. (V-ing giữ nguyên)'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I saw her <b>to cross</b> the road. → Chủ động không dùng to.<br>✅ I saw her <b>cross</b> / <b>crossing</b> the road.<br><br>❌ She was seen <b>cross</b> the road. → Bị động phải thêm to.<br>✅ She was seen <b>to cross</b> the road.'}
+   ]},
+
+  {cat:'bare',name:'Help + (to) V',en:'Help — linh hoạt cả hai dạng',tag:'tag-bare',tagText:'V + bare V',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Help là <b>ngoại lệ đặc biệt</b>: chấp nhận cả to V và bare V, không khác nghĩa.'},
+     {label:'Công thức',
+      formula:'S + <em>help</em> + (O) + <em>(to) V</em> &nbsp;— cả hai đều đúng',
+      example:'Can you <b>help me carry</b> this? ✓<br>Can you <b>help me to carry</b> this? ✓<br>This will <b>help reduce</b> costs. ✓<br>This will <b>help to reduce</b> costs. ✓'},
+     {label:'💡 Mẹo',
+      desc:'Trong tiếng Anh Mỹ, bỏ to tự nhiên hơn. Tiếng Anh Anh hay giữ to hơn. Cả hai đều đúng 100% — đừng lo chọn sai.'}
+   ]},
+
+  {cat:'bare',name:'Have / Get + O + V3 (Causative)',en:'Nhờ / bị ai làm gì',tag:'tag-bare',tagText:'Causative',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Diễn tả việc <b>nhờ ai đó làm dịch vụ cho mình</b> (cắt tóc, sửa xe, giặt đồ…) hoặc <b>bị ai làm gì</b> (trộm, hack…). Chủ ngữ không tự làm.'},
+     {label:'Have + O (vật) + V3',
+      formula:'S + <em>have</em> + O (vật) + <em>V3</em>',
+      example:'I <b>had my hair cut</b>. (Tôi đi cắt tóc — nhờ thợ)<br>She <b>had her car repaired</b>. (Cô ấy đi sửa xe — nhờ thợ)<br>We\'re <b>having the house painted</b>. (Chúng tôi đang nhờ sơn nhà)<br>He <b>had his wallet stolen</b>. (Anh ấy bị mất ví — bị trộm)'},
+     {label:'Get + O (vật) + V3 — tương tự have, informal hơn',
+      formula:'S + <em>get</em> + O (vật) + <em>V3</em>',
+      example:'I need to <b>get my phone repaired</b>. (Tôi cần đi sửa điện thoại)<br>She <b>got her nails done</b>. (Cô ấy đi làm móng)'},
+     {label:'Get + O (người) + to V = thuyết phục/nhờ ai làm',
+      formula:'S + <em>get</em> + O (người) + <em>to V</em>',
+      example:'I <b>got him to help</b> me. (Tôi nhờ/thuyết phục anh ấy giúp)<br>She <b>got her boss to approve</b> the plan. (Cô ấy thuyết phục sếp duyệt)'},
+     {label:'📝 Bảng tổng hợp tất cả dạng causative',
+      desc:'<table style="width:100%;font-size:11px;border-collapse:collapse"><tr style="background:var(--surface2)"><td style="padding:4px 8px;font-weight:600">Cấu trúc</td><td style="padding:4px 8px;font-weight:600">Nghĩa</td><td style="padding:4px 8px;font-weight:600">Ví dụ</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">have + O(người) + V</td><td style="padding:4px 8px">sai/nhờ ai làm</td><td style="padding:4px 8px">I had him fix it.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">have + O(vật) + V3</td><td style="padding:4px 8px">nhờ làm dịch vụ / bị</td><td style="padding:4px 8px">I had my car fixed.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">get + O(người) + to V</td><td style="padding:4px 8px">thuyết phục ai làm</td><td style="padding:4px 8px">I got him to fix it.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">get + O(vật) + V3</td><td style="padding:4px 8px">nhờ làm dịch vụ / bị</td><td style="padding:4px 8px">I got my car fixed.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">make + O + V</td><td style="padding:4px 8px">ép/khiến ai làm</td><td style="padding:4px 8px">She made me cry.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">let + O + V</td><td style="padding:4px 8px">cho phép ai làm</td><td style="padding:4px 8px">Let me go.</td></tr></table>'},
+     {label:'⚠️ Lỗi sai thường gặp',
+      desc:'❌ I had my car <b>fix</b>. → O là vật → dùng V3.<br>✅ I had my car <b>fixed</b>.<br><br>❌ I got him <b>fix</b> it. → get + O(người) + <b>to V</b>.<br>✅ I got him <b>to fix</b> it.<br><br>❌ I <b>cut my hair</b> yesterday. → Nghĩa là tự cắt! Nếu nhờ thợ:<br>✅ I <b>had my hair cut</b> yesterday.'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'<b>Have + O + V3</b> = "tôi sắp xếp cho việc được làm" (không cần biết ai làm). Khi kể chuyện đi làm đẹp, sửa chữa → luôn dùng causative: had/got + O + V3.<br><br>Phân biệt: I cut my hair (tự cắt) vs I had my hair cut (nhờ thợ cắt).'}
+   ]},
+
+  // ══════════════════════════════════════════
+  //  DITRANSITIVE
+  // ══════════════════════════════════════════
+  {cat:'ditrans',name:'V + sth + TO + sb / V + sb + sth',en:'Nhóm dùng giới từ TO',tag:'tag-ditrans',tagText:'Cho–Nhận',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi hành động là <b>chuyển giao trực tiếp</b> vật từ người này sang người kia. Người nhận là <b>đích đến</b> của vật. Nghĩ: vật "đi tới" (TO) người nhận.'},
+     {label:'Hai dạng tương đương',
+      formula:'S + V + sth + <em>to</em> + sb &nbsp;=&nbsp; S + V + sb + sth',
+      example:'I <b>gave the book to her</b>. = I <b>gave her the book</b>.<br>She <b>sent a message to Tom</b>. = She <b>sent Tom a message</b>.<br>He <b>showed the photos to us</b>. = He <b>showed us the photos</b>.'},
+     {label:'Danh sách động từ phổ biến',
+      verbs:['give','send','bring','lend','offer','pass','pay','promise','read','sell','show','teach','tell','throw','write','hand','feed','award','grant','owe','serve','deliver','mail','return','take','leave']},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Nhóm TO = hành động có <b>chuyển động/chuyển giao</b>: give (đưa cho), send (gửi tới), throw (ném tới), bring (mang tới), pass (chuyền cho)… Vật "bay" từ A → đến B (TO B).'}
+   ]},
+
+  {cat:'ditrans',name:'V + sth + FOR + sb / V + sb + sth',en:'Nhóm dùng giới từ FOR',tag:'tag-ditrans',tagText:'Cho–Nhận',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Khi hành động là <b>làm hộ / làm vì lợi ích</b> của ai. Người hưởng lợi không nhất thiết có mặt. Nghĩ: làm "cho" (FOR) ai đó.'},
+     {label:'Hai dạng tương đương',
+      formula:'S + V + sth + <em>for</em> + sb &nbsp;=&nbsp; S + V + sb + sth',
+      example:'She <b>bought a gift for him</b>. = She <b>bought him a gift</b>.<br>He <b>cooked dinner for us</b>. = He <b>cooked us dinner</b>.<br>Can you <b>save a seat for me</b>? = Can you <b>save me a seat</b>?'},
+     {label:'Danh sách động từ phổ biến',
+      verbs:['buy','find','get','make','cook','build','book','order','save','leave','fetch','pour','pick','reserve','spare','prepare','choose','design','draw','knit','sing','bake','paint','sew']},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Nhóm FOR = hành động <b>tạo ra / thu xếp</b>: buy (mua giúp), make (làm giúp), cook (nấu giúp), build (xây giúp), book (đặt giúp)… Người thụ hưởng không tham gia, chỉ hưởng kết quả.'},
+     {label:'📝 Phân biệt TO vs FOR',
+      desc:'<b>TO</b>: vật đi từ người A → người B (chuyển giao). Give me the book = sách từ tay bạn → tay tôi.<br><b>FOR</b>: A làm vì B (phục vụ). Buy me a book = bạn đi mua, tôi hưởng sách.<br><br>Cùng động từ "leave":<br>She left a note <b>for</b> me. (để lại giúp tôi — tôi không có mặt)<br>She left the keys <b>to</b> me. (trao quyền sở hữu chìa khóa cho tôi)'}
+   ]},
+
+  {cat:'ditrans',name:'Khi nào dùng dạng nào?',en:'Quy tắc chọn cấu trúc',tag:'tag-ditrans',tagText:'Cho–Nhận',
+   sections:[
+     {label:'Khi nào dùng?',
+      desc:'Hai dạng tương đương nhau về nghĩa, nhưng <b>lựa chọn đúng dạng</b> giúp câu tự nhiên hơn. Có 3 quy tắc chính.'},
+     {label:'Quy tắc 1: Đại từ ngắn → V + sb + sth (không giới từ)',
+      formula:'V + <em>me / him / her / us / them</em> + sth',
+      example:'<b>Give me</b> the book. ✓ (tự nhiên)<br>Give the book to me. (đúng nhưng hơi cứng)<br><br><b>Send her</b> a message. ✓<br><b>Buy him</b> a coffee. ✓',
+      note:'Khi tân ngữ gián tiếp là đại từ ngắn (me, him, her, us, them), dạng không giới từ nghe tự nhiên hơn.'},
+     {label:'Quy tắc 2: Cụm dài / cần nhấn mạnh → V + sth + to/for + sb',
+      formula:'V + sth + <em>to/for</em> + cụm từ dài',
+      example:'I sent the package <b>to the customer who called yesterday</b>. ✓<br>She bought a gift <b>for her colleague\'s newborn baby</b>. ✓',
+      note:'Nếu đặt cụm từ dài lên trước (I sent the customer who called yesterday the package) → câu rất khó đọc.'},
+     {label:'Quy tắc 3: Cả hai đều là đại từ → dùng giới từ',
+      formula:'V + <em>it/them</em> + to/for + sb',
+      example:'Give <b>it to me</b>. ✓ (tự nhiên)<br>Give <b>me it</b>. (nghe lạ, tránh dùng)<br><br>Send <b>them to her</b>. ✓<br>Send <b>her them</b>. (không tự nhiên)'},
+     {label:'⚠️ Động từ CHỈ dùng to/for, KHÔNG đảo được',
+      formula:'<em>explain / describe / suggest / announce / mention / report / introduce / donate / say / admit / confess</em>',
+      example:'She <b>explained the problem to me</b>. ✓<br>❌ She <b>explained me the problem</b>. ✗<br><br>He <b>described the scene to us</b>. ✓<br>❌ He <b>described us the scene</b>. ✗<br><br>She <b>suggested a plan to the team</b>. ✓<br>❌ She <b>suggested the team a plan</b>. ✗',
+      note:'Đây là lỗi CỰC KỲ phổ biến, đặc biệt với explain và suggest!'},
+     {label:'📝 Tổng hợp quy tắc chọn dạng',
+      desc:'<table style="width:100%;font-size:11px;border-collapse:collapse"><tr style="background:var(--surface2)"><td style="padding:4px 8px;font-weight:600">Tình huống</td><td style="padding:4px 8px;font-weight:600">Dạng ưu tiên</td><td style="padding:4px 8px;font-weight:600">Ví dụ</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">Đại từ ngắn (me, him…)</td><td style="padding:4px 8px">V + sb + sth</td><td style="padding:4px 8px">Give me the book.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">Cụm từ dài</td><td style="padding:4px 8px">V + sth + to/for + sb</td><td style="padding:4px 8px">I sent it to the manager.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">Cả hai đều đại từ</td><td style="padding:4px 8px">V + it/them + to/for + sb</td><td style="padding:4px 8px">Give it to me.</td></tr><tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px">explain/suggest/describe…</td><td style="padding:4px 8px">CHỈ dùng to + sb</td><td style="padding:4px 8px">Explain it to me.</td></tr></table>'},
+     {label:'💡 Mẹo ghi nhớ',
+      desc:'Nhớ câu: <b>"Give ME the book"</b> (đại từ ngắn → lên trước) nhưng <b>"Give the book TO the teacher"</b> (cụm dài → xuống sau). Và KHÔNG BAO GIỜ: "explain me", "suggest me", "describe me" → luôn dùng "to me".'}
+   ]}
+];
+
+let curVPCat = 'all';
+
+function renderVP() {
+  const cont = document.getElementById('vp-main');
+  cont.innerHTML = '';
+  const catLabels = {to:'V + to V (nguyên mẫu có to)',ing:'V + V-ing (danh động từ)',both:'V + to V hoặc V-ing (khác nghĩa)',bare:'V + bare infinitive (sai khiến / tri giác)',ditrans:'Cấu trúc cho–nhận (Ditransitive)'};
+  const catOrder = ['to','ing','both','bare','ditrans'];
+  let shown = 0;
+
+  catOrder.forEach(cat => {
+    if (curVPCat !== 'all' && curVPCat !== cat) return;
+    const items = vpData.filter(d => d.cat === cat);
+    if (!items.length) return;
+
+    const gl = document.createElement('div');
+    gl.className = 'group-label';
+    gl.textContent = catLabels[cat];
+    cont.appendChild(gl);
+
+    items.forEach(item => {
+      shown++;
+      const card = document.createElement('div');
+      card.className = 'struct-card';
+      let bodyHTML = '';
+      item.sections.forEach(s => {
+        const isWarn = s.label && s.label.includes('⚠️');
+        const isTip = s.label && s.label.includes('💡');
+        const isInfo = s.label && s.label.includes('📝');
+        const wrapCls = isWarn ? ' warn-section' : isTip ? ' tip-section' : isInfo ? ' tip-section' : '';
+        bodyHTML += `<div class="struct-section${wrapCls}">`;
+        if (s.label) {
+          const lblColor = isWarn ? 'color:#dc2626' : isTip ? 'color:#16a34a' : isInfo ? 'color:#0369a1' : '';
+          bodyHTML += `<div class="struct-section-label" ${lblColor?'style="'+lblColor+'"':''}>${s.label}</div>`;
+        }
+        if (s.formula) bodyHTML += `<div class="struct-formula">${s.formula}</div>`;
+        if (s.desc) bodyHTML += `<div class="struct-example" style="line-height:1.8">${s.desc}</div>`;
+        if (s.example) bodyHTML += `<div class="struct-example">${s.example}</div>`;
+        if (s.note) bodyHTML += `<div class="struct-note">${s.note}</div>`;
+        if (s.verbs) bodyHTML += `<div class="verb-grid">${s.verbs.map(v=>`<span class="verb-chip">${v}</span>`).join('')}</div>`;
+        bodyHTML += `</div>`;
+      });
+      card.innerHTML = `<div class="struct-header"><span class="struct-name">${item.name}</span><span class="struct-en">${item.en}</span><span class="struct-tag ${item.tag}">${item.tagText}</span></div><div class="struct-body">${bodyHTML}</div>`;
+      cont.appendChild(card);
+    });
+  });
+
+  document.getElementById('vp-counter').textContent = shown + ' mục';
+}
+
+function filterVP(cat, e) {
+  curVPCat = cat;
+  document.querySelectorAll('#vp-btns button').forEach(b => b.classList.remove('active-vp'));
+  e.target.classList.add('active-vp');
+  renderVP();
+}
+
+/* ── INIT ── */
+renderTenses();
+buildAlphaNav();
+renderIrr();
+renderStructures();
+renderVP();
+</script>
+</body>
+</html>
