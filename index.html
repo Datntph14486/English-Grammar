@@ -445,84 +445,249 @@ function initT(){
 
 /* ══════════ CLAUSES ══════════ */
 const CL=[
-{cat:'adj',name:'Đại từ & Trạng từ quan hệ',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
-  {label:'Định nghĩa',desc:'MĐ tính ngữ = MĐ quan hệ: chức năng như <b>tính từ</b> bổ nghĩa cho N. <b>Vị trí:</b> sau N được bổ nghĩa.'},
-  {label:'Đại từ quan hệ',table:'<table><tr><th>ĐTQH</th><th>Thay thế</th><th>Chức năng</th></tr><tr><td><b>who</b></td><td>Người</td><td>S</td></tr><tr><td><b>whom</b></td><td>Người</td><td>O (formal)</td></tr><tr><td><b>whose</b></td><td>Sở hữu</td><td>TTSH</td></tr><tr><td><b>which</b></td><td>Vật</td><td>S/O</td></tr><tr><td><b>that</b></td><td>Người/Vật</td><td>S/O (chỉ MĐ xác định)</td></tr></table>'},
-  {label:'Trạng từ quan hệ',table:'<table><tr><th>TTQH</th><th>Thay thế</th><th>=</th></tr><tr><td><b>where</b></td><td>Nơi chốn</td><td>at/in/on which</td></tr><tr><td><b>when</b></td><td>Thời gian</td><td>at/in/on which</td></tr><tr><td><b>why</b></td><td>Lý do</td><td>for which</td></tr></table>'}
+// ── MĐ TÍNH NGỮ
+{cat:'adj',name:'MĐ Tính ngữ — Khái niệm & Cấu trúc',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'Mệnh đề tính ngữ là gì?',desc:'MĐ tính ngữ (còn gọi là <b>mệnh đề quan hệ</b>) là một mệnh đề con (có S+V riêng) hoạt động như một <b>tính từ</b>, bổ sung thông tin cho danh từ đứng trước nó.<br><br>💡 Hình dung đơn giản: thay vì dùng 2 câu ngắn, ta dùng từ nối để gộp thành 1 câu.<br><b>Câu 1:</b> I met a man. <b>Câu 2:</b> The man speaks 5 languages.<br>→ <b>Gộp lại:</b> I met a man <u>who speaks 5 languages</u>.'},
+  {label:'Cấu trúc tổng quát',formula:'N + [<em>Quan hệ từ</em> + S + V...]',note:'MĐ quan hệ luôn đứng ngay SAU danh từ mà nó bổ nghĩa.'},
+  {label:'Bảng từ nối quan hệ',table:'<table><tr><th>Từ nối</th><th>Thay cho</th><th>Chức năng trong MĐ</th><th>Ví dụ</th></tr><tr><td><b>who</b></td><td>Người</td><td>Chủ ngữ</td><td>the man <b>who lives</b> next door</td></tr><tr><td><b>whom</b></td><td>Người</td><td>Tân ngữ (trang trọng)</td><td>the woman <b>whom</b> I met</td></tr><tr><td><b>whose</b></td><td>Người/Vật</td><td>Sở hữu (của ai)</td><td>a friend <b>whose</b> father is a pilot</td></tr><tr><td><b>which</b></td><td>Vật/Ý tưởng</td><td>Chủ ngữ/Tân ngữ</td><td>the book <b>which</b> I read</td></tr><tr><td><b>that</b></td><td>Người/Vật</td><td>Chủ ngữ/Tân ngữ</td><td>the car <b>that</b> I bought</td></tr><tr><td><b>where</b></td><td>Nơi chốn</td><td>Trạng ngữ nơi chốn</td><td>the city <b>where</b> I was born</td></tr><tr><td><b>when</b></td><td>Thời gian</td><td>Trạng ngữ thời gian</td><td>the day <b>when</b> we met</td></tr><tr><td><b>why</b></td><td>Lý do</td><td>Trạng ngữ lý do</td><td>the reason <b>why</b> he left</td></tr></table>'}
 ]},
-{cat:'adj',name:'Xác định vs Không xác định & Giản lược',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
-  {label:'So sánh',table:'<table><tr><th></th><th>Xác định</th><th>Không xác định</th></tr><tr><td>Dấu phẩy</td><td>Không</td><td>Có ","</td></tr><tr><td>Nđbn</td><td>Chưa xác định</td><td>Đã xác định (tên riêng, TTSH, this/that)</td></tr><tr><td>Bỏ được?</td><td>Không</td><td>Có thể</td></tr><tr><td>That</td><td>Dùng được</td><td>KHÔNG</td></tr></table>'},
-  {label:'Giản lược',formula:'ĐK: Sub = S → Bỏ Sub → V tobe: bỏ tobe · V khác: chuyển <em>V-ing</em> (CĐ) / giữ <em>PII</em> (BĐ)',example:'The man <b>who is sitting</b>… → The man <b>sitting</b>…<br>The book <b>which is written</b>… → The book <b>written</b>…'}
+{cat:'adj',name:'WHO · WHOM · WHOSE — Bổ nghĩa cho Người',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'WHO — thay cho người, làm chủ ngữ',desc:'Dùng <b>who</b> khi từ thay thế là <b>chủ ngữ</b> của mệnh đề quan hệ (nó đứng ngay trước động từ).'},
+  {label:'Cách ghép câu với WHO',formula:'Câu 1: N... · Câu 2: <em>He/She/They</em>(= N đó) + V...<br>→ Thay he/she/they bằng <b>who</b>',example:'The girl is my sister. + <b>She</b> won the prize.<br>→ The girl <b>who won the prize</b> is my sister.'},
+  {label:'WHOM — thay cho người, làm tân ngữ',desc:'Dùng <b>whom</b> khi từ thay thế là <b>tân ngữ</b> của MĐ quan hệ. Trong văn nói thông thường, có thể dùng <b>who</b> hoặc bỏ luôn quan hệ từ.'},
+  {label:'Cách ghép câu với WHOM',formula:'Câu 1: N... · Câu 2: S + V... + <em>him/her/them</em>(= N đó)<br>→ Thay him/her/them bằng <b>whom</b>',example:'She is the teacher. + I told you about <b>her</b>.<br>→ She is the teacher <b>whom</b> I told you about. (trang trọng)<br>→ She is the teacher <b>who</b> I told you about. (thông thường)<br>→ She is the teacher I told you about. (bỏ luôn)'},
+  {label:'WHOSE — thay cho sở hữu (của ai)',desc:'Dùng <b>whose</b> khi từ thay thế là tính từ sở hữu <b>his/her/its/their</b> trong MĐ quan hệ.'},
+  {label:'Cách ghép câu với WHOSE',formula:'Câu 1: N... · Câu 2: <em>His/Her/Their</em>(= của N đó) + N + V...<br>→ Thay his/her/their bằng <b>whose</b>',example:'I have a friend. + <b>His</b> father is a famous doctor.<br>→ I have a friend <b>whose father</b> is a famous doctor.<br><br>That\'s the house. + <b>Its</b> roof was damaged.<br>→ That\'s the house <b>whose roof</b> was damaged.'},
+  {label:'⚠️ Lỗi hay gặp',desc:'❌ I have a friend <b>who his</b> father is a doctor.<br>✅ I have a friend <b>whose</b> father is a doctor.<br><br><b>whose</b> luôn đứng trước danh từ, KHÔNG dùng một mình.'}
 ]},
-{cat:'adv',name:'7 loại MĐ trạng ngữ',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
-  {label:'Định nghĩa',desc:'Chức năng như <b>trạng từ</b>. Đứng trước → có ",". Đứng sau → không ",".'},
-  {label:'1. Thời gian',formula:'<em>before, after, when, while, since, until, as soon as, by the time, once</em>',note:'⚠️ KHÔNG dùng thì tương lai trong MĐ thời gian!'},
-  {label:'2. Nơi chốn',formula:'<em>where, wherever, everywhere</em>'},
-  {label:'3. Lý do',formula:'MĐ: <em>because, since, as</em> · Cụm GT: <em>because of, due to, owing to</em> + N/V-ing'},
-  {label:'4. Kết quả',formula:'<em>so</em> adj/adv <em>that</em> · <em>such</em> (a/an) adj N <em>that</em>'},
-  {label:'5. Mục đích',formula:'<em>so that / in order that</em> + S + will/can/may + V · Giản lược: <em>(not) to V</em>'},
-  {label:'6. Nhượng bộ',formula:'MĐ: <em>although/though/even though</em> · Cụm GT: <em>despite/in spite of</em> + N/V-ing'},
-  {label:'7. Điều kiện',desc:'If → xem tab <b>"Cấu trúc câu"</b>'},
-  {label:'📝 Giản lược MĐ trạng ngữ',formula:'ĐK: cùng S → Bỏ S → tobe: bỏ tobe · V khác: chuyển <em>V-ing</em>',example:'While I was sitting → <b>(While) sitting</b><br>Because she needed → <b>Needing</b>'}
+{cat:'adj',name:'WHICH · THAT — Bổ nghĩa cho Vật',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'WHICH — thay cho vật hoặc cả mệnh đề',desc:'Dùng <b>which</b> để thay cho <b>vật, con vật, ý tưởng</b>, hoặc toàn bộ mệnh đề đứng trước (khi có dấu phẩy).'},
+  {label:'Cách ghép câu với WHICH',formula:'Câu 1: N(vật)... · Câu 2: <em>It/They</em>(= N đó) + V...<br>→ Thay it/they bằng <b>which</b>',example:'This is the book. + <b>It</b> changed my life.<br>→ This is the book <b>which changed</b> my life. (which = chủ ngữ)<br><br>This is the book. + I bought <b>it</b> yesterday.<br>→ This is the book <b>which</b> I bought yesterday. (which = tân ngữ)'},
+  {label:'WHICH bổ nghĩa cho cả mệnh đề trước',example:'He arrived late, <b>which</b> surprised everyone.<br>(which = việc anh ấy đến trễ đó — bổ nghĩa cả mệnh đề trước)'},
+  {label:'THAT — thay cho cả người lẫn vật',desc:'<b>that</b> thay được cho cả <b>người</b> và <b>vật</b>, nhưng chỉ dùng trong <b>MĐ xác định</b> (không dấu phẩy).'},
+  {label:'Khi nào ưu tiên dùng THAT',desc:'Nên dùng <b>that</b> (không dùng which/who) sau:<br>• Tính từ so sánh nhất: the <b>best</b> thing <b>that</b> ever happened<br>• the first / the last / the only: the only person <b>that</b> understood me<br>• all, everything, anything, something, nothing: everything <b>that</b> I own<br>• Khi trước có cả người lẫn vật: the people and places <b>that</b> I love'},
+  {label:'Khi nào KHÔNG dùng THAT',desc:'❌ KHÔNG dùng <b>that</b> trong MĐ không xác định (có dấu phẩy):<br>❌ My car, <b>that</b> is very old, needs repairing.<br>✅ My car, <b>which</b> is very old, needs repairing.'}
 ]},
-{cat:'noun',name:'MĐ danh ngữ & Câu giả định',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
-  {label:'Định nghĩa',desc:'Chức năng như <b>danh từ</b> — làm S, O, bổ ngữ.'},
-  {label:'Liên từ nối',table:'<table><tr><th>Nhóm</th><th>Liên từ</th><th>Nghĩa</th></tr><tr><td>Có chức năng</td><td>who, which, what, why, where, when, how</td><td>S/O/Adv trong MĐ</td></tr><tr><td>Không CN</td><td><b>that</b></td><td>rằng (100%)</td></tr><tr><td>Không CN</td><td><b>whether/if</b></td><td>liệu rằng (<100%)</td></tr></table>'},
-  {label:'Giản lược',formula:'ĐK: S1=S2 → S1 + V1 + Wh… + <em>to V</em>',example:'I don\'t know what I should do → I don\'t know <b>what to do</b>.'},
-  {label:'Câu giả định',formula:'V(request/demand/suggest…) + that + S + <em>V(bare)</em><br>It be adj(important/necessary…) + that + S + <em>V(bare)</em>',example:'The doctor suggested that his patient <b>stop</b> smoking.'}
+{cat:'adj',name:'WHERE · WHEN · WHY — Trạng từ quan hệ',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'Trạng từ quan hệ là gì?',desc:'Thay thế cho cụm <b>giới từ + which</b>, làm câu gọn hơn. Đứng sau danh từ chỉ <b>nơi chốn / thời gian / lý do</b>.'},
+  {label:'WHERE — nơi chốn',formula:'<em>where</em> = <em>in/at/on which</em>',example:'That is the city. + I was born <b>there</b>.<br>→ That is the city <b>where</b> I was born.<br>= That is the city <b>in which</b> I was born.'},
+  {label:'WHEN — thời gian',formula:'<em>when</em> = <em>at/in/on which</em>',example:'I remember the day. + We first met <b>then</b>.<br>→ I remember the day <b>when</b> we first met.<br>= I remember the day <b>on which</b> we first met.'},
+  {label:'WHY — lý do',formula:'<em>why</em> = <em>for which</em> · Chỉ dùng sau "<b>the reason</b>"',example:'That\'s the reason. + He left <b>for that reason</b>.<br>→ That\'s the reason <b>why</b> he left.<br>= That\'s the reason <b>for which</b> he left.'}
 ]},
-{cat:'noun',name:'Tổng quan 3 loại MĐ',tag:'tag-gray',tagText:'Tổng quan',sections:[
-  {label:'Bảng so sánh',table:'<table><tr><th></th><th>MĐ Tính ngữ</th><th>MĐ Trạng ngữ</th><th>MĐ Danh ngữ</th></tr><tr><td><b>CN</b></td><td>~ adj: bổ nghĩa N</td><td>~ adv: bổ nghĩa V</td><td>~ N: làm S, O</td></tr><tr><td><b>Vị trí</b></td><td>Sau N bổ nghĩa</td><td>Trước/sau IC</td><td>Vị trí S, O</td></tr><tr><td><b>Sub</b></td><td>who, whom, whose, which, that, where, when, why</td><td>when, before, because, if, although…</td><td>wh-question, that, whether/if</td></tr></table>'}
+{cat:'adj',name:'Xác định vs Không xác định — Phân biệt rõ',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'Nguyên tắc phân biệt',desc:'<b>Câu hỏi kiểm tra:</b> Nếu bỏ mệnh đề quan hệ đi, câu còn đủ thông tin để biết đang nói về <i>ai / cái gì cụ thể</i> không?<br>• <b>Không biết được</b> → MĐ <b>xác định</b> (không dấu phẩy, không bỏ được)<br>• <b>Vẫn biết được</b> → MĐ <b>không xác định</b> (có dấu phẩy, bỏ được)'},
+  {label:'Bảng so sánh',table:'<table><tr><th></th><th>Xác định</th><th>Không xác định</th></tr><tr><td><b>Ví dụ</b></td><td>The woman <b>who called me</b> is my boss.</td><td>My mother, <b>who lives in Hanoi</b>, is a teacher.</td></tr><tr><td><b>Dấu phẩy</b></td><td>Không có</td><td>Có dấu phẩy hai bên</td></tr><tr><td><b>Bỏ MĐ được không?</b></td><td>❌ Không (mất nghĩa)</td><td>✅ Được (câu vẫn đủ)</td></tr><tr><td><b>Danh từ bổ nghĩa</b></td><td>Chưa xác định rõ</td><td>Đã biết rõ (tên riêng, my/his/her, this/that)</td></tr><tr><td><b>Dùng THAT</b></td><td>✅ Được</td><td>❌ Không được</td></tr><tr><td><b>Bỏ quan hệ từ (khi làm O)</b></td><td>✅ Được</td><td>❌ Không được</td></tr></table>'},
+  {label:'Ví dụ — hai câu KHÁC NGHĨA hoàn toàn',desc:'• <b>The students who study hard will pass.</b><br>&nbsp;&nbsp;→ Xác định: chỉ những học sinh chăm (không phải tất cả)<br>• <b>The students, who study hard, will pass.</b><br>&nbsp;&nbsp;→ Không xác định: TẤT CẢ học sinh (vốn dĩ chăm) sẽ qua'},
+  {label:'💡 Mẹo nhận biết nhanh',desc:'Nếu trước danh từ có <b>my, his, her, their, our, this, that</b> hoặc là <b>tên riêng</b> → tự động là MĐ không xác định → <b>phải có dấu phẩy</b>, <b>không dùng that</b>.'}
+]},
+{cat:'adj',name:'Giản lược MĐ tính ngữ — từng bước',tag:'tag-purple',tagText:'MĐ Tính ngữ',sections:[
+  {label:'Điều kiện để giản lược',desc:'Chỉ giản lược được khi <b>quan hệ từ là chủ ngữ</b> của MĐ quan hệ (who/which/that đứng trước V của MĐ đó).'},
+  {label:'Câu chủ động → V-ing',formula:'who/which + V... → chỉ giữ <em>V-ing</em>',example:'The man <b>who is talking</b> to her → The man <b>talking</b> to her<br>Students <b>who want</b> to improve → Students <b>wanting</b> to improve'},
+  {label:'Câu bị động → V3',formula:'who/which + is/are/was/were + V3 → chỉ giữ <em>V3</em>',example:'The letter <b>which was written</b> in French → The letter <b>written</b> in French<br>The building <b>which was designed</b> by him → The building <b>designed</b> by him'},
+  {label:'⚠️ Khi KHÔNG được giản lược',desc:'• Quan hệ từ làm <b>tân ngữ</b>: the book <b>that I read</b> → chỉ được bỏ quan hệ từ: the book <b>I read</b><br>• MĐ không xác định (có dấu phẩy): My car, which is old, ... ❌'}
+]},
+
+// ── MĐ TRẠNG NGỮ
+{cat:'adv',name:'MĐ Trạng ngữ — Khái niệm & 7 loại',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
+  {label:'Mệnh đề trạng ngữ là gì?',desc:'MĐ trạng ngữ là một mệnh đề con (có S+V) hoạt động như <b>trạng từ</b>, bổ nghĩa cho động từ chính — trả lời: <i>Khi nào? Ở đâu? Tại sao? Để làm gì? Mặc dù sao?</i>'},
+  {label:'Vị trí & Dấu phẩy',formula:'<em>Liên từ + S + V</em>,  <em>S chính + V chính</em>  (đầu câu → có dấu phẩy)<br><em>S chính + V chính</em>  <em>liên từ + S + V</em>  (cuối câu → không dấu phẩy)',example:'<b>Because it rained,</b> we stayed home. (đầu câu)<br>We stayed home <b>because it rained.</b> (cuối câu)'},
+  {label:'Bảng 7 loại',table:'<table><tr><th>Loại</th><th>Hỏi gì?</th><th>Liên từ chính</th></tr><tr><td><b>Thời gian</b></td><td>Khi nào?</td><td>when, while, before, after, since, until, as soon as…</td></tr><tr><td><b>Nơi chốn</b></td><td>Ở đâu?</td><td>where, wherever, everywhere</td></tr><tr><td><b>Lý do</b></td><td>Tại sao?</td><td>because, since, as</td></tr><tr><td><b>Kết quả</b></td><td>Kết quả gì?</td><td>so…that, such…that</td></tr><tr><td><b>Mục đích</b></td><td>Để làm gì?</td><td>so that, in order that</td></tr><tr><td><b>Nhượng bộ</b></td><td>Mặc dù sao?</td><td>although, though, even though</td></tr><tr><td><b>Điều kiện</b></td><td>Nếu gì?</td><td>if, unless, provided that…</td></tr></table>'}
+]},
+{cat:'adv',name:'MĐ Thời gian',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
+  {label:'Bảng liên từ thời gian',table:'<table><tr><th>Liên từ</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>when</b></td><td>khi</td><td><b>When</b> I arrived, she was cooking.</td></tr><tr><td><b>while / as</b></td><td>trong khi (song song)</td><td>She sang <b>while</b> she worked.</td></tr><tr><td><b>before</b></td><td>trước khi</td><td>Call me <b>before</b> you leave.</td></tr><tr><td><b>after</b></td><td>sau khi</td><td><b>After</b> he graduated, he got a job.</td></tr><tr><td><b>since</b></td><td>kể từ khi (đến nay)</td><td>I haven\'t seen her <b>since</b> she moved.</td></tr><tr><td><b>until / till</b></td><td>cho đến khi</td><td>Wait <b>until</b> I come back.</td></tr><tr><td><b>as soon as</b></td><td>ngay khi</td><td><b>As soon as</b> he saw her, he smiled.</td></tr><tr><td><b>by the time</b></td><td>vào lúc mà</td><td><b>By the time</b> you read this, I\'ll be gone.</td></tr><tr><td><b>once</b></td><td>một khi đã</td><td><b>Once</b> you start, don\'t stop.</td></tr><tr><td><b>whenever</b></td><td>bất cứ khi nào</td><td>Call me <b>whenever</b> you need help.</td></tr></table>'},
+  {label:'⚠️ Quy tắc vàng — KHÔNG dùng thì tương lai trong MĐ thời gian',desc:'Dùng thì <b>hiện tại</b> để diễn đạt ý tương lai:<br>❌ I\'ll call you when she <b>will arrive</b>.<br>✅ I\'ll call you when she <b>arrives</b>.<br><br>❌ After he <b>will finish</b>, we can go.<br>✅ After he <b>finishes</b>, we can go.'},
+  {label:'when vs while — phân biệt',desc:'<b>when</b>: hành động ngắn, xảy ra tại một thời điểm (đột ngột)<br><b>while / as</b>: hành động đang diễn ra, kéo dài, song song<br><br>✅ The phone rang <b>when</b> I was eating. (reo điện thoại = ngắn)<br>✅ <b>While</b> I was eating, she was watching TV. (2 HĐ song song, đều kéo dài)'}
+]},
+{cat:'adv',name:'MĐ Lý do · Kết quả · Mục đích',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
+  {label:'MĐ Lý do — Tại sao?',table:'<table><tr><th>Liên từ</th><th>Sắc thái</th><th>Ví dụ</th></tr><tr><td><b>because</b></td><td>Lý do trực tiếp, mạnh nhất</td><td>I stayed home <b>because</b> it rained.</td></tr><tr><td><b>since</b></td><td>Lý do đã biết, thường đứng đầu câu</td><td><b>Since</b> you\'re here, let\'s start.</td></tr><tr><td><b>as</b></td><td>Giống since, thường gặp trong văn viết</td><td><b>As</b> it was late, we left.</td></tr><tr><td><b>because of + N</b></td><td>Cụm giới từ (không phải MĐ)</td><td>I stayed home <b>because of</b> the rain.</td></tr><tr><td><b>due to + N</b></td><td>Trang trọng, cụm GT</td><td>Canceled <b>due to</b> bad weather.</td></tr></table>'},
+  {label:'MĐ Kết quả — so…that / such…that',formula:'<em>so</em> + adj/adv + <em>that</em>  (KHÔNG có N sau adj)<br><em>such</em> + (a/an) + adj + <em>N</em> + <em>that</em>  (CÓ N sau adj)',example:'She was <b>so tired that</b> she fell asleep immediately.<br>He ran <b>so fast that</b> nobody could catch him.<br>It was <b>such a beautiful day that</b> we went to the park.<br>They were <b>such nice people that</b> everyone liked them.<br>There were <b>so many people that</b> I couldn\'t find her.'},
+  {label:'MĐ Mục đích — Để làm gì?',formula:'<em>so that / in order that</em> + S + <em>can/will/could/would</em> + V<br>Giản lược (cùng S): <em>to V / in order to V / so as to V</em>',example:'She studies hard <b>so that</b> she can pass the exam.<br>I left early <b>so that</b> she wouldn\'t have to wait.<br>She studies hard <b>to pass</b> the exam. (giản lược)<br>He whispered <b>so as not to</b> wake the baby. (phủ định mục đích)'}
+]},
+{cat:'adv',name:'MĐ Nhượng bộ · Nơi chốn',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
+  {label:'MĐ Nhượng bộ — Mặc dù…nhưng…',desc:'Diễn đạt sự tương phản: dù có điều kiện A, kết quả vẫn là B (trái với mong đợi).'},
+  {label:'Bảng liên từ nhượng bộ',table:'<table><tr><th>Liên từ</th><th>Sau là gì</th><th>Ví dụ</th></tr><tr><td><b>although / though</b></td><td>S + V (mệnh đề)</td><td><b>Although</b> it was raining, we went out.</td></tr><tr><td><b>even though</b></td><td>S + V (nhấn mạnh hơn)</td><td><b>Even though</b> he\'s rich, he\'s unhappy.</td></tr><tr><td><b>despite</b></td><td>N / V-ing (cụm, không phải MĐ)</td><td><b>Despite</b> the rain, we went out.</td></tr><tr><td><b>in spite of</b></td><td>N / V-ing (cụm)</td><td><b>In spite of</b> being tired, she kept working.</td></tr><tr><td><b>however</b></td><td>S + V (câu tiếp theo)</td><td>It rained. <b>However,</b> we went out.</td></tr></table>'},
+  {label:'⚠️ Lỗi hay gặp',desc:'❌ <b>Although</b> it rained, <b>but</b> we went out.<br>→ Không dùng although và but cùng lúc!<br>✅ <b>Although</b> it rained, we went out.<br>✅ It rained, <b>but</b> we went out.<br><br>❌ <b>Despite</b> it rained, we went out. (sau despite phải là N/Ving)<br>✅ <b>Despite the rain</b>, we went out.<br>✅ <b>Despite it raining</b>, we went out.'},
+  {label:'MĐ Nơi chốn',formula:'<em>where</em> + S + V → ở đâu thì… · <em>wherever</em> → bất cứ đâu',example:'You can sit <b>where</b> you like.<br>I\'ll follow you <b>wherever</b> you go.'}
+]},
+{cat:'adv',name:'Giản lược MĐ trạng ngữ — từng bước',tag:'tag-pink',tagText:'MĐ Trạng ngữ',sections:[
+  {label:'Điều kiện để giản lược',desc:'Chỉ giản lược được khi <b>hai mệnh đề có cùng chủ ngữ</b>.'},
+  {label:'Các bước thực hiện',formula:'1. Bỏ chủ ngữ của MĐ trạng ngữ<br>2. <em>is/are/was/were</em> → bỏ luôn<br>3. V khác → chuyển sang <em>V-ing</em>',example:'<b>While</b> I <b>was</b> waiting, I read a book. → <b>While waiting</b>, I read a book.<br><b>Because</b> she <b>felt</b> tired, she went to bed. → <b>Feeling</b> tired, she went to bed.<br><b>After</b> he <b>finished</b> the work, he left. → <b>After finishing</b> the work, he left.'},
+  {label:'Phủ định → Not + V-ing',example:'<b>Because</b> she <b>didn\'t know</b> the answer → <b>Not knowing</b> the answer, she kept quiet.'},
+  {label:'⚠️ KHÔNG giản lược khi khác chủ ngữ',desc:'❌ <b>While</b> <u>I</u> was cooking, <u>the phone</u> rang.<br>→ I ≠ the phone → KHÔNG giản lược<br>✅ Giữ nguyên: While I was cooking, the phone rang.'}
+]},
+
+// ── MĐ DANH NGỮ
+{cat:'noun',name:'MĐ Danh ngữ — Khái niệm & 3 vị trí',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
+  {label:'Mệnh đề danh ngữ là gì?',desc:'MĐ danh ngữ là một mệnh đề con (có S+V) hoạt động như một <b>danh từ</b> — có thể đứng ở bất kỳ vị trí nào mà danh từ có thể đứng trong câu.'},
+  {label:'3 vị trí của MĐ danh ngữ',table:'<table><tr><th>Vị trí</th><th>Chức năng</th><th>Ví dụ</th></tr><tr><td><b>Chủ ngữ</b></td><td>Làm S của câu chính</td><td><b>That she passed</b> surprised everyone.</td></tr><tr><td><b>Tân ngữ</b></td><td>Làm O sau V chính</td><td>I know <b>that she passed</b>.<br>I wonder <b>where he went</b>.</td></tr><tr><td><b>Bổ ngữ</b></td><td>Đứng sau to be</td><td>The truth is <b>that she lied</b>.</td></tr></table>'},
+  {label:'Bảng liên từ dẫn nhập',table:'<table><tr><th>Liên từ</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>that</b></td><td>"rằng" — sau V nghĩ/nói/biết</td><td>I think <b>that</b> he is right.</td></tr><tr><td><b>whether / if</b></td><td>"liệu rằng" — câu Yes/No</td><td>I wonder <b>whether</b> he\'ll come.</td></tr><tr><td><b>what / who / how…</b></td><td>Câu hỏi WH</td><td>Tell me <b>what</b> you need.</td></tr></table>'}
+]},
+{cat:'noun',name:'MĐ Danh ngữ với THAT',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
+  {label:'Đặc điểm',desc:'"<b>that</b>" trong MĐ danh ngữ chỉ là liên từ nối, <b>không đóng chức năng S/O</b> trong MĐ con (khác với "that" quan hệ từ). Dịch là "rằng".'},
+  {label:'Các động từ thường dùng V + that + S + V',verbs:['think','believe','know','understand','say','tell','hope','wish','realize','feel','find','show','prove','expect','assume','suggest','report','admit','agree','deny','claim','decide','discover','hear','notice','see','fear','regret']},
+  {label:'Ví dụ',example:'I <b>believe that</b> he is honest.<br>She <b>said that</b> she would come.<br>We <b>hope that</b> everything is fine.'},
+  {label:'Khi nào có thể bỏ "that"?',desc:'Có thể bỏ "that" khi MĐ danh ngữ làm <b>tân ngữ</b>:<br>✅ I know <b>(that)</b> she is right. (bỏ được)<br><br>KHÔNG bỏ khi làm <b>chủ ngữ</b>:<br>✅ <b>That</b> he lied to us was shocking.'},
+  {label:'💡 Cấu trúc giả chủ ngữ IT + that',example:'It is <b>obvious that</b> he is lying.<br>It is <b>important that</b> you understand this.<br>It is <b>surprising that</b> she passed.<br>(= That you understand this is important.)'}
+]},
+{cat:'noun',name:'MĐ Danh ngữ với WH-words',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
+  {label:'Quy tắc quan trọng nhất',desc:'Sau WH-word trong MĐ danh ngữ, thứ tự LUÔN là <b>S + V</b> (KHÔNG đảo ngữ như câu hỏi trực tiếp).'},
+  {label:'So sánh: câu hỏi trực tiếp vs MĐ danh ngữ',table:'<table><tr><th>Câu hỏi trực tiếp (có đảo ngữ)</th><th>MĐ danh ngữ (không đảo ngữ)</th></tr><tr><td>Where <b>does he live</b>?</td><td>I wonder where <b>he lives</b>.</td></tr><tr><td>What <b>is she doing</b>?</td><td>I don\'t know what <b>she is doing</b>.</td></tr><tr><td>Why <b>did he leave</b>?</td><td>Tell me why <b>he left</b>.</td></tr><tr><td>How <b>can I help</b>?</td><td>I\'m not sure how <b>I can help</b>.</td></tr><tr><td>Who <b>called</b>?</td><td>Do you know who <b>called</b>?</td></tr></table>'},
+  {label:'⚠️ Lỗi hay gặp nhất',desc:'❌ I don\'t know where <b>is he</b>. → ✅ I don\'t know where <b>he is</b>.<br>❌ She asked me what <b>did I want</b>. → ✅ She asked me what <b>I wanted</b>.<br>❌ Tell me why <b>did he leave</b>. → ✅ Tell me why <b>he left</b>.'}
+]},
+{cat:'noun',name:'MĐ Danh ngữ với WHETHER · IF',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
+  {label:'Khi nào dùng whether / if?',desc:'Dùng khi nội dung MĐ danh ngữ là <b>câu hỏi Yes/No</b> (câu có 2 khả năng: có hoặc không). Dịch là <b>"liệu rằng"</b>.'},
+  {label:'Ví dụ',example:'I don\'t know <b>whether/if</b> he will come.<br>Tell me <b>whether/if</b> you agree.<br>I\'m not sure <b>whether/if</b> it\'s true.<br>She asked me <b>whether/if</b> I was hungry.'},
+  {label:'WHETHER vs IF — khi nào chỉ dùng WHETHER',table:'<table><tr><th>Tình huống</th><th>Dùng gì</th><th>Ví dụ</th></tr><tr><td>Làm <b>chủ ngữ</b> câu</td><td>whether (không dùng if)</td><td><b>Whether</b> he comes doesn\'t matter.</td></tr><tr><td>Sau <b>giới từ</b></td><td>whether (không dùng if)</td><td>It depends on <b>whether</b> he agrees.</td></tr><tr><td>Trước <b>or not</b></td><td>whether (không dùng if)</td><td>I wonder <b>whether or not</b> she knows.</td></tr><tr><td>Làm tân ngữ sau V</td><td>cả hai đều được</td><td>I wonder <b>whether/if</b> he\'ll come.</td></tr></table>'}
+]},
+{cat:'noun',name:'Giản lược & Câu giả định',tag:'tag-blue',tagText:'MĐ Danh ngữ',sections:[
+  {label:'Giản lược MĐ danh ngữ → to V',formula:'ĐK: S1 = S2 → S1 + V1 + Wh… + <em>to V</em>',example:'I don\'t know <b>what I should do</b>. → I don\'t know <b>what to do</b>.<br>Tell me <b>how I can get there</b>. → Tell me <b>how to get there</b>.<br>I\'m not sure <b>whether I should go</b>. → I\'m not sure <b>whether to go</b>.'},
+  {label:'Câu giả định (Subjunctive) — V bare trong MĐ that',desc:'Sau một số động từ/tính từ đặc biệt, động từ trong MĐ <b>that</b> giữ nguyên <b>dạng nguyên thể</b> (không chia) cho mọi ngôi và mọi thì.'},
+  {label:'Động từ kích hoạt câu giả định',verbs:['suggest','recommend','demand','request','require','insist','propose','advise','urge','ask','order','prefer','move','desire']},
+  {label:'Tính từ kích hoạt câu giả định',verbs:['important','necessary','essential','vital','crucial','imperative','advisable','desirable','appropriate','mandatory']},
+  {label:'Ví dụ câu giả định',example:'The doctor suggested that his patient <b>stop</b> smoking. (không "stops")<br>It is important that every student <b>be</b> on time. (không "is")<br>She insisted that he <b>apologize</b>. (không "apologizes")<br><b>Phủ định:</b> I suggest that he <b>not go</b> there alone.'},
+  {label:'💡 Mẹo nhớ',desc:'Nghĩ: "đây là điều tôi muốn/yêu cầu xảy ra" → dùng V bare để thể hiện ý muốn, không chia theo thực tế.'}
+]},
+
+// ── TỔNG QUAN
+{cat:'overview',name:'Tổng quan & Phân biệt 3 loại MĐ',tag:'tag-gray',tagText:'Tổng quan',sections:[
+  {label:'Bảng so sánh 3 loại',table:'<table><tr><th></th><th>MĐ Tính ngữ</th><th>MĐ Trạng ngữ</th><th>MĐ Danh ngữ</th></tr><tr><td><b>Giống từ loại</b></td><td>Tính từ</td><td>Trạng từ</td><td>Danh từ</td></tr><tr><td><b>Chức năng</b></td><td>Bổ nghĩa cho N</td><td>Bổ nghĩa cho V chính</td><td>Làm S / O / bổ ngữ</td></tr><tr><td><b>Vị trí</b></td><td>Ngay sau N bổ nghĩa</td><td>Trước/sau mệnh đề chính</td><td>Vị trí của một danh từ</td></tr><tr><td><b>Từ dẫn nhập</b></td><td>who, whom, whose, which, that, where, when, why</td><td>when, because, although, if, so that, where…</td><td>that, whether/if, what, how, who, when…</td></tr></table>'},
+  {label:'Cách phân biệt nhanh 3 loại',desc:'<b>Bước 1:</b> Có danh từ đứng NGAY TRƯỚC mệnh đề con và MĐ đó bổ nghĩa cho nó → <b>MĐ tính ngữ</b><br><b>Bước 2:</b> MĐ con trả lời "khi nào / tại sao / mặc dù / để làm gì" cho V chính → <b>MĐ trạng ngữ</b><br><b>Bước 3:</b> Có thể thay MĐ con bằng "điều đó / việc đó" → <b>MĐ danh ngữ</b>'},
+  {label:'Ví dụ phân tích 3 câu',example:'I know <b>the man who lives next door</b>. → MĐ Tính ngữ: bổ nghĩa cho "man"<br>I came home <b>because I was tired</b>. → MĐ Trạng ngữ: giải thích lý do của "came"<br>I know <b>that he is honest</b>. → MĐ Danh ngữ: làm tân ngữ của "know"'},
+  {label:'💡 Phân biệt THAT trong 3 loại MĐ',desc:'• <b>THAT tính ngữ</b>: thay cho N, làm S/O trong MĐ: the book <i>that I read</i> (that = tân ngữ)<br>• <b>THAT trạng ngữ</b>: trong "so…that / such…that": so tired <i>that</i> I slept (liên kết kết quả)<br>• <b>THAT danh ngữ</b>: chỉ là liên từ, không đóng vai trò gì: I think <i>that</i> he is right'}
 ]}
 ];
-const clCats={adj:'MĐ Tính ngữ (Quan hệ)',adv:'MĐ Trạng ngữ',noun:'MĐ Danh ngữ'};
-const clOrder=['adj','adv','noun'];
+const clCats={adj:'MĐ Tính ngữ (Quan hệ)',adv:'MĐ Trạng ngữ',noun:'MĐ Danh ngữ',overview:'Tổng quan'};
+const clOrder=['adj','adv','noun','overview'];
 let curCL='all';
-function initCL(){buildSub('sn2',['Tất cả','MĐ Tính ngữ','MĐ Trạng ngữ','MĐ Danh ngữ'],i=>{curCL=['all','adj','adv','noun'][i];renderGroup(CL,'cl-out',curCL,clCats,clOrder)});renderGroup(CL,'cl-out','all',clCats,clOrder)}
+function initCL(){buildSub('sn2',['Tất cả','MĐ Tính ngữ','MĐ Trạng ngữ','MĐ Danh ngữ','Tổng quan'],i=>{curCL=['all','adj','adv','noun','overview'][i];renderGroup(CL,'cl-out',curCL,clCats,clOrder)});renderGroup(CL,'cl-out','all',clCats,clOrder)}
 
 /* ══════════ STRUCTURES ══════════ */
 const ST=[
-{cat:'cond',name:'Điều kiện loại 0 & 1',tag:'tag-blue',tagText:'Điều kiện',sections:[
-  {label:'Loại 0 – Sự thật hiển nhiên',formula:'<em>If/When</em> + S + V(s/es), S + V(s/es)',example:'If you <b>heat</b> water to 100°C, it <b>boils</b>.'},
-  {label:'Loại 1 – Có thể xảy ra (HT/TL)',formula:'<em>If</em> + S + V(s/es), S + <em>will/can/may</em> + V',example:'If it <b>rains</b>, I <b>will stay</b> home.'},
-  {label:'⚠️ Quy tắc vàng',desc:'KHÔNG dùng will trong mệnh đề if: ❌ If it <b>will rain</b>… ✅ If it <b>rains</b>…'}
+// ── CÂU ĐIỀU KIỆN
+{cat:'cond',name:'Tổng quan 4 loại câu điều kiện',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Câu điều kiện gồm 2 phần',desc:'• <b>Mệnh đề IF (điều kiện)</b>: nêu điều kiện cần có<br>• <b>Mệnh đề chính (kết quả)</b>: nêu điều xảy ra nếu điều kiện đó đúng<br><br>Vị trí linh hoạt: IF đứng đầu → có dấu phẩy. IF đứng giữa → không dấu phẩy.'},
+  {label:'Bảng tổng hợp 4 loại',table:'<table><tr><th>Loại</th><th>Ý nghĩa</th><th>Mệnh đề IF</th><th>Mệnh đề chính</th></tr><tr><td><b>Loại 0</b></td><td>Sự thật luôn đúng</td><td>V(s/es) — HTĐ</td><td>V(s/es) — HTĐ</td></tr><tr><td><b>Loại 1</b></td><td>Có thể xảy ra (HT/TL)</td><td>V(s/es) — HTĐ</td><td>will/can/may + V</td></tr><tr><td><b>Loại 2</b></td><td>Trái thực tế (HT)</td><td>V2/were — QKĐ</td><td>would/could/might + V</td></tr><tr><td><b>Loại 3</b></td><td>Trái thực tế (QK)</td><td>had + V3 — QKHT</td><td>would/could/might + have + V3</td></tr></table>'},
+  {label:'💡 Mẹo nhớ nhanh',desc:'• Loại 0–1: thì thật → kết quả thật<br>• Loại 2: thì giả (QKĐ) → kết quả giả (would)<br>• Loại 3: thì giả sâu hơn (QKHT) → kết quả giả sâu hơn (would have V3)'}
 ]},
-{cat:'cond',name:'Điều kiện loại 2',tag:'tag-blue',tagText:'Điều kiện',sections:[
-  {label:'Không có thật ở hiện tại',formula:'<em>If</em> + S + <em>V2/were</em>, S + <em>would/could/might</em> + V',example:'If I <b>were</b> rich, I <b>would travel</b> the world.<br>If I <b>were</b> you, I <b>would apologize</b>.'},
-  {label:'📝 L1 vs L2',desc:'L1: If I <b>have</b> money → có thể có (thực tế)<br>L2: If I <b>had</b> money → hiện tại không có (giả định)'}
+{cat:'cond',name:'Câu ĐK Loại 0 — Sự thật hiển nhiên',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Khi nào dùng?',desc:'Diễn đạt <b>sự thật luôn luôn đúng</b>, quy luật tự nhiên, hướng dẫn, quy trình — điều kiện xảy ra thì kết quả LUÔN xảy ra.'},
+  {label:'Công thức',formula:'<em>If / When</em> + S + V(s/es),  S + V(s/es)',note:'Cả hai vế đều dùng hiện tại đơn. Có thể dùng "when" thay "if" vì kết quả chắc chắn 100%.'},
+  {label:'Ví dụ phân loại',example:'<b>Quy luật tự nhiên:</b> If you heat water to 100°C, it boils.<br><b>Hướng dẫn / quy trình:</b> If you mix red and blue, you get purple.<br><b>Thói quen, phản xạ:</b> If I\'m stressed, I go for a walk.<br><b>When = if (chắc chắn):</b> When it rains, the streets get wet.'}
 ]},
-{cat:'cond',name:'Điều kiện loại 3 & Hỗn hợp',tag:'tag-blue',tagText:'Điều kiện',sections:[
-  {label:'Loại 3 – Không có thật trong QK',formula:'<em>If</em> + S + <em>had V3</em>, S + <em>would/could/might + have V3</em>',example:'If I <b>had studied</b> harder, I <b>would have passed</b>.'},
-  {label:'Hỗn hợp: QK→HT',formula:'<em>If</em> + S + <em>had V3</em>, S + <em>would</em> + V',example:'If I <b>had taken</b> that job, I <b>would be</b> in London <b>now</b>.'},
-  {label:'Đảo ngữ trong câu ĐK',formula:'L1: <em>Should</em> S V · L2: <em>Were</em> S (to V) · L3: <em>Had</em> S V3'},
-  {label:'Unless = If…not',formula:'<em>Unless</em> + S + V (KĐ), S + will + V',note:'Unless đã phủ định → KHÔNG thêm not'}
+{cat:'cond',name:'Câu ĐK Loại 1 — Có thể xảy ra',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Khi nào dùng?',desc:'Điều kiện <b>có thể xảy ra ở hiện tại hoặc tương lai</b> — người nói tin điều kiện này là thực tế, có khả năng thành hiện thực.'},
+  {label:'Công thức',formula:'<em>If</em> + S + V(s/es),  S + <em>will / can / may / might / should</em> + V',note:'Mệnh đề chính dùng: will (chắc chắn), can/may (có thể), might (ít khả năng hơn), should (lời khuyên).'},
+  {label:'Ví dụ',example:'If it <b>rains</b>, I <b>will stay</b> home. (sẽ ở nhà)<br>If you <b>study</b> hard, you <b>can pass</b> the exam. (có thể đậu)<br>If she <b>calls</b>, please tell her I\'m busy. (mệnh lệnh ở vế chính)<br>If you <b>have</b> time, <b>could you help</b> me? (yêu cầu lịch sự)'},
+  {label:'⚠️ Quy tắc vàng',desc:'KHÔNG dùng <b>will</b> trong mệnh đề <b>if</b>:<br>❌ If it <b>will rain</b>, I will stay home.<br>✅ If it <b>rains</b>, I will stay home.<br><br>Mệnh đề if luôn dùng thì hiện tại để diễn đạt ý tương lai.'}
 ]},
-{cat:'wish',name:'Câu ước (Wish / If only)',tag:'tag-pink',tagText:'Câu ước',sections:[
-  {label:'Ước trái hiện tại',formula:'S + <em>wish</em> + S + <em>V2/were</em>',example:'I wish I <b>were</b> taller. · I wish I <b>had</b> more time.'},
-  {label:'Ước trái quá khứ',formula:'S + <em>wish</em> + S + <em>had V3</em>',example:'I wish I <b>had studied</b> abroad.'},
-  {label:'Phàn nàn (wish + would)',formula:'S1 + <em>wish</em> + S2 + <em>would</em> + V',example:'I wish he <b>would stop</b> making noise.',note:'⚠️ KHÔNG dùng I wish I would → dùng wish HT thay thế'},
-  {label:'If only',desc:'Giống wish nhưng <b>cảm xúc mạnh hơn</b>: If only I knew! · If only we had met earlier!'}
+{cat:'cond',name:'Câu ĐK Loại 2 — Giả định hiện tại',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Khi nào dùng?',desc:'Điều kiện <b>trái thực tế ở hiện tại</b> — điều này hiện không có, không đúng, hoặc gần như không thể xảy ra. Chỉ là tưởng tượng, giả định.'},
+  {label:'Công thức',formula:'<em>If</em> + S + <em>V2 / were</em>,  S + <em>would / could / might</em> + V',note:'Dùng "were" cho MỌI ngôi (I/he/she/it đều dùng "were") trong văn chính thức. Văn nói thông thường có thể nghe "was".'},
+  {label:'Ví dụ',example:'If I <b>were</b> rich, I <b>would travel</b> the world. (tôi không giàu)<br>If I <b>were</b> you, I <b>would apologize</b>. (tôi không phải bạn)<br>If she <b>had</b> more time, she <b>could learn</b> piano. (cô ấy không có thời gian)<br>If it <b>were</b> Sunday, I <b>wouldn\'t be</b> at work. (hôm nay không phải Chủ nhật)'},
+  {label:'So sánh Loại 1 vs Loại 2',table:'<table><tr><th></th><th>Loại 1</th><th>Loại 2</th></tr><tr><td><b>Thực tế</b></td><td>Có thể xảy ra</td><td>Không có thật hiện tại</td></tr><tr><td><b>If + S + ...</b></td><td>If I <b>have</b> money</td><td>If I <b>had</b> money</td></tr><tr><td><b>Hàm ý</b></td><td>Tôi có thể có tiền</td><td>Tôi hiện không có tiền</td></tr><tr><td><b>Vế chính</b></td><td>I will buy it.</td><td>I would buy it.</td></tr></table>'}
 ]},
-{cat:'comp',name:'So sánh bằng / hơn / nhất',tag:'tag-green',tagText:'So sánh',sections:[
-  {label:'Bằng',formula:'<em>as</em> + adj/adv + <em>as</em> · Gấp bội: <em>twice/3 times</em> as adj as'},
-  {label:'Hơn',formula:'Ngắn: adj<em>-er than</em> · Dài: <em>more</em> adj <em>than</em><br>Càng…càng: <em>The</em> comp, <em>the</em> comp · Nhấn mạnh: <em>much/far/a lot</em> + comp'},
-  {label:'Nhất',formula:'Ngắn: <em>the</em> adj<em>-est</em> · Dài: <em>the most</em> adj<br><b>in</b> + địa điểm/nhóm · <b>of</b> + số lượng'},
-  {label:'⚠️ Lỗi sai',desc:'❌ more taller / more better → Không dùng more + -er/-est cùng lúc'}
+{cat:'cond',name:'Câu ĐK Loại 3 — Giả định quá khứ',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Khi nào dùng?',desc:'Điều kiện <b>trái thực tế trong quá khứ</b> — điều này đã KHÔNG xảy ra. Thường diễn đạt sự <b>hối tiếc</b> về những gì đã (hoặc đã không) làm trong quá khứ.'},
+  {label:'Công thức',formula:'<em>If</em> + S + <em>had + V3</em>,  S + <em>would / could / might + have + V3</em>'},
+  {label:'Ví dụ',example:'If I <b>had studied</b> harder, I <b>would have passed</b>. (không học chăm → trượt)<br>If she <b>had left</b> earlier, she <b>wouldn\'t have missed</b> the train.<br>If they <b>had known</b> about it, they <b>could have helped</b>.<br>If I <b>had been</b> more careful, the accident <b>wouldn\'t have happened</b>.'},
+  {label:'💡 Hàm ý thực tế luôn là ngược lại',desc:'<b>If I had studied harder</b> → thực ra tôi đã không học chăm<br><b>I would have passed</b> → thực ra tôi đã trượt<br><br>→ Loại 3 luôn hàm ý điều ngược lại đã xảy ra trong thực tế.'}
 ]},
-{cat:'pattern',name:'Too…to / Enough…to / So…that / Such…that',tag:'tag-orange',tagText:'Mẫu câu',sections:[
-  {label:'Too…to (quá…không thể)',formula:'S + <em>too</em> + adj + <em>(for sb) to V</em>',example:'He is <b>too young to</b> drive.'},
-  {label:'Enough…to (đủ…để)',formula:'adj + <em>enough</em> (sau adj) · <em>enough</em> + N (trước N)',example:'She is <b>old enough to</b> vote. · I don\'t have <b>enough money</b>.'},
-  {label:'So…that / Such…that',formula:'<em>So</em> adj/adv <em>that</em> (không N) · <em>Such</em> (a/an) adj N <em>that</em> (có N)',example:'She was <b>so tired that</b>… · It was <b>such a beautiful day that</b>…'}
+{cat:'cond',name:'Câu ĐK Hỗn hợp · Đảo ngữ · Unless',tag:'tag-blue',tagText:'Điều kiện',sections:[
+  {label:'Câu ĐK hỗn hợp — QK → HT',desc:'Điều kiện trong quá khứ, nhưng kết quả ảnh hưởng đến hiện tại.'},
+  {label:'Công thức hỗn hợp',formula:'<em>If</em> + S + <em>had V3</em> (QK),  S + <em>would</em> + V (HT)',example:'If I <b>had taken</b> that job, I <b>would be</b> in London now.<br>(= tôi không nhận việc đó → tôi không ở London bây giờ)<br><br>If she <b>had studied</b> medicine, she <b>would be</b> a doctor now.'},
+  {label:'Đảo ngữ trong câu điều kiện',desc:'Bỏ "if", đảo trợ động từ lên trước S để văn phong trang trọng hơn.'},
+  {label:'Bảng đảo ngữ',table:'<table><tr><th>Loại</th><th>Bình thường</th><th>Đảo ngữ (bỏ "if")</th></tr><tr><td>Loại 1</td><td>If he <b>should</b> call…</td><td><b>Should</b> he call…</td></tr><tr><td>Loại 2</td><td>If I <b>were</b> you…</td><td><b>Were</b> I you…</td></tr><tr><td>Loại 3</td><td>If I <b>had known</b>…</td><td><b>Had</b> I known…</td></tr></table>'},
+  {label:'Unless = If...not',formula:'<em>Unless</em> + S + V (khẳng định),  S + will/would + V',example:'Unless you <b>hurry</b>, you\'ll miss the bus.<br>= If you <b>don\'t hurry</b>, you\'ll miss the bus.<br><br>Unless she <b>apologizes</b>, I won\'t forgive her.'},
+  {label:'⚠️ Unless đã phủ định sẵn',desc:'Unless tự nó mang nghĩa phủ định → KHÔNG thêm not:<br>❌ Unless you <b>don\'t</b> hurry… → ✅ Unless you <b>hurry</b>…'}
 ]},
-{cat:'pattern',name:'Used to / Would rather / Had better',tag:'tag-orange',tagText:'Mẫu câu',sections:[
-  {label:'Used to + V (thói quen cũ)',formula:'S + <em>used to</em> + V · ≠ <em>be used to</em> + V-ing (đã quen) · ≠ <em>get used to</em> + V-ing (dần quen)'},
-  {label:'Would rather (thà…hơn)',formula:'Cùng S: <em>would rather</em> V <em>than</em> V · Khác S: <em>would rather</em> S2 <em>V2</em>'},
-  {label:'Had better (nên – kèm cảnh báo)',formula:'S + <em>had better (not)</em> + V (không to)',example:'You\'d <b>better hurry</b> or you\'ll miss the bus.'}
+
+// ── CÂU ƯỚC
+{cat:'wish',name:'Câu ước trái hiện tại',tag:'tag-pink',tagText:'Câu ước',sections:[
+  {label:'Khi nào dùng?',desc:'Dùng khi <b>ước điều không có thật ở hiện tại</b> — thực tế là ngược lại với điều đang ước. Diễn đạt sự tiếc nuối về tình trạng hiện tại.'},
+  {label:'Công thức',formula:'S + <em>wish</em> + S2 + <em>V2 / were</em>',note:'Dùng "were" cho MỌI ngôi. Không dùng "was" trong văn viết chính thức.'},
+  {label:'Ví dụ',example:'I wish I <b>were</b> taller. (tôi muốn cao hơn — thực tế tôi không cao)<br>I wish I <b>had</b> more time. (muốn có nhiều thời gian — thực tế không có)<br>She wishes she <b>could speak</b> French. (muốn nói được — thực tế không nói được)<br>I wish it <b>weren\'t</b> so hot today. (trời đang rất nóng)'},
+  {label:'💡 Liên hệ với Câu ĐK Loại 2',desc:'Câu ước trái HT dùng cùng thì với vế IF của Câu ĐK Loại 2:<br>I wish I <b>were</b> rich. ↔ If I <b>were</b> rich, I would travel.<br>→ Cả hai đều dùng V2/were để diễn đạt giả định hiện tại.'}
 ]},
-{cat:'pattern',name:'Cặp liên từ / Although-Despite / Đảo ngữ',tag:'tag-orange',tagText:'Mẫu câu',sections:[
-  {label:'Cặp liên từ',desc:'<b>Both…and</b> → V số nhiều · <b>Either…or / Neither…nor / Not only…but also</b> → V theo S gần nhất'},
-  {label:'Although vs Despite',desc:'<b>Although</b> + mệnh đề (S+V) · <b>Despite</b> + N/V-ing (KHÔNG mệnh đề)'},
-  {label:'Đảo ngữ',formula:'<em>Never/Rarely/Seldom</em> + trợ V + S + V<br><em>No sooner had</em> S V3 <em>than</em> … · <em>Hardly had</em> S V3 <em>when</em> …<br><em>Not only does</em> S V, <em>but</em> S <em>also</em> V',note:'Cặp cố định: No sooner…than / Hardly…when'}
+{cat:'wish',name:'Câu ước trái quá khứ',tag:'tag-pink',tagText:'Câu ước',sections:[
+  {label:'Khi nào dùng?',desc:'Dùng khi <b>hối hận về điều đã xảy ra hoặc đã không xảy ra trong quá khứ</b>. Thực tế trong QK là ngược lại với điều đang ước.'},
+  {label:'Công thức',formula:'S + <em>wish</em> + S2 + <em>had + V3</em>'},
+  {label:'Ví dụ',example:'I wish I <b>had studied</b> harder. (đã không học chăm → hối hận)<br>She wishes she <b>hadn\'t said</b> that. (đã nói → hối hận)<br>I wish I <b>had listened</b> to your advice. (đã không nghe → tiếc)<br>He wishes he <b>had gone</b> to university.'},
+  {label:'💡 Liên hệ với Câu ĐK Loại 3',desc:'Câu ước trái QK dùng cùng thì với vế IF của Câu ĐK Loại 3:<br>I wish I <b>had studied</b> harder. ↔ If I <b>had studied</b> harder, I would have passed.'}
+]},
+{cat:'wish',name:'Câu ước tương lai (wish + would)',tag:'tag-pink',tagText:'Câu ước',sections:[
+  {label:'Khi nào dùng?',desc:'Dùng khi <b>phàn nàn về hành vi của người khác</b> hoặc mong tình huống thay đổi trong tương lai. Chủ ngữ 2 phải KHÁC chủ ngữ 1.'},
+  {label:'Công thức',formula:'S1 + <em>wish</em> + S2 + <em>would</em> + V',example:'I wish he <b>would stop</b> making noise. (phàn nàn: anh ấy đang gây ồn)<br>I wish it <b>would stop</b> raining. (mong thời tiết thay đổi)<br>She wishes her boss <b>would give</b> her a raise.'},
+  {label:'⚠️ KHÔNG dùng I wish I would',desc:'Chủ ngữ 1 và 2 phải KHÁC nhau:<br>❌ I wish I <b>would</b> lose weight. (S1 = S2 = I)<br>✅ I wish I <b>could</b> lose weight.<br>✅ I wish I <b>were</b> thinner.'}
+]},
+{cat:'wish',name:'If only · Bảng tổng hợp câu ước',tag:'tag-pink',tagText:'Câu ước',sections:[
+  {label:'If only — cảm xúc mạnh hơn wish',desc:'<b>If only</b> có cùng cấu trúc với wish nhưng <b>cảm xúc mạnh hơn</b> — diễn đạt sự mong muốn thiết tha hoặc hối tiếc sâu sắc.'},
+  {label:'Ví dụ If only',example:'If only I <b>were</b> taller! (Giá mà tôi cao hơn!)<br>If only I <b>had known</b> earlier! (Giá mà tôi biết sớm hơn!)<br>If only she <b>would listen</b>! (Giá mà cô ấy chịu nghe!)'},
+  {label:'Bảng tổng hợp 3 dạng wish',table:'<table><tr><th>Dạng</th><th>Công thức</th><th>Ý nghĩa</th><th>Ví dụ</th></tr><tr><td><b>Trái HT</b></td><td>wish + V2/were</td><td>Ước điều không có thật ở HT</td><td>I wish I <b>were</b> taller.</td></tr><tr><td><b>Trái QK</b></td><td>wish + had V3</td><td>Hối hận điều đã xảy ra trong QK</td><td>I wish I <b>had studied</b> more.</td></tr><tr><td><b>TL/phàn nàn</b></td><td>wish + would V</td><td>Mong người khác thay đổi hành vi</td><td>I wish he <b>would stop</b> smoking.</td></tr></table>'},
+  {label:'💡 Mẹo nhớ thì trong câu wish',desc:'• Ước HT → dùng thì QK đơn (V2/were)<br>• Ước QK → dùng thì QK hoàn thành (had V3)<br>• Ước TL → dùng would + V<br><br>Quy luật: <b>lùi 1 thì so với thực tế</b> (giống câu tường thuật gián tiếp).'}
+]},
+
+// ── SO SÁNH
+{cat:'comp',name:'So sánh bằng (as...as)',tag:'tag-green',tagText:'So sánh',sections:[
+  {label:'Công thức',formula:'S + V + <em>as</em> + adj/adv + <em>as</em> + N/S<br>Phủ định: S + V + <em>not as / not so</em> + adj/adv + <em>as</em>'},
+  {label:'Ví dụ',example:'She is <b>as tall as</b> her brother. (cao bằng)<br>He runs <b>as fast as</b> a cheetah.<br>This bag is <b>not as heavy as</b> that one. (nhẹ hơn)'},
+  {label:'So sánh bằng gấp bội',formula:'<em>twice / three times / half</em> + <em>as</em> + adj/adv + <em>as</em>',example:'This room is <b>twice as big as</b> mine.<br>She earns <b>three times as much as</b> I do.<br>This takes <b>half as long as</b> the other method.'},
+  {label:'Cấu trúc tương đương',desc:'the same + N + as: She is <b>the same height as</b> her brother.<br>as well as (cũng như vậy), similar to / identical to'}
+]},
+{cat:'comp',name:'So sánh hơn',tag:'tag-green',tagText:'So sánh',sections:[
+  {label:'Công thức',table:'<table><tr><th>Adj/Adv</th><th>Công thức</th><th>Ví dụ</th></tr><tr><td>1 âm tiết</td><td>adj<b>-er</b> + than</td><td>taller than, faster than</td></tr><tr><td>2+ âm tiết</td><td><b>more</b> + adj + than</td><td>more beautiful than</td></tr><tr><td>Một số 2 âm tiết</td><td>adj-er hoặc more adj</td><td>cleverer / more clever</td></tr></table>'},
+  {label:'Ví dụ',example:'She is <b>taller than</b> her sister.<br>This book is <b>more interesting than</b> that one.<br>He works <b>harder than</b> anyone I know.'},
+  {label:'Nhấn mạnh mức độ',formula:'<em>much / far / a lot / even / still</em> + so sánh hơn',example:'This is <b>much better</b> than before.<br>She is <b>far more intelligent</b> than I thought.<br>Today is <b>even hotter</b> than yesterday.'},
+  {label:'Càng...càng (the + comp, the + comp)',formula:'<em>The</em> + comp + S + V,  <em>the</em> + comp + S + V',example:'<b>The sooner</b> you start, <b>the faster</b> you finish.<br><b>The harder</b> you work, <b>the more</b> you earn.<br><b>The more</b> I know him, <b>the more</b> I like him.'},
+  {label:'⚠️ Lỗi sai phổ biến',desc:'❌ more taller / more better / more faster<br>→ KHÔNG dùng "more" với adj đã có "-er":<br>✅ taller / better / faster'}
+]},
+{cat:'comp',name:'So sánh nhất',tag:'tag-green',tagText:'So sánh',sections:[
+  {label:'Công thức',table:'<table><tr><th>Adj/Adv</th><th>Công thức</th><th>Ví dụ</th></tr><tr><td>1 âm tiết</td><td>the + adj<b>-est</b></td><td>the tallest, the fastest</td></tr><tr><td>2+ âm tiết</td><td>the + <b>most</b> + adj</td><td>the most beautiful</td></tr></table>'},
+  {label:'in vs of',desc:'• <b>in</b> + địa điểm / nhóm người: She is the tallest <b>in</b> her class.<br>• <b>of</b> + số lượng / danh sách: He is the best <b>of</b> the three.'},
+  {label:'Ví dụ',example:'She is <b>the most intelligent</b> student in the school.<br>This is <b>the best</b> coffee I\'ve ever had.<br>He is <b>the tallest</b> of all his brothers.'},
+  {label:'Kết hợp với thì hoàn thành',formula:'the + so sánh nhất + S + have ever + V3',example:'This is <b>the most beautiful</b> place I <b>have ever been</b> to.<br>He is <b>the kindest</b> person I <b>have ever met</b>.'}
+]},
+{cat:'comp',name:'Tính từ so sánh bất quy tắc',tag:'tag-green',tagText:'So sánh',sections:[
+  {label:'Bảng BQT',table:'<table><tr><th>Dạng gốc</th><th>So sánh hơn</th><th>So sánh nhất</th></tr><tr><td>good / well</td><td>better</td><td>the best</td></tr><tr><td>bad / badly / ill</td><td>worse</td><td>the worst</td></tr><tr><td>much / many</td><td>more</td><td>the most</td></tr><tr><td>little (ít)</td><td>less</td><td>the least</td></tr><tr><td>far</td><td>farther / further</td><td>the farthest / furthest</td></tr><tr><td>old</td><td>older / elder</td><td>the oldest / eldest</td></tr><tr><td>late</td><td>later / latter</td><td>the latest / last</td></tr></table>'},
+  {label:'Phân biệt farther vs further',desc:'<b>farther</b>: xa hơn về khoảng cách vật lý<br><b>further</b>: xa hơn (nghĩa trừu tượng) / thêm nữa<br><br>The station is <b>farther</b> than I thought. (khoảng cách vật lý)<br>We need <b>further</b> discussion. (thêm nữa, không phải khoảng cách)'}
+]},
+
+// ── MẪU CÂU
+{cat:'pattern',name:'Too...to / Enough...to',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'Too + adj + to V — "quá...không thể"',formula:'S + be + <em>too</em> + adj + <em>(for sb) to V</em>',example:'He is <b>too young to drive</b>. (quá nhỏ, không thể lái xe)<br>This bag is <b>too heavy for me to carry</b>. (quá nặng để tôi mang)<br>It\'s <b>too cold to go</b> outside.'},
+  {label:'Adj + enough + to V — "đủ...để"',formula:'S + be + adj + <em>enough</em> + <em>(for sb) to V</em>',example:'She is <b>old enough to vote</b>. (đủ tuổi bầu cử)<br>Is the rope <b>long enough to reach</b> the ground?<br>He\'s <b>strong enough for us to rely on</b>.'},
+  {label:'Enough + N — "đủ lượng danh từ"',formula:'<em>enough</em> + N  (enough đứng TRƯỚC danh từ)',example:'I don\'t have <b>enough money</b> to buy it.<br>Do you have <b>enough time</b> to finish?<br>There\'s <b>enough food</b> for everyone.'},
+  {label:'💡 Chuyển đổi too...to ↔ enough...to',example:'He is <b>too young to drive</b>.<br>= He is <b>not old enough to drive</b>.<br><br>The box is <b>too heavy for me to lift</b>.<br>= The box is <b>not light enough for me to lift</b>.'}
+]},
+{cat:'pattern',name:'So...that / Such...that',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'So + adj/adv + that — "rất...đến nỗi"',formula:'S + V + <em>so</em> + adj/adv + <em>that</em> + S + V',example:'She was <b>so tired that</b> she fell asleep immediately.<br>He spoke <b>so fast that</b> I couldn\'t understand him.<br>It was <b>so dark that</b> I couldn\'t see anything.'},
+  {label:'Such + (a/an) + adj + N + that',formula:'S + V + <em>such</em> + (a/an) + adj + N + <em>that</em> + S + V',example:'It was <b>such a beautiful day that</b> we went to the beach.<br>They were <b>such kind people that</b> everyone loved them.<br>She has <b>such a lovely voice that</b> everyone listened.'},
+  {label:'So many/much/few/little + N + that',formula:'so <em>many/few</em> + N đếm được · so <em>much/little</em> + N không đếm được',example:'There were <b>so many people that</b> I couldn\'t find a seat.<br>I had <b>so little time that</b> I couldn\'t finish.<br>She has <b>so much work that</b> she never rests.'},
+  {label:'📝 Phân biệt so vs such',desc:'<b>so</b>: đứng trước adj/adv (KHÔNG có N đi kèm ngay sau)<br><b>such</b>: đứng trước (a/an) adj + N (CÓ N đi kèm)<br><br>✅ She is <b>so</b> beautiful. (adj, không N)<br>✅ She is <b>such a</b> beautiful girl. (a/an + adj + N)<br>❌ She is <b>such</b> beautiful. / She is <b>so</b> beautiful girl.'}
+]},
+{cat:'pattern',name:'Used to · Be used to · Get used to',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'Phân biệt 3 cấu trúc',table:'<table><tr><th>Cấu trúc</th><th>Sau là gì</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>used to</b> + V</td><td>V nguyên thể</td><td>Thói quen cũ (nay không còn)</td><td>I <b>used to smoke</b>. (đã từng hút, nay không)</td></tr><tr><td><b>be used to</b> + V-ing</td><td>V-ing / N</td><td>Đã quen với (trạng thái hiện tại)</td><td>I <b>am used to waking</b> up early. (quen rồi)</td></tr><tr><td><b>get used to</b> + V-ing</td><td>V-ing / N</td><td>Dần quen với (đang thích nghi)</td><td>I\'m <b>getting used to</b> the cold. (đang dần quen)</td></tr></table>'},
+  {label:'Ví dụ so sánh',example:'She <b>used to live</b> in Hanoi. (trước đây sống, nay không)<br>She <b>is used to living</b> alone. (đã quen sống một mình)<br>She <b>is getting used to living</b> alone. (đang dần quen)<br><br>He <b>used to drink</b> coffee every morning. (thói quen cũ, nay thay đổi)<br>He <b>is used to drinking</b> coffee. (quen rồi, không còn thấy lạ)'},
+  {label:'⚠️ Lỗi hay gặp',desc:'❌ I am used to <b>wake</b> up early. → ✅ I am used to <b>waking</b> up early.<br>❌ I used to <b>waking</b> up early. → ✅ I used to <b>wake</b> up early.'}
+]},
+{cat:'pattern',name:'Would rather · Had better · It\'s time',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'Would rather — "thà...hơn"',table:'<table><tr><th>Khi nào</th><th>Công thức</th><th>Ví dụ</th></tr><tr><td>Cùng chủ ngữ</td><td>would rather + V than V</td><td>I\'d rather <b>stay</b> than <b>go</b> out.</td></tr><tr><td>Khác chủ ngữ</td><td>would rather + S2 + V2</td><td>I\'d rather you <b>stayed</b> home.</td></tr><tr><td>Phủ định</td><td>would rather not + V</td><td>I\'d rather <b>not go</b> out tonight.</td></tr></table>'},
+  {label:'Had better — "nên (có cảnh báo ngầm)"',formula:'S + <em>had better (not)</em> + V  (không có "to")',example:'You\'d <b>better hurry</b> or you\'ll miss the bus.<br>You\'d <b>better not be</b> late again.<br>We\'d <b>better leave</b> now, it\'s getting dark.',note:'Had better mạnh hơn "should" — ngầm cảnh báo sẽ có hậu quả nếu không làm.'},
+  {label:'It\'s (high/about) time — "đã đến lúc"',formula:'It\'s time + S + <em>V2</em>  (nên làm rồi, đang trễ)<br>It\'s time + <em>to V</em>  (đến lúc rồi)',example:'It\'s time you <b>went</b> to bed. (đã đến lúc ngủ rồi)<br>It\'s high time he <b>found</b> a job. (đã quá lúc phải đi làm rồi)<br>It\'s time <b>to go</b>. (đến giờ đi rồi)'}
+]},
+{cat:'pattern',name:'Cặp liên từ',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'Both...and — "cả...lẫn"',formula:'<em>Both</em> A <em>and</em> B + V <b>số nhiều</b>',example:'<b>Both</b> Tom <b>and</b> Jerry <b>are</b> here.<br><b>Both</b> she <b>and</b> her sister <b>speak</b> English well.'},
+  {label:'Either...or — "hoặc...hoặc"',formula:'<em>Either</em> A <em>or</em> B + V chia theo <b>B</b> (S gần nhất)',example:'<b>Either</b> you <b>or</b> he <b>is</b> wrong.<br><b>Either</b> the students <b>or</b> the teacher <b>is</b> responsible.'},
+  {label:'Neither...nor — "không...cũng không"',formula:'<em>Neither</em> A <em>nor</em> B + V chia theo <b>B</b> (S gần nhất)',example:'<b>Neither</b> Tom <b>nor</b> his friends <b>were</b> invited.<br><b>Neither</b> she <b>nor</b> I <b>know</b> the answer.'},
+  {label:'Not only...but also — "không chỉ...mà còn"',formula:'<em>Not only</em> A <em>but also</em> B + V chia theo <b>B</b> (S gần nhất)',example:'<b>Not only</b> she <b>but also</b> her friends <b>were</b> upset.<br>He is <b>not only</b> smart <b>but also</b> hardworking.'},
+  {label:'⚠️ Quy tắc chia V cho cặp liên từ',desc:'• <b>both...and</b> → V số <b>nhiều</b> (luôn luôn)<br>• <b>either...or / neither...nor / not only...but also</b> → V chia theo <b>S GẦN NHẤT</b>:<br><br>Neither he nor <u>I</u> <b>know</b>. (gần I → know)<br>Neither <u>they</u> nor he <b>knows</b>. (gần he → knows)'}
+]},
+{cat:'pattern',name:'Đảo ngữ nhấn mạnh',tag:'tag-orange',tagText:'Mẫu câu',sections:[
+  {label:'Đảo ngữ là gì?',desc:'Đưa phần nhấn mạnh (trạng từ/cụm phủ định) lên đầu câu, sau đó <b>đảo trợ động từ lên trước chủ ngữ</b>. Thường gặp trong văn viết trang trọng.'},
+  {label:'Nhóm 1 — Trạng từ phủ định đứng đầu',formula:'<em>Never / Rarely / Seldom / Hardly / Barely / Scarcely</em> + trợ V + S + V',example:'<b>Never</b> have I seen such a beautiful sunset.<br><b>Rarely</b> does she complain about anything.<br><b>Seldom</b> did he arrive on time.'},
+  {label:'Nhóm 2 — No sooner...than / Hardly...when',formula:'<em>No sooner had</em> S + V3 + <em>than</em> S + V2<br><em>Hardly / Scarcely had</em> S + V3 + <em>when / before</em> S + V2',example:'<b>No sooner had</b> I left <b>than</b> he called.<br>= As soon as I left, he called.<br><br><b>Hardly had</b> she sat down <b>when</b> the phone rang.'},
+  {label:'Nhóm 3 — Not only...but also',formula:'<em>Not only does/did</em> S + V,  <em>but</em> S <em>also</em> + V',example:'<b>Not only does</b> she sing well, <b>but</b> she <b>also</b> plays piano.<br><b>Not only did</b> he lie, <b>but</b> he <b>also</b> refused to apologize.'},
+  {label:'Nhóm 4 — Only + cụm trạng ngữ',formula:'<em>Only</em> + cụm TN + trợ V + S + V',example:'<b>Only then</b> did I realize my mistake.<br><b>Only after the meeting</b> did she understand.<br><b>Only by working hard</b> can you succeed.'},
+  {label:'💡 Mẹo nhớ',desc:'Đảo ngữ = câu hỏi nhưng không có dấu hỏi (trợ V đứng trước S):<br>Bình thường: She rarely speaks. → Đảo: <b>Rarely does she speak</b>.<br>Bình thường: I had never seen it. → Đảo: <b>Never had I seen it</b>.'}
 ]}
 ];
 const stCats={cond:'Câu điều kiện',wish:'Câu ước',comp:'So sánh',pattern:'Mẫu câu thông dụng'};
@@ -532,35 +697,100 @@ function initST(){buildSub('sn3',['Tất cả','Điều kiện','Câu ước','S
 
 /* ══════════ VERB PATTERNS ══════════ */
 const VP=[
-{cat:'to',name:'V + to V',tag:'tag-purple',tagText:'V + to V',sections:[
-  {label:'Khi nào?',desc:'V chính diễn tả <b>ý định, mong muốn, quyết định</b>. Hành động sau to V thường <b>chưa xảy ra</b>.'},
-  {label:'Danh sách V + to V',verbs:['want','need','decide','hope','expect','plan','promise','agree','refuse','offer','learn','manage','fail','pretend','seem','appear','tend','afford','choose','prepare','threaten','claim','deserve','demand','hesitate','intend','wish','attempt']},
-  {label:'V + O + to V (bảo/yêu cầu ai làm gì)',verbs:['tell','ask','want','advise','allow','encourage','expect','force','invite','order','permit','persuade','remind','teach','warn','enable','require','cause','convince','help','forbid','recommend']},
-  {label:'⚠️ Lỗi sai',desc:'❌ She <b>said me to wait</b> → dùng <b>told</b><br>❌ He <b>suggested me to go</b> → dùng <b>suggested going</b><br>❌ They <b>let me to go</b> → let + O + bare V: <b>let me go</b>'}
+// ── V + to V
+{cat:'to',name:'V + to V — Khái niệm & Phân nhóm',tag:'tag-purple',tagText:'V + to V',sections:[
+  {label:'Khi nào dùng V + to V?',desc:'Dùng khi động từ chính diễn tả <b>ý định, mong muốn, quyết định</b> — hành động sau "to V" thường <b>chưa xảy ra</b> khi nói.<br><br>💡 Hình dung: <b>to V = kế hoạch sắp thực hiện</b>. Nếu cảm giác "tôi định / tôi muốn / tôi cố gắng → làm điều gì đó (chưa làm)" → dùng to V.'},
+  {label:'Phân nhóm theo nghĩa',table:'<table><tr><th>Nhóm</th><th>Động từ tiêu biểu</th></tr><tr><td>Ý định / Mong muốn</td><td>want, wish, hope, expect, plan, intend, mean, decide, choose</td></tr><tr><td>Hứa / Đồng ý / Từ chối</td><td>promise, agree, refuse, offer, threaten</td></tr><tr><td>Cố gắng / Thành công / Thất bại</td><td>manage, fail, attempt, try (cố gắng), afford, dare</td></tr><tr><td>Vẻ bề ngoài / Có vẻ</td><td>seem, appear, tend, pretend, claim</td></tr><tr><td>Học / Nhớ / Quên (hướng TL)</td><td>learn, remember to, forget to, need, prepare</td></tr></table>'},
+  {label:'Ví dụ',example:'I <b>want to learn</b> Japanese. (muốn — chưa học)<br>She <b>decided to quit</b> her job. (quyết định)<br>He <b>promised to call</b> me. (hứa)<br>They <b>managed to escape</b>. (cố gắng và thành công)<br>I can\'t <b>afford to buy</b> that car. (không đủ khả năng)'}
 ]},
-{cat:'ing',name:'V + V-ing',tag:'tag-pink',tagText:'V + V-ing',sections:[
-  {label:'Khi nào?',desc:'V chính diễn tả <b>cảm xúc, thái độ về hành động đã/đang xảy ra</b>.'},
-  {label:'Danh sách V + V-ing',verbs:['enjoy','avoid','finish','mind','suggest','practice','keep','quit','deny','admit','consider','delay','imagine','miss','risk','appreciate','postpone','resist','tolerate','recall','recommend','fancy','give up','put off','carry on','can\'t help','can\'t stand','feel like','look forward to','be used to','get used to']},
-  {label:'📝 V-ing sau giới từ',desc:'Mọi giới từ đều theo sau bằng V-ing, <b>kể cả "to" khi là giới từ</b>:<br>look forward <b>to meeting</b> · good <b>at cooking</b> · without <b>saying</b> goodbye'},
-  {label:'💡 Mẹo',desc:'"V-ing = đang diễn ra, có thật". Nếu "thích/ghét/tránh/cân nhắc VIỆC…" → V-ing.'}
+{cat:'to',name:'V + O + to V — Bảo / Yêu cầu / Cho phép ai làm gì',tag:'tag-purple',tagText:'V + to V',sections:[
+  {label:'Cấu trúc',formula:'V + <em>O (người)</em> + <em>to V</em>',note:'O (tân ngữ chỉ người) đứng ở giữa — là người thực hiện hành động "to V".'},
+  {label:'Phân nhóm theo nghĩa',table:'<table><tr><th>Nghĩa</th><th>Động từ</th><th>Ví dụ</th></tr><tr><td>Bảo / Ra lệnh</td><td>tell, order, command</td><td>She <b>told me to wait</b>.</td></tr><tr><td>Yêu cầu / Đề nghị</td><td>ask, request, urge</td><td>I <b>asked him to help</b>.</td></tr><tr><td>Muốn / Mong</td><td>want, expect, need</td><td>I <b>want you to understand</b>.</td></tr><tr><td>Khuyên / Nhắc nhở</td><td>advise, warn, remind</td><td>He <b>reminded me to lock</b> the door.</td></tr><tr><td>Cho phép / Cấm</td><td>allow, permit, forbid, prevent</td><td>They <b>allowed us to leave</b>.</td></tr><tr><td>Khuyến khích / Thuyết phục</td><td>encourage, persuade, convince</td><td>She <b>encouraged me to apply</b>.</td></tr><tr><td>Buộc phải</td><td>force, require, cause, enable</td><td>They <b>forced him to sign</b>.</td></tr></table>'},
+  {label:'⚠️ Lỗi hay gặp',desc:'❌ She <b>said me to wait</b>. → ✅ She <b>told me to wait</b>. (dùng told, không dùng said)<br>❌ He <b>suggested me to go</b>. → ✅ He <b>suggested going</b> / <b>suggested that I go</b>.<br>❌ They <b>let me to go</b>. → ✅ They <b>let me go</b>. (let + O + V bare)<br>❌ She <b>made me to cry</b>. → ✅ She <b>made me cry</b>. (make + O + V bare)'}
 ]},
-{cat:'both',name:'Remember / Forget / Stop / Try (khác nghĩa)',tag:'tag-purple',tagText:'to V ≠ V-ing',sections:[
-  {label:'📝 Bảng tóm tắt',table:'<table><tr><th>V</th><th>+ to V</th><th>+ V-ing</th></tr><tr><td><b>remember</b></td><td>nhớ phải làm ➜</td><td>nhớ đã làm ⬅</td></tr><tr><td><b>forget</b></td><td>quên phải làm ➜</td><td>quên đã làm ⬅</td></tr><tr><td><b>regret</b></td><td>tiếc phải nói ➜</td><td>hối hận đã làm ⬅</td></tr><tr><td><b>stop</b></td><td>dừng lại ĐỂ làm</td><td>ngừng HẲN</td></tr><tr><td><b>try</b></td><td>CỐ GẮNG</td><td>THỬ xem sao</td></tr><tr><td><b>mean</b></td><td>CÓ Ý ĐỊNH</td><td>CÓ NGHĨA LÀ</td></tr><tr><td><b>go on</b></td><td>sang việc KHÁC</td><td>tiếp tục việc ĐANG</td></tr></table>'},
-  {label:'💡 Mẹo',desc:'<b>to V = ➜ tương lai</b> (chưa làm) · <b>V-ing = ⬅ quá khứ</b> (đã làm)'},
-  {label:'Need + V-ing (bị động ẩn)',desc:'S là <b>người</b> → to V: I need <b>to wash</b> the car.<br>S là <b>vật</b> → V-ing: The car needs <b>washing</b> = needs <b>to be washed</b>.'}
+
+// ── V + V-ing
+{cat:'ing',name:'V + V-ing — Khái niệm & Phân nhóm',tag:'tag-pink',tagText:'V + V-ing',sections:[
+  {label:'Khi nào dùng V + V-ing?',desc:'Dùng khi động từ chính diễn tả <b>cảm xúc, thái độ, việc tránh né, thừa nhận</b> về một hành động đã/đang diễn ra trong thực tế.<br><br>💡 Hình dung: <b>V-ing = việc đó đang có thật</b>. Nếu cảm giác "tôi thích / ghét / tránh / thừa nhận VIỆC ĐÓ đang xảy ra" → dùng V-ing.'},
+  {label:'Phân nhóm theo nghĩa',table:'<table><tr><th>Nhóm</th><th>Động từ tiêu biểu</th></tr><tr><td>Yêu thích / ghét bỏ</td><td>enjoy, love, like, hate, dislike, mind, fancy, can\'t stand</td></tr><tr><td>Tránh né / dừng lại / trì hoãn</td><td>avoid, quit, give up, stop, postpone, delay, put off</td></tr><tr><td>Tiếp tục / duy trì</td><td>keep, carry on, go on (tiếp tục việc đang làm)</td></tr><tr><td>Thừa nhận / phủ nhận</td><td>admit, deny, recall, regret (V-ing)</td></tr><tr><td>Cân nhắc / đề xuất / tưởng tượng</td><td>consider, suggest, recommend, imagine, risk, appreciate, miss</td></tr><tr><td>Không thể cưỡng lại</td><td>can\'t help, can\'t resist, feel like</td></tr></table>'},
+  {label:'Ví dụ',example:'I <b>enjoy cooking</b> for my family. (thích — có thật)<br>She <b>avoids talking</b> to strangers. (tránh)<br>He <b>admitted stealing</b> the money. (thừa nhận việc đã làm)<br>I <b>can\'t help laughing</b> when I see that. (không cưỡng lại được)<br>Do you <b>mind opening</b> the window? (phiền không?)'}
 ]},
-{cat:'bare',name:'Make / Let / Have + O + V (sai khiến)',tag:'tag-orange',tagText:'bare V',sections:[
-  {label:'Bảng',table:'<table><tr><th>Cấu trúc</th><th>Nghĩa</th><th>VD</th></tr><tr><td><b>make</b> + O + V</td><td>bắt/khiến</td><td>She made me laugh.</td></tr><tr><td><b>let</b> + O + V</td><td>cho phép/để</td><td>Let me help you.</td></tr><tr><td><b>have</b> + O(người) + V</td><td>nhờ/sai</td><td>I\'ll have him call you.</td></tr><tr><td><b>have/get</b> + O(vật) + <b>V3</b></td><td>nhờ dịch vụ/bị</td><td>I had my hair cut.</td></tr><tr><td><b>get</b> + O(người) + <b>to V</b></td><td>thuyết phục</td><td>I got him to fix it.</td></tr></table>'},
-  {label:'📝 Bị động make',desc:'make + O + V → O <b>was made to V</b> (thêm to ở bị động)'},
-  {label:'V tri giác + O + V/V-ing',desc:'<b>V (bare)</b> = chứng kiến TOÀN BỘ: I saw her <b>cross</b> the road.<br><b>V-ing</b> = bắt gặp GIỮA CHỪNG: I saw her <b>crossing</b> the road.'}
+{cat:'ing',name:'V-ing sau giới từ — Quy tắc quan trọng',tag:'tag-pink',tagText:'V + V-ing',sections:[
+  {label:'Quy tắc',desc:'<b>Mọi giới từ đều theo sau bằng V-ing</b>, kể cả "to" khi nó đóng vai trò là giới từ (không phải dấu hiệu của động từ nguyên thể).'},
+  {label:'Cụm "to" là giới từ — hay bị nhầm nhất',table:'<table><tr><th>Cụm từ</th><th>Sau là</th><th>Ví dụ</th></tr><tr><td>look forward <b>to</b></td><td>V-ing</td><td>I look forward to <b>meeting</b> you.</td></tr><tr><td>be used <b>to</b></td><td>V-ing</td><td>I\'m used to <b>waking</b> up early.</td></tr><tr><td>get used <b>to</b></td><td>V-ing</td><td>I\'m getting used to <b>living</b> alone.</td></tr><tr><td>object <b>to</b></td><td>V-ing</td><td>I object to <b>being treated</b> this way.</td></tr><tr><td>be committed <b>to</b></td><td>V-ing</td><td>She\'s committed to <b>improving</b>.</td></tr><tr><td>in addition <b>to</b></td><td>V-ing</td><td>In addition to <b>singing</b>, she dances.</td></tr></table>'},
+  {label:'Giới từ khác + V-ing',example:'I\'m <b>good at solving</b> problems.<br>She left <b>without saying</b> goodbye.<br>He\'s <b>interested in learning</b> new things.<br>I\'m tired <b>of waiting</b> for him.<br>Thank you <b>for helping</b> me.<br>I\'m thinking <b>about changing</b> jobs.'},
+  {label:'⚠️ Lỗi hay gặp',desc:'❌ I look forward to <b>meet</b> you. → ✅ I look forward to <b>meeting</b> you.<br>❌ I\'m used to <b>wake</b> up early. → ✅ I\'m used to <b>waking</b> up early.'}
 ]},
-{cat:'ditrans',name:'V + sth + TO/FOR + sb (Cho–Nhận)',tag:'tag-blue',tagText:'Cho–Nhận',sections:[
-  {label:'Nhóm TO (chuyển giao)',desc:'<b>give, send, bring, lend, offer, pass, pay, show, teach, tell, throw, write, sell</b>',example:'I gave the book <b>to</b> her. = I gave her the book.'},
-  {label:'Nhóm FOR (làm hộ)',desc:'<b>buy, find, get, make, cook, build, book, order, save, prepare</b>',example:'She bought a gift <b>for</b> him. = She bought him a gift.'},
-  {label:'⚠️ V KHÔNG đảo được',desc:'<b>explain, describe, suggest, announce, mention, say</b> → CHỈ dùng to + sb.<br>❌ She explained <b>me</b> the problem. ✅ She explained the problem <b>to me</b>.'}
+
+// ── KHÁC NGHĨA
+{cat:'both',name:'Remember · Forget · Regret — Khác nghĩa',tag:'tag-purple',tagText:'to V ≠ V-ing',sections:[
+  {label:'💡 Nguyên tắc chung',desc:'• <b>to V</b> = hành động hướng về <b>tương lai</b> (chưa làm, sắp làm)<br>• <b>V-ing</b> = hành động đã xảy ra trong <b>quá khứ</b> (đã làm, nhớ lại)'},
+  {label:'REMEMBER',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th><th>Hàm ý</th></tr><tr><td><b>remember to V</b></td><td>nhớ phải làm (→ sắp làm)</td><td>Remember <b>to lock</b> the door.</td><td>Nhớ → sau đó làm</td></tr><tr><td><b>remember V-ing</b></td><td>nhớ đã làm (← đã làm rồi)</td><td>I remember <b>locking</b> the door.</td><td>Nhớ lại → đã làm rồi</td></tr></table>'},
+  {label:'FORGET',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th><th>Hàm ý</th></tr><tr><td><b>forget to V</b></td><td>quên phải làm (→ không làm)</td><td>I forgot <b>to call</b> her.</td><td>Quên → không gọi</td></tr><tr><td><b>forget V-ing</b></td><td>quên đã làm (← đã làm)</td><td>I\'ll never forget <b>meeting</b> him.</td><td>Không quên → đã gặp rồi</td></tr></table>'},
+  {label:'REGRET',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th><th>Hàm ý</th></tr><tr><td><b>regret to V</b></td><td>tiếc phải thông báo (→ sắp nói)</td><td>I regret <b>to inform</b> you that…</td><td>Tiếc → sắp nói điều xấu</td></tr><tr><td><b>regret V-ing</b></td><td>hối hận đã làm (← đã làm)</td><td>I regret <b>saying</b> that.</td><td>Hối hận → đã nói rồi</td></tr></table>'}
+]},
+{cat:'both',name:'Stop · Try · Mean · Go on — Khác nghĩa',tag:'tag-purple',tagText:'to V ≠ V-ing',sections:[
+  {label:'STOP',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>stop to V</b></td><td>dừng lại ĐỂ làm việc khác</td><td>He stopped <b>to drink</b> some water. (dừng lại → để uống)</td></tr><tr><td><b>stop V-ing</b></td><td>ngừng hẳn việc đang làm</td><td>He stopped <b>drinking</b>. (bỏ hẳn rượu)</td></tr></table>'},
+  {label:'TRY',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>try to V</b></td><td>cố gắng làm (nỗ lực, có thể khó)</td><td>I tried <b>to open</b> the door. (cố mở)</td></tr><tr><td><b>try V-ing</b></td><td>thử làm (để xem kết quả)</td><td>Try <b>adding</b> more salt. (thử thêm muối xem)</td></tr></table>'},
+  {label:'MEAN',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>mean to V</b></td><td>có ý định / định làm</td><td>I didn\'t mean <b>to hurt</b> you.</td></tr><tr><td><b>mean V-ing</b></td><td>có nghĩa là / đồng nghĩa với</td><td>Learning English means <b>practicing</b> every day.</td></tr></table>'},
+  {label:'GO ON',table:'<table><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>go on to V</b></td><td>tiếp theo chuyển sang làm việc KHÁC</td><td>She finished school and went on <b>to study</b> abroad.</td></tr><tr><td><b>go on V-ing</b></td><td>tiếp tục việc ĐANG làm</td><td>Go on <b>reading</b> — don\'t stop.</td></tr></table>'}
+]},
+{cat:'both',name:'Need · Like/Hate · Bảng tổng hợp',tag:'tag-purple',tagText:'to V ≠ V-ing',sections:[
+  {label:'NEED — S là người vs S là vật',desc:'<b>S là người</b> → need + <b>to V</b>: cần làm gì đó<br><b>S là vật</b> → need + <b>V-ing</b>: vật đó cần được làm (= bị động ẩn)'},
+  {label:'Ví dụ NEED',example:'I need <b>to wash</b> the car. (tôi — người → to wash)<br>The car needs <b>washing</b>. (xe — vật → V-ing)<br>= The car needs <b>to be washed</b>.'},
+  {label:'LIKE / LOVE / HATE / PREFER',desc:'Hai dạng gần như cùng nghĩa. Tuy nhiên, sắc thái nhỏ:<br>• <b>V-ing</b>: thói quen chung, sở thích tổng quát<br>• <b>to V</b>: ý muốn trong tình huống cụ thể (đặc biệt với "would like/love")'},
+  {label:'Ví dụ LIKE',example:'I like <b>cooking</b>. (nói chung thích nấu ăn)<br>I\'d like <b>to cook</b> tonight. (muốn nấu tối nay — cụ thể)'},
+  {label:'Bảng tổng hợp tất cả',table:'<table><tr><th>Động từ</th><th>+ to V</th><th>+ V-ing</th></tr><tr><td><b>remember</b></td><td>nhớ phải làm (→ TL)</td><td>nhớ đã làm (← QK)</td></tr><tr><td><b>forget</b></td><td>quên phải làm → không làm</td><td>quên đã làm ← đã làm</td></tr><tr><td><b>regret</b></td><td>tiếc phải thông báo</td><td>hối hận đã làm</td></tr><tr><td><b>stop</b></td><td>dừng lại ĐỂ làm việc khác</td><td>ngừng HẲN việc đang làm</td></tr><tr><td><b>try</b></td><td>CỐ GẮNG (nỗ lực)</td><td>THỬ xem sao (thực nghiệm)</td></tr><tr><td><b>mean</b></td><td>CÓ Ý ĐỊNH</td><td>CÓ NGHĨA LÀ</td></tr><tr><td><b>go on</b></td><td>chuyển sang việc KHÁC</td><td>tiếp tục việc ĐANG làm</td></tr><tr><td><b>need</b></td><td>S(người) cần làm</td><td>S(vật) cần được làm</td></tr></table>'},
+  {label:'💡 Mẹo nhớ chủ đạo',desc:'<b>to V</b> = hướng tương lai (chưa làm, sắp làm, ý định)<br><b>V-ing</b> = hành động đã có thật (đang diễn ra, đã làm, nhớ lại)'}
+]},
+
+// ── SAI KHIẾN / TRI GIÁC
+{cat:'bare',name:'Make · Let · Have — Sai khiến cơ bản',tag:'tag-orange',tagText:'bare V',sections:[
+  {label:'Cấu trúc chung',formula:'V sai khiến + O + <em>V bare</em>  (V nguyên thể không "to")',note:'Đây là nhóm đặc biệt: sau O là V bare (không có "to"), khác với V + O + to V thông thường.'},
+  {label:'MAKE — bắt / khiến (không có lựa chọn)',desc:'Dùng khi chủ thể <b>buộc</b> người/vật khác làm gì — người đó không có sự lựa chọn tự do.'},
+  {label:'Ví dụ MAKE + bị động',example:'She <b>made me cry</b>. (khiến tôi khóc)<br>The teacher <b>made the students stay</b> after class. (bắt ở lại)<br>His joke <b>made everyone laugh</b>.<br><br><b>Bị động:</b> make + O + V bare → O + <b>was made to V</b> (thêm "to"):<br>She made me do it. → I <b>was made to do</b> it.'},
+  {label:'LET — cho phép / để (có sự đồng ý)',desc:'Dùng khi chủ thể <b>cho phép</b> hoặc không ngăn cản người khác làm gì.'},
+  {label:'Ví dụ LET + bị động',example:'Let me <b>help</b> you. (để tôi giúp)<br>She <b>let her children stay up</b> late. (cho phép)<br>Don\'t let the dog <b>go</b> outside.<br><br><b>Bị động:</b> let không có bị động thông thường → dùng "be allowed to":<br>She let me go. → I <b>was allowed to go</b>.'},
+  {label:'HAVE — nhờ / sai (vai trò rõ ràng, lịch sự)',desc:'Dùng khi chủ thể <b>nhờ hoặc sai</b> người khác làm việc gì (thường có trả tiền hoặc là cấp dưới).'},
+  {label:'Ví dụ HAVE',example:'I\'ll <b>have him call</b> you tomorrow. (sai anh ta gọi)<br>She <b>had the technician fix</b> her computer.<br><br><b>have/get + O(vật) + V3</b> = nhờ dịch vụ / bị:<br>I <b>had my hair cut</b>. (đi cắt tóc — nhờ thợ)<br>I <b>had my wallet stolen</b>. (bị mất ví — không mong muốn)'}
+]},
+{cat:'bare',name:'Get — Sai khiến đặc biệt',tag:'tag-orange',tagText:'bare V',sections:[
+  {label:'GET — thuyết phục / nhờ (có nỗ lực)',desc:'Khác với have/let/make, khi <b>get sai khiến người</b> → dùng <b>to V</b> (không phải V bare).'},
+  {label:'Bảng phân biệt GET vs HAVE',table:'<table><tr><th>Cấu trúc</th><th>Ý nghĩa</th><th>Ví dụ</th></tr><tr><td><b>get</b> + O(người) + <b>to V</b></td><td>thuyết phục / nhờ (có nỗ lực)</td><td>I <b>got him to fix</b> it.</td></tr><tr><td><b>have</b> + O(người) + <b>V bare</b></td><td>sai / nhờ (vai trò rõ, tự nhiên)</td><td>I <b>had him fix</b> it.</td></tr><tr><td><b>get</b> + O(vật) + <b>V3</b></td><td>nhờ làm xong / tự hoàn thành</td><td>I <b>got my car fixed</b>.</td></tr><tr><td><b>have</b> + O(vật) + <b>V3</b></td><td>nhờ dịch vụ / bị làm gì</td><td>I <b>had my wallet stolen</b>. (bị)</td></tr></table>'},
+  {label:'💡 Phân biệt have V3 = nhờ vs bị',example:'I <b>had my car repaired</b>. (nhờ thợ sửa — chủ động, mong muốn)<br>I <b>had my wallet stolen</b>. (bị kẻ trộm lấy — thụ động, không mong muốn)'}
+]},
+{cat:'bare',name:'V tri giác + O + V bare / V-ing',tag:'tag-orange',tagText:'bare V',sections:[
+  {label:'V tri giác là gì?',desc:'Các động từ chỉ cảm nhận qua giác quan: <b>see, watch, hear, feel, notice, observe, smell, find</b>.<br>Sau O có thể là <b>V bare</b> hoặc <b>V-ing</b> — khác nhau về sắc thái.'},
+  {label:'V bare vs V-ing',table:'<table><tr><th>Dạng</th><th>Ý nghĩa</th><th>Ví dụ</th></tr><tr><td>V tri giác + O + <b>V bare</b></td><td>Chứng kiến TOÀN BỘ (từ đầu đến cuối)</td><td>I saw her <b>cross</b> the road. (thấy hết toàn bộ)</td></tr><tr><td>V tri giác + O + <b>V-ing</b></td><td>Bắt gặp đang DIỄN RA giữa chừng</td><td>I saw her <b>crossing</b> the road. (thấy đang qua)</td></tr></table>'},
+  {label:'Ví dụ so sánh',example:'I <b>heard him sing</b>. (nghe cả bài từ đầu đến cuối)<br>I <b>heard him singing</b>. (đi qua, nghe thấy đang hát)<br><br>We <b>watched the sun set</b>. (xem mặt trời lặn hoàn toàn)<br>We <b>watched the sun setting</b>. (đang ngắm mặt trời lặn dở)'},
+  {label:'Bị động của V tri giác — thêm "to"',formula:'O + was/were + seen/heard/felt/... + <em>to V</em>  (bị động → thêm "to")',example:'I saw her cross the road.<br>→ She <b>was seen to cross</b> the road.<br><br>They heard him sing.<br>→ He <b>was heard to sing</b>.'}
+]},
+{cat:'bare',name:'Bảng tổng hợp — Nhóm V bare',tag:'tag-orange',tagText:'bare V',sections:[
+  {label:'Tổng hợp tất cả cấu trúc',table:'<table><tr><th>Cấu trúc</th><th>Nghĩa</th><th>Ví dụ</th></tr><tr><td><b>make</b> + O + V bare</td><td>bắt / khiến (không lựa chọn)</td><td>She made me laugh.</td></tr><tr><td><b>let</b> + O + V bare</td><td>cho phép / để (đồng ý)</td><td>Let me help you.</td></tr><tr><td><b>have</b> + O(người) + V bare</td><td>sai / nhờ (vai trò rõ)</td><td>I\'ll have him call you.</td></tr><tr><td><b>have/get</b> + O(vật) + V3</td><td>nhờ dịch vụ / bị làm gì</td><td>I had my hair cut.</td></tr><tr><td><b>get</b> + O(người) + to V</td><td>thuyết phục / nhờ (có nỗ lực)</td><td>I got him to fix it.</td></tr><tr><td>V tri giác + O + V bare</td><td>chứng kiến TOÀN BỘ</td><td>I saw her cross the road.</td></tr><tr><td>V tri giác + O + V-ing</td><td>bắt gặp GIỮA CHỪNG</td><td>I saw her crossing the road.</td></tr></table>'},
+  {label:'⚠️ Bị động đặc biệt — thêm "to"',desc:'make + O + V bare → bị động: O + was made + <b>to V</b><br>V tri giác + O + V bare → bị động: O + was seen/heard/... + <b>to V</b>'}
+]},
+
+// ── CHO–NHẬN
+{cat:'ditrans',name:'Động từ 2 tân ngữ — Khái niệm & 2 dạng câu',tag:'tag-blue',tagText:'Cho–Nhận',sections:[
+  {label:'Động từ 2 tân ngữ là gì?',desc:'Một số động từ có thể mang 2 tân ngữ cùng lúc:<br>• <b>Tân ngữ trực tiếp (O trực tiếp)</b>: vật được cho / làm<br>• <b>Tân ngữ gián tiếp (O gián tiếp)</b>: người nhận / hưởng lợi'},
+  {label:'2 dạng câu tương đương',formula:'Dạng 1: S + V + <em>O gián tiếp (người)</em> + <em>O trực tiếp (vật)</em><br>Dạng 2: S + V + <em>O trực tiếp (vật)</em> + <em>to/for</em> + <em>O gián tiếp (người)</em>',example:'I gave <b>her</b> the book. (dạng 1 — người trước)<br>I gave the book <b>to her</b>. (dạng 2 — vật trước + giới từ)<br><br>She bought <b>me</b> a gift. (dạng 1)<br>She bought a gift <b>for me</b>. (dạng 2)'},
+  {label:'💡 Khi nào bắt buộc dùng dạng 2?',desc:'Khi O trực tiếp là <b>đại từ (it/them)</b> → bắt buộc dùng dạng 2:<br>❌ I gave her it. → ✅ I gave it <b>to</b> her.<br>❌ She bought me them. → ✅ She bought them <b>for</b> me.'}
+]},
+{cat:'ditrans',name:'Nhóm TO — Chuyển giao vật cho người',tag:'tag-blue',tagText:'Cho–Nhận',sections:[
+  {label:'Đặc điểm',desc:'Nhóm TO: hành động <b>chuyển giao</b> vật từ người này sang người khác. Dùng <b>to</b> trong dạng 2.'},
+  {label:'Danh sách + ví dụ',table:'<table><tr><th>Động từ</th><th>Nghĩa</th><th>Dạng 2</th></tr><tr><td><b>give</b></td><td>cho</td><td>Give the pen <b>to</b> him.</td></tr><tr><td><b>send</b></td><td>gửi</td><td>Send the report <b>to</b> me.</td></tr><tr><td><b>bring</b></td><td>mang đến</td><td>Bring the coffee <b>to</b> her.</td></tr><tr><td><b>lend</b></td><td>cho mượn</td><td>She lent her car <b>to</b> me.</td></tr><tr><td><b>offer</b></td><td>đề nghị/cung cấp</td><td>He offered a seat <b>to</b> her.</td></tr><tr><td><b>show</b></td><td>chỉ/trình bày</td><td>Show the map <b>to</b> him.</td></tr><tr><td><b>teach</b></td><td>dạy</td><td>She taught English <b>to</b> them.</td></tr><tr><td><b>tell</b></td><td>kể/nói</td><td>Tell the truth <b>to</b> me.</td></tr><tr><td><b>sell</b></td><td>bán</td><td>He sold the house <b>to</b> us.</td></tr><tr><td><b>throw / pass</b></td><td>ném/chuyền</td><td>Pass the ball <b>to</b> him.</td></tr><tr><td><b>write</b></td><td>viết</td><td>Write a letter <b>to</b> her.</td></tr><tr><td><b>pay</b></td><td>trả</td><td>Pay the fee <b>to</b> the bank.</td></tr></table>'}
+]},
+{cat:'ditrans',name:'Nhóm FOR — Làm hộ vì lợi ích người khác',tag:'tag-blue',tagText:'Cho–Nhận',sections:[
+  {label:'Đặc điểm',desc:'Nhóm FOR: hành động <b>làm gì đó vì lợi ích</b> của người khác (không nhất thiết chuyển giao vật). Dùng <b>for</b> trong dạng 2.'},
+  {label:'Danh sách + ví dụ',table:'<table><tr><th>Động từ</th><th>Nghĩa</th><th>Dạng 2</th></tr><tr><td><b>buy</b></td><td>mua</td><td>She bought a gift <b>for</b> him.</td></tr><tr><td><b>make</b></td><td>làm/nấu</td><td>I\'ll make lunch <b>for</b> you.</td></tr><tr><td><b>cook</b></td><td>nấu</td><td>She cooked dinner <b>for</b> us.</td></tr><tr><td><b>get</b></td><td>lấy/mua</td><td>Get a ticket <b>for</b> me.</td></tr><tr><td><b>find</b></td><td>tìm</td><td>Find a job <b>for</b> him.</td></tr><tr><td><b>order</b></td><td>đặt hàng</td><td>Order some food <b>for</b> us.</td></tr><tr><td><b>save</b></td><td>để dành</td><td>Save a seat <b>for</b> her.</td></tr><tr><td><b>build</b></td><td>xây</td><td>He built a house <b>for</b> his family.</td></tr><tr><td><b>prepare</b></td><td>chuẩn bị</td><td>She prepared a report <b>for</b> the boss.</td></tr><tr><td><b>book</b></td><td>đặt chỗ</td><td>Book a room <b>for</b> two nights.</td></tr></table>'}
+]},
+{cat:'ditrans',name:'Động từ KHÔNG đảo được — Chỉ dùng TO + sb',tag:'tag-blue',tagText:'Cho–Nhận',sections:[
+  {label:'Nhóm đặc biệt — chỉ có dạng 2',desc:'Một số động từ <b>chỉ dùng dạng 2</b> (V + O trực tiếp + to + người), KHÔNG thể đảo người lên trước như dạng 1.'},
+  {label:'Danh sách & lỗi sai',table:'<table><tr><th>Động từ</th><th>✅ Đúng</th><th>❌ Sai</th></tr><tr><td><b>explain</b></td><td>explain it <b>to</b> me</td><td>explain me it</td></tr><tr><td><b>describe</b></td><td>describe it <b>to</b> him</td><td>describe him it</td></tr><tr><td><b>suggest</b></td><td>suggest an idea <b>to</b> her</td><td>suggest her an idea</td></tr><tr><td><b>announce</b></td><td>announce the news <b>to</b> us</td><td>announce us the news</td></tr><tr><td><b>mention</b></td><td>mention it <b>to</b> me</td><td>mention me it</td></tr><tr><td><b>say</b></td><td>say something <b>to</b> him</td><td>say him something</td></tr><tr><td><b>introduce</b></td><td>introduce him <b>to</b> her</td><td>introduce her him</td></tr></table>'},
+  {label:'💡 Mẹo nhớ',desc:'Nhóm này đều là động từ <b>truyền đạt thông tin</b> (không chuyển giao vật thật) → không thể đặt người trước.<br>Hễ thấy explain / describe / suggest / say / mention → <b>bắt buộc dùng to + người</b>.'}
 ]}
 ];
-const vpCats={to:'V + to V',ing:'V + V-ing',both:'V + to V / V-ing (khác nghĩa)',bare:'Sai khiến / Tri giác / Causative',ditrans:'Cho–Nhận'};
+const vpCats={to:'V + to V',ing:'V + V-ing',both:'to V ≠ V-ing',bare:'Sai khiến / Tri giác',ditrans:'Cho–Nhận'};
 const vpOrder=['to','ing','both','bare','ditrans'];
 let curVP='all';
 function initVP(){buildSub('sn4',['Tất cả','V + to V','V + V-ing','Khác nghĩa','Sai khiến','Cho–Nhận'],i=>{curVP=['all','to','ing','both','bare','ditrans'][i];renderGroup(VP,'vp-out',curVP,vpCats,vpOrder)});renderGroup(VP,'vp-out','all',vpCats,vpOrder)}
